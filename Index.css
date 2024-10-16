@@ -44,10 +44,12 @@ header.scrolled {
     font-size: 1.5rem;
     font-weight: 700;
 }
-.logo svg {
-    width: 2rem;
-    height: 2rem;
+.logo img {
+    width: 3rem;
+    height: 3rem;
     margin-right: 0.5rem;
+    background-color: var(--secondary);
+    border-radius: 50%;
 }
 nav ul {
     display: flex;
@@ -62,6 +64,7 @@ nav a {
 }
 nav a:hover {
     color: var(--secondary);
+    text-decoration: underline;
 }
 .hero {
     height: 100vh;
@@ -102,21 +105,22 @@ nav a:hover {
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
-    background-color: var(--secondary);
-    color: white;
+    border: 2px solid rgb(252, 252, 252);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     border-radius: 5px;
     font-weight: 600;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeInUp 1s ease-out 1s both;
+    animation: fadeInUp 3s ease-out 1s both;
 }
 .btn:hover {
-    transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    background-color: #FFCC00;
 }
 .btn-outline {
     background-color: transparent;
-    border: 2px solid white;
+    border: 2px solid rgb(252, 252, 252);
     margin-left: 1rem;
 }
 .projects {
