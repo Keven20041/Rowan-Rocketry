@@ -20,6 +20,12 @@ body {
     margin: 0 auto;
     padding: 0 2rem;
 }
+.container h2{
+    text-align: center;
+    color:#550000;
+
+}
+
 header {
     background-color: var(--primary);
     color: white;
@@ -91,7 +97,17 @@ nav a:hover {
 .hero-content {
     position: relative;
     z-index: 1;
+    padding: 0 1rem;
 }
+.hero-content hr{
+    width: 1500px;
+    height: 10px;
+    background-color: #550000;
+    margin: 1rem auto;
+border-color: white;
+animation: fadeInUp 1s ease-in-out 0.5s both;
+}
+
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
@@ -158,6 +174,19 @@ nav a:hover {
 .project-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
+}
+.container1 img{
+    border: 5px solid #000000;
+    border-image-width: auto;
+}
+.container1 p{
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+.center{
+    display: block;
+    width: 50%;
+    text-align: left;
 }
 .newsletter {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
