@@ -96,6 +96,14 @@ body {
     padding: 0 2rem;
     
 }
+.container hr {
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+    margin: 3rem auto;
+    margin-top: -2rem;
+    border: none;
+}
 
 header {
     background-color: var(--primary);
@@ -127,8 +135,8 @@ header.scrolled {
 }
 
 .logo img {
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
     margin-right: 0.5rem;
     background-color: var(--secondary);
     border-radius: 50%;
@@ -181,7 +189,23 @@ nav a:hover {
     z-index: 1;
     padding: 0 1rem;
 }
-
+#title{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: 2s ellipse;
+    text-shadow: 5px 5px 5px var(--primary);
+    color:white;
+}
+@keyframes ellipse {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .hero-content hr {
     width: 100%;
     max-width: 1500px;
@@ -192,11 +216,6 @@ nav a:hover {
     animation: fadeInUp 1s ease-in-out 0.5s both;
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s ease-out;
-}
 
 .btn {
     display: inline-block;
@@ -207,7 +226,7 @@ nav a:hover {
     border-radius: 5px;
     font-weight: 600;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    animation: fadeInUp 3s ease-out 1s both;
+    animation: fadeInUp 1s ease-out 1s both;
 }
 
 .btn:hover {
@@ -308,7 +327,7 @@ nav a:hover {
     }
 }
 
-.mission p, .about p {
+.mission p {
     font-size: 1.25rem;
     margin-bottom: 1rem;
 }
@@ -318,12 +337,27 @@ nav a:hover {
     margin-bottom: 1rem;
     text-align: center;
     color: var(--primary);
+    background-color: var(--secondary);
+}
+
+.mission hr {
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+    margin: 1rem auto;
+    border: none;
+}
+.about p {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
 }
 .about h2 {
     font-size: 2.5rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     text-align: center;
     color: var(--primary);
+    background-color: #FFCC00;
 }
 
 .about hr {
@@ -444,7 +478,8 @@ footer {
 }
 
 .social-icons a:hover {
-    background-color: var(--secondary);
+    background-color: black;
+    transition: 1s ease;
 }
 
 .social-icons svg {
@@ -508,6 +543,6 @@ footer {
         display: none;
     }
     .container {
-        max-width: 90%;
+        max-width: 100%;
     }
 }
