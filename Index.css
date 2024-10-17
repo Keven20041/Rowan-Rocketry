@@ -375,6 +375,7 @@ footer {
 
 .footer-section ul {
     list-style: none;
+    text-align: center;
 }
 
 .footer-section ul li {
@@ -391,13 +392,14 @@ footer {
     color: var(--secondary);
 }
 
-.footer-section img {
-    width: 100px;
-    height: 100px;
+.footer-content img {
+    width: 150px;
+    height: 150px;
+    border-width: 15px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
-    margin: 0 auto 1rem;
+    margin: 10 auto 1rem;
 }
 
 .social-icons {
