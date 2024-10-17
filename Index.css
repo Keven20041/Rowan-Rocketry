@@ -291,7 +291,13 @@ nav a:hover {
     margin-bottom: 1rem;
 }
 
-.mission h2, .about h2 {
+.mission h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--primary);
+}
+.about h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     text-align: center;
