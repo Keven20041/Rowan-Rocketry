@@ -109,7 +109,7 @@ header {
     background-color: var(--primary);
     color: white;
     padding: 1rem 0;
-    position: fixed;
+    position: relative;
     width: 100%;
     z-index: 1000;
     transition: background-color 0.3s ease;
