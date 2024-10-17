@@ -380,7 +380,7 @@ nav a:hover {
 footer {
     background-color: var(--primary);
     color: white;
-    padding: 3rem 0 10rem;
+    padding: 3rem 0 2rem;
 }
 
 .footer-content {
