@@ -94,7 +94,6 @@ body {
     max-width: 70%;
     margin: 0 auto;
     padding: 0 2rem;
-    text-align: center;
 }
 
 header {
@@ -279,7 +278,9 @@ nav a:hover {
 }
 
 .mission img {
-    border: 5px solid var(--primary);
+    border: 7.5px solid var(--secondary);
+    background-color: var(--primary);
+    padding: .5rem;
     display: block;
     width: 50%;
     margin: 2rem auto;
