@@ -358,7 +358,7 @@ nav a:hover {
 footer {
     background-color: var(--primary);
     color: white;
-    padding: 4rem 0 2rem;
+    padding: 3rem 0 10rem;
 }
 
 .footer-content {
