@@ -172,14 +172,16 @@ nav a:hover {
 .team-members1 {
     padding: 3rem 0;
 }
-.team-member1 .container hr{
+
+.team-members1 .container1 hr {
     width: 100%;
     height: 2px;
     background-color: var(--primary);
-    margin: 3rem auto;
-    margin-top: -2rem;
+    margin: 2rem auto;
+    margin-top: 0rem;
     border: none;
 }
+
 .team-members1 h1 {
     text-align: center;
     font-size: 2.5rem;
@@ -188,6 +190,7 @@ nav a:hover {
     background-color: var(--secondary);
     padding: 0.5rem;
 }
+
 .team-members1 h2 {
     text-align: center;
     font-size: 2.5rem;
@@ -206,28 +209,118 @@ nav a:hover {
     background-color: transparent;
     perspective: 1000px;
     height: 350px;
+    
+}
+
+.team-card-inner1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.team-card1:hover .team-card-inner1 {
+    transform: rotateY(180deg);
+}
+
+.team-card-front1, .team-card-back1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.team-card-front1 {
+    background-color: var(--background);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-card-back1 {
+    background-color: var(--primary);
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.image-container1 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 3px solid var(--secondary);
+}
+
+.team-card1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-card1 h3 {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+}
+
+.team-card1 p {
+    font-size: 1rem;
+}
+
+.team-card-back1 h3 {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.team-card-back1 p {
+    margin-bottom: 0.5rem;
+}
+
+.linkedin-link {
+    margin-top: 1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.linkedin-link:hover {
+    transform: scale(1.1);
+}
+
+.linkedin-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--secondary);
 }
 
 @media (max-width: 1200px) {
-    .team-grid1 {
+    .team-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
 
 @media (max-width: 768px) {
-    .team-grid1 {
+    .team-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
-.team-members {
-    padding: 3rem 0;
-}
-
 .team-members .container hr {
     width: 100%;
     height: 2px;
     background-color: var(--primary);
-    margin: 3rem auto;
+    margin: 2rem auto;
     margin-top: -2rem;
     border: none;
 }
@@ -238,8 +331,22 @@ nav a:hover {
     margin-bottom: 2rem;
     color: var(--secondary);
     background-color: var(--primary);
-    padding: 0.5rem;
+    padding: .5rem;
 }
+.image-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 3px solid var(--secondary);
+}
+.team-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 .team-members h2 {
     text-align: center;
@@ -259,6 +366,7 @@ nav a:hover {
     background-color: transparent;
     perspective: 1000px;
     height: 350px;
+    margin-bottom: 2rem;
 }
 
 .team-card-inner {
@@ -283,11 +391,18 @@ nav a:hover {
     backface-visibility: hidden;
     border-radius: 10px;
     overflow: hidden;
+    border: 5px solid var(--primary);
+    outline: 3px solid var(--secondary);
+   
 }
 
 .team-card-front {
     background-color: var(--background);
     color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .team-card-back {
@@ -375,10 +490,11 @@ nav a:hover {
     border: 2px solid white;
     margin-left: 1rem;
 }
+
 footer {
     background-color: var(--primary);
     color: white;
-    padding: 3rem 0 2rem;
+    padding: 2rem 0 2rem;
 }
 
 .footer-content {
