@@ -162,6 +162,91 @@ nav a:hover {
     color: var(--secondary);
     text-decoration: underline;
 }
+.team-section {
+    padding: 3rem 0;
+}
+
+.team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.team-container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary);
+    background-color: var(--secondary);
+    padding: 0.5rem;
+}
+
+.team-container hr {
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+    margin: 2rem auto;
+    border: none;
+}
+
+.member-card {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.member-image {
+    flex: 0 0 300px;
+    border: 5px solid var(--primary);
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-info {
+    flex: 1;
+    padding: 1.5rem;
+    border: 5px solid var(--secondary);
+    border-left: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.member-info h3 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem;
+    color: var(--primary);
+}
+
+.member-info p {
+    font-size: 1rem;
+    margin: 0;
+    color: var(--text);
+    font-size: x-large;
+}
+
+@media (max-width: 768px) {
+    .member-card {
+        flex-direction: column;
+    }
+
+    .member-image {
+        flex: 0 0 auto;
+        height: 200px;
+    }
+
+    .member-info {
+        border-left: 3px solid var(--secondary);
+        border-top: none;
+    }
+}
 .team-members1 {
     padding: 3rem 0;
 }
@@ -193,18 +278,36 @@ nav a:hover {
 }
 
 .team-grid1 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .team-card1 {
+    flex: 0 0 auto;
+    width: 250px;
+    max-width: 100%;
     background-color: transparent;
     perspective: 1000px;
     height: 350px;
-    
+    width: 600px;
+    margin-bottom: 2rem;
 }
 
+@media (max-width: 768px) {
+    .team-card {
+        width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .team-card {
+        width: 100%;
+    }
+}
 .team-card-inner1 {
     position: relative;
     width: 100%;
@@ -227,6 +330,8 @@ nav a:hover {
     backface-visibility: hidden;
     border-radius: 10px;
     overflow: hidden;
+    border: 5px solid var(--primary);
+    outline: 3px solid var(--secondary);
 }
 
 .team-card-front1 {
@@ -248,7 +353,11 @@ nav a:hover {
     align-items: center;
     padding: 1.5rem;
 }
-
+.team-card-back1 a{
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 .image-container1 {
     width: 200px;
     height: 200px;
@@ -316,8 +425,15 @@ nav a:hover {
     margin: 2rem auto;
     margin-top: -2rem;
     border: none;
+    
 }
-
+.team-members .container {
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 .team-members h1 {
     text-align: center;
     font-size: 2.5rem;
@@ -350,16 +466,34 @@ nav a:hover {
 }
 
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .team-card {
+    flex: 0 0 auto;
+    width: 250px;
+    max-width: 100%;
     background-color: transparent;
     perspective: 1000px;
     height: 350px;
     margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .team-card {
+        width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .team-card {
+        width: 100%;
+    }
 }
 
 .team-card-inner {
@@ -408,6 +542,11 @@ nav a:hover {
     align-items: center;
     padding: 1.5rem;
 }
+.team-card-back a{
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
 .team-card img {
     width: 100%;
@@ -449,17 +588,6 @@ nav a:hover {
     color: var(--secondary);
 }
 
-@media (max-width: 1200px) {
-    .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-}
 .btn {
     display: inline-block;
     padding: 0.8rem  2rem;
