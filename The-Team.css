@@ -220,7 +220,7 @@ nav a:hover {
 }
 
 .member-info h3 {
-    font-size: 1.5rem;
+    font-size: 3rem;
     margin: 0 0 0.5rem;
     color: var(--primary);
 }
@@ -381,6 +381,11 @@ nav a:hover {
 .team-card1 p {
     font-size: 1rem;
 }
+.team-card1 .team-card-front1 p{
+    font-size: 1rem;
+    color:#550000;
+    font-weight: bold;
+}
 
 .team-card-back1 h3 {
     color: var(--secondary);
@@ -522,7 +527,11 @@ nav a:hover {
     outline: 3px solid var(--secondary);
    
 }
-
+.team-card .team-card-front p{
+    font-size: 1rem;
+    color:#550000;
+    font-weight: bold;
+}
 .team-card-front {
     background-color: var(--background);
     color: var(--text);
