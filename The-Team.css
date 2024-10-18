@@ -208,70 +208,6 @@ nav a:hover {
     height: 350px;
 }
 
-.team-card-inner1 {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.team-card1:hover .team-card-inner1 {
-    transform: rotateY(180deg);
-}
-
-.team-card-front1, .team-card-back1 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.team-card-front1 {
-    background-color: var(--background);
-    color: var(--text);
-}
-
-.team-card-back1 {
-    background-color: var(--primary);
-    color: white;
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1.5rem;
-}
-
-.team-card1 img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.team-card1 h3 {
-    font-size: 1.25rem;
-    margin: 1rem 0 0.5rem;
-}
-
-.team-card1 p {
-    font-size: 1rem;
-}
-
-.team-card-back1 h3 {
-    color: var(--secondary);
-    margin-bottom: 0.5rem;
-}
-
-.team-card-back1 p {
-    margin-bottom: 0.5rem;
-}
-
 @media (max-width: 1200px) {
     .team-grid1 {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -286,7 +222,8 @@ nav a:hover {
 .team-members {
     padding: 3rem 0;
 }
-.team-member .container hr{
+
+.team-members .container hr {
     width: 100%;
     height: 2px;
     background-color: var(--primary);
@@ -294,6 +231,7 @@ nav a:hover {
     margin-top: -2rem;
     border: none;
 }
+
 .team-members h1 {
     text-align: center;
     font-size: 2.5rem;
@@ -302,6 +240,7 @@ nav a:hover {
     background-color: var(--primary);
     padding: 0.5rem;
 }
+
 .team-members h2 {
     text-align: center;
     font-size: 2.5rem;
@@ -386,6 +325,22 @@ nav a:hover {
     margin-bottom: 0.5rem;
 }
 
+.linkedin-link {
+    margin-top: 1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.linkedin-link:hover {
+    transform: scale(1.1);
+}
+
+.linkedin-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--secondary);
+}
+
 @media (max-width: 1200px) {
     .team-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -397,8 +352,6 @@ nav a:hover {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
-
-
 .btn {
     display: inline-block;
     padding: 0.8rem  2rem;
