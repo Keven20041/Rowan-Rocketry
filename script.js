@@ -44,3 +44,21 @@
         });
     });
 });
+//for mobile switching
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navList = document.querySelector('.nav-list');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    mobileMenuToggle.addEventListener('click', function() {
+        navList.classList.toggle('active');
+    });
+
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                this.classList.toggle('active');
+            }
+        });
+    });
+});
