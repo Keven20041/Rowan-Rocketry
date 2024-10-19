@@ -328,7 +328,7 @@ nav a:hover {
 .mission-content {
     display: flex;
     align-items: flex-start;
-    flex-direction: column;
+    flex-direction: row;
     gap: 2rem;
 }
 
