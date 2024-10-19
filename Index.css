@@ -26,7 +26,6 @@
     padding: 14px 16px;
     text-decoration: none;
   }
-
 .dropdown {
     float: left;
     text-align: center;
@@ -148,6 +147,7 @@ nav a {
 
 nav a:hover {
     color: var(--secondary);
+    gap: .5rem;
     text-decoration: underline;
 }
 
@@ -174,12 +174,23 @@ nav a:hover {
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
 }
-
-.hero-content {
+.hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    background: linear-gradient(to top, var(--background), transparent);
+  }
+  .hero-content {
     position: relative;
     z-index: 1;
+    text-align: center;
+    color: white;
     padding: 0 1rem;
-}
+    max-width: 1000px;
+  }
 #title{
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -357,7 +368,7 @@ nav a:hover {
     height: auto;
     border: 7.5px solid var(--secondary);
     background-color: var(--primary);
-    padding: 1rem;
+    padding: rem;
 }
 
 .about-text {
