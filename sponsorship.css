@@ -157,8 +157,8 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: url('https://images.unsplash.com/photo-1516849677043-ef67c9557e16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-    background-size: cover;
+    background-image:url("Launch.jpg");
+    background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -330,7 +330,7 @@ nav a:hover {
 }
 
 .donation-box {
-    background-color: #ccc;
+    background-color:var(--background);
     padding: 2rem;
     margin-top: 3rem;
     border-radius: 5px;
