@@ -88,7 +88,7 @@ body {
     }
 
     .mobile-menu-toggle span {
-        display: block;
+        display:contents;
         width: 25px;
         height: 3px;
         background-color: white;
@@ -462,7 +462,7 @@ nav a:hover {
 footer {
     background: linear-gradient(to top, var(--primary), var(--secondary));
     color: white;
-    padding: 3rem 0 2rem;
+    padding: 7rem 0 2rem;
 }
 
 .footer-content {
