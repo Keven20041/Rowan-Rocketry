@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rowan Rocketry</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Project.css">
-    <script src="js/script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -16,6 +16,11 @@
                     <img src="RowanR.PNG" alt="Rowan Rocketry Logo">
                 </div>
                 <nav>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                     <ul class="nav-list">
                         <li><a href="index.html">Home</a></li>
                         <li style="color: #FFCC00;">|</li>
@@ -44,7 +49,6 @@
     </header>
 
     <main>
-    
         <section id="home" class="hero">
             <div class="hero-content">
                 <div id="title"><h1>Rowan Rocketry Projects</h1></div>
@@ -52,7 +56,7 @@
                 <a href="#spaceport-cup" class="cta-button">Explore Our Projects</a>
             </div>
         </section>
-
+        
         <section id="spaceport-cup" class="project-section">
             <div class="container">
                 <h2 class="section-title">2025 Spaceport America Cup</h2>
@@ -64,7 +68,31 @@
                         <a href="https://spaceportamericacup.com/" class="cta-button">Learn More</a>
                     </div>
                     <div class="image-content">
-                        <img src="Launch.jpg" alt="Spaceport America Cup Rocket" class="project-image">
+                        <div class="image-slider">
+                            <div class="slider-container" id="sliderContainer1">
+                                <div class="slider-item">
+                                    <img src="Launch.jpg" alt="Launch" class="slider-image">
+                                    <div class="slider-caption">Rocket Launch</div>
+                                </div>
+                                <div class="slider-item">
+                                    <img src="RowanRocket.PNG" alt="Rowan Rocket" class="slider-image">
+                                    <div class="slider-caption">Rowan Rocket Design</div>
+                                </div>
+                                <div class="slider-item">
+                                    <img src="/placeholder.svg?height=400&width=600" alt="Placeholder" class="slider-image">
+                                    <div class="slider-caption">Future Mission</div>
+                                </div>
+                            </div>
+                            <button class="slider-button slider-button-left" id="prevButton1" aria-label="Previous image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button class="slider-button slider-button-right" id="nextButton1" aria-label="Next image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                            <div class="slider-progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -75,7 +103,31 @@
                 <h2 class="section-title">Preliminary Designs</h2>
                 <div class="content-wrapper">
                     <div class="image-content">
-                        <img src="Launch.jpg" alt="Preliminary Rocket Design" class="project-image">
+                        <div class="image-slider">
+                            <div class="slider-container" id="sliderContainer2">
+                                <div class="slider-item">
+                                    <img src="Launch.jpg" alt="Launch" class="slider-image">
+                                    <div class="slider-caption">Rocket Launch</div>
+                                </div>
+                                <div class="slider-item">
+                                    <img src="RowanRocket.PNG" alt="Rowan Rocket" class="slider-image">
+                                    <div class="slider-caption">Rowan Rocket Design</div>
+                                </div>
+                                <div class="slider-item">
+                                    <img src="/placeholder.svg?height=400&width=600" alt="Placeholder" class="slider-image">
+                                    <div class="slider-caption">Future Mission</div>
+                                </div>
+                            </div>
+                            <button class="slider-button slider-button-left" id="prevButton2" aria-label="Previous image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button class="slider-button slider-button-right" id="nextButton2" aria-label="Next image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                            <div class="slider-progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="text-content">
                         <p>Our team is currently working on the preliminary designs for our 2025 Spaceport America Cup entry. We're pushing the boundaries of innovation to create a rocket that's not only powerful but also efficient and safe.</p>
@@ -96,7 +148,31 @@
                         <a href="#" class="cta-button">See Estimates</a>
                     </div>
                     <div class="image-content">
-                        <img src="RowanRocket.PNG" alt="Cost Estimate Chart" class="project-image">
+                        <div class="image-slider">
+                            <div class="slider-container" id="sliderContainer3">
+                                <div class="slider-item">
+                                    <img src="Launch.jpg" alt="Launch" class="slider-image">
+                                    <div class="slider-caption">Rocket Launch</div>
+                                </div>
+                                <div class="slider-item">
+                                    <img src="RowanRocket.PNG" alt="Rowan Rocket" class="slider-image">
+                                    <div class="slider-caption">Rowan Rocket Design</div>
+                                </div>
+                                <div class="slider-item">
+                                    <img src="/placeholder.svg?height=400&width=600" alt="Placeholder" class="slider-image">
+                                    <div class="slider-caption">Future Mission</div>
+                                </div>
+                            </div>
+                            <button class="slider-button slider-button-left" id="prevButton3" aria-label="Previous image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button class="slider-button slider-button-right" id="nextButton3" aria-label="Next image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                            <div class="slider-progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,7 +192,6 @@
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
-                    
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="#about">About</a></li>
@@ -133,7 +208,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                         </a>
                         <a href="#" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
                         </a>
                         <a href="https://www.instagram.com/rowanrocketry/" aria-label="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -149,7 +224,6 @@
             </div>
         </div>
     </footer>
-
     <a href="#" class="scroll-top" aria-label="Scroll to top">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
     </a>
