@@ -34,7 +34,7 @@ body {
 }
 
 header {
-    background-color: var(--primary);
+    background: linear-gradient(to bottom, var(--primary), transparent);
     color: white;
     padding: 1rem 0;
     position: relative;
