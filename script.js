@@ -62,3 +62,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // Create animated stars
+    createStars();
+
+    // Initialize sliders
+    initializeSliders();
+
+    // Scroll to top button functionality
+    initializeScrollToTop();
+
+    // Header scroll effect
+    initializeHeaderScroll();
+});
+
+function createStars() {
+    const starsContainer = document.getElementById('stars');
+    const numberOfStars = 100;
+
+    for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        starsContainer.appendChild(star);
+    }
+}
