@@ -34,7 +34,7 @@ body {
 }
 
 header {
-    background-color: var(--primary);
+    background: linear-gradient(to bottom, var(--primary), var(--background));
     color: white;
     padding: 1rem 0;
     position: relative;
@@ -127,11 +127,8 @@ header.scrolled {
 }
 
 .hero {
-    height: 60vh;
-    background-image: url('Milkyway.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    height: 100vh;
+    background: linear-gradient(to bottom, #000033, #000066);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -139,24 +136,25 @@ header.scrolled {
     align-items: center;
 }
 
-.hero::before {
-    content: '';
+.stars {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
-.hero::after {
-    content: '';
+.star {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100px;
-    background: linear-gradient(to top, var(--background), transparent);
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: twinkle 5s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
 }
 
 .hero-content {
@@ -170,11 +168,35 @@ header.scrolled {
 #title h1 {
     font-family: 'Orbitron', 'Poppins', sans-serif;
     font-size: 3rem;
-    color: var(--secondary);
-    text-shadow: 5px 5px 10px var(--primary);
-    animation: glow 2s ease-in-out infinite alternate;
+    color: #FFCC00;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
     margin: 0;
     padding: 0;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-top: 1rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #550000;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #FFCC00;
+    color: #000033;
+    transform: translateY(-2px);
 }
 
 @keyframes glow {
@@ -503,8 +525,6 @@ footer {
     .hero {
         background-attachment: scroll;
     }
-
-    
 
     #title h1 {
         font-size: 2.5rem;
