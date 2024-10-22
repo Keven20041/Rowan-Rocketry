@@ -9,16 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
         star.className = 'star';
         star.style.left = `${Math.random() * 100}%`;
         star.style.top = `${Math.random() * 100}%`;
-        star.style.right = `${Math.random() * 100}%`;
-        star.style.bottom = `${Math.random() * 100}%`;
         
         // Randomize the animation duration for more natural movement
-        const moveDuration = Math.random() * 5 + 3; // 3-6 seconds
-        const twinkleDuration = Math.random() * 5+ 2; // 2-4 seconds
+        const moveDuration = Math.random()/4; // 3-13 seconds
+        const twinkleDuration = Math.random() * 5 + 2; // 2-7 seconds
+        const glowDuration = Math.random() * 5 + 2; // 2-7 seconds
 
         star.style.animation = `
-            moveStar ${moveDuration}s linear infinite,
-            twinkle ${twinkleDuration}s infinite alternate
+            moveStar ${moveDuration}s infinite infinite,
+            twinkle ${twinkleDuration}s infinite alternate,
+            glow ${glowDuration}s infinite alternate
         `;
 
         starField.appendChild(star);
@@ -27,13 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             star.remove();
             createStar();
-        }, moveDuration * 800);
+        }, moveDuration * 1000);
     }
 
     // Create initial set of stars
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 25; i++) {
         setTimeout(createStar, Math.random() * 1000);
     }
+    
     // Header scroll effect
     const header = document.querySelector('header');
     const scrollThreshold = 100;
