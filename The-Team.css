@@ -1,5 +1,5 @@
 :root {
-    --primary: #550000;
+    --primary: #57150B;
     --secondary: #FFCC00;
     --background: #ffffff;
     --text: #000000;
@@ -112,7 +112,7 @@ body {
 
 
 header {
-    background-color:#550000;
+    background-color:var(--primary);
     color: white;
     padding: 1rem 0;
     position: relative;

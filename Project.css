@@ -1,5 +1,5 @@
 :root {
-    --primary: #550000;
+    --primary: #57150B;
     --secondary: #FFCC00;
     --background: #000000;
     --text: #ffffff;
@@ -67,6 +67,7 @@ header.scrolled {
     width: 6rem;
     height: auto;
     margin-right: 0.5rem;
+   
 }
 
 .nav-list {
