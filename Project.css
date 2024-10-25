@@ -1,3 +1,4 @@
+
 :root {
     --primary: #57150B;
     --secondary: #FFCC00;
@@ -155,7 +156,7 @@ header.scrolled {
     height: 2px;
     background-color: #fff;
     border-radius: 50%;
-    animation: twinkle 2s infinite, moveStar 10s linear infinite;
+    animation: twinkle 15s infinite, moveStar 10s linear infinite,glow 2s ease-in-out infinite alternate;
 }
 @keyframes moveStar {
     from { transform: translateY(100vh); }
@@ -164,8 +165,9 @@ header.scrolled {
 @keyframes twinkle {
     0% { opacity: 0.3; }
     50% { opacity: 1; }
-    100% { opacity: 0.3; }
+    100% { opacity: .3; }
 }
+
 .hero-content {
     position: relative;
     z-index: 2;
@@ -490,8 +492,8 @@ footer {
     right: 20px;
     background-color: var(--secondary);
     color: var(--primary);
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     display: flex;
     align-items: center;
