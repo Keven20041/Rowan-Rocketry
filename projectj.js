@@ -11,22 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
         star.style.top = `${Math.random() * 100}%`;
         
         // Randomize the animation duration for more natural movement
-        const moveDuration = Math.random()/4; // 3-13 seconds
-        const twinkleDuration = Math.random() * 5 + 2; // 2-7 seconds
-        const glowDuration = Math.random() * 5 + 2; // 2-7 seconds
+        const moveDuration = Math.random()/3; // 3-13 seconds
+        const twinkleDuration = Math.random()/3; // 2-7 seconds
 
         star.style.animation = `
             moveStar ${moveDuration}s infinite infinite,
             twinkle ${twinkleDuration}s infinite alternate,
-            glow ${glowDuration}s infinite alternate
         `;
 
         starField.appendChild(star);
 
         // Remove the star and create a new one after it completes its movement
         setTimeout(() => {
-            star.remove();
             createStar();
+            star.remove();
         }, moveDuration * 1000);
     }
 
@@ -75,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 target.scrollIntoView({
+                   
                     behavior: 'smooth'
                 });
             }
@@ -134,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Scroll to top button click event
     scrollTopButton.addEventListener('click', (e) => {
         e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 1, behavior: 'smooth' });
     });
 
     // Dropdown menu functionality
