@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rowan Rocketry</title>
+    <title>Rowan Rocketry - Rocket Showcase</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="HIstory.css">
+    <link rel="stylesheet" href="History.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="History.js" defer></script>
 </head>
 <body>
@@ -30,7 +31,7 @@
                         <li style="color: #FFCC00;">|</li>
                         <li><a href="project.html">Projects</a></li>
                         <li style="color: #FFCC00;">|</li>
-                        <li><a href="#history">History</a></li>
+                        <li><a href="history.html">History</a></li>
                         <li style="color: #FFCC00;">|</li>
                         <li><a href="#wiki">Wiki</a></li>
                     </ul>
@@ -39,9 +40,70 @@
         </div>
     </header>
     <main>
-        <section>
-          
+        <section class="rocket-showcase">
+            <div class="container">
+                <h1>3D Rocket Showcase</h1>
+                <div class="showcase-content">
+                    <div class="rocket-viewer" id="rocket-viewer"></div>
+                    <div class="rocket-info">
+                        <h2 class="rocket-name" id="rocket-name"></h2>
+                        <p class="rocket-description" id="rocket-description"></p>
+                        <button class="action-button see-more-button" id="see-more-button">See More</button>
+                        <button class="action-button boost-button" id="boost-button">Boost Rocket</button>
+                        <div class="rocket-specs" id="rocket-specs"></div>
+                    </div>
+                </div>
+                <div class="year-selector" id="year-selector"></div>
+            </div>
         </section>
+        <section class="milestones">
+            <h2 class="section-title">Major Milestones</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-point">
+                        <i data-lucide="star"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">2023</div>
+                        <h3 class="timeline-title">Rocket launch 2023</h3>
+                        <p class="timeline-body">Participated in our first international rocketry competition</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-point">
+                        <i data-lucide="rocket"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">2024</div>
+                        <h3 class="timeline-title">Rowan Rocket 1 Development</h3>
+                        <p class="timeline-body">Began development of our most ambitious project yet, capable of reaching space.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="team-growth">
+            <h2 class="section-title">Team Growth</h2>
+            <div class="card">
+                <div class="team-stats">
+                    <div class="stat-item">
+                        <i data-lucide="users"></i>
+                        <p class="stat-number">2</p>
+                        <p class="stat-label">Founding Members</p>
+                    </div>
+                    <div class="stat-item">
+                        <i data-lucide="users"></i>
+                        <p class="stat-number">19</p>
+                        <p class="stat-label">Current Team Size</p>
+                    </div>
+                    <div class="stat-item">
+                        <i data-lucide="users"></i>
+                        <p class="stat-number">50+</p>
+                        <p class="stat-label">Alumni Network</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
     
     <footer>
@@ -80,7 +142,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
                         <a href="https://www.youtube.com/@RowanRocketry" aria-label="YouTube">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78  2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                         </a>
                     </div>
                 </div>
@@ -93,5 +155,14 @@
     <a href="#" class="scroll-top" aria-label="Scroll to top">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
     </a>
+    <div id="rocket-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <h3>Additional Information:</h3>
+            <div id="modal-additional-info"></div>
+        </div>
+    </div>
 </body>
 </html>
