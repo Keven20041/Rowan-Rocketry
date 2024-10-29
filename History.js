@@ -1,267 +1,201 @@
 const rockets = {
-    2023: {
-        name: "rowan rocket 1",
-        shortDescription: "Our first rocket capable of reaching space.",
-        fullDescription: "This rocket is our most ambitious project to date, designed to reach the edge of space. This three-stage rocket incorporates cutting-edge materials and propulsion technology, allowing it to achieve unprecedented altitudes for a university-built rocket. Its payload capacity enables us to conduct experiments in microgravity and gather data from the mesosphere.",
-        specs: {
-            height: "25 m",
-            diameter: "2.5 m",
-            thrust: "200 kN",
-            maxAltitude: "100 km"
-        },
-        additionalInfo: {
-            propellantType: "Hybrid (Solid/Liquid)",
-            stages: "Three-stage",
-            payloadCapacity: "500 kg",
-            recoverySystem: "Reusable first stage, parachute for upper stages",
-            launchSite: "Kennedy Space Center"
+    2024: [
+        {
+            name: "Rowan rocket 1",
+            specs: [
+                { name: "HEIGHT", value: "22.25 m", imperial: "73 ft" },
+                { name: "DIAMETER", value: "1.68 m", imperial: "5.5 ft" },
+                { name: "MASS", value: "30,000 kg", imperial: "66,000 lb" },
+                { name: "PAYLOAD TO LEO", value: "670 kg", imperial: "1,480 lb" },
+            ],
+            description: "Rowan Rocketry's first orbital launch vehicle.",
+            modelPath: "/placeholder.svg?height=400&width=200" // Placeholder image
         }
-    },
-    2024: {
-        name: "rowan rocket 2",
-        shortDescription: "Our latest rocket, pushing the boundaries of university rocketry.",
-        fullDescription: "This rocket represents the pinnacle of our rocketry program, incorporating lessons learned from all previous projects. This advanced rocket features a revolutionary propulsion system, cutting-edge avionics, and a modular payload bay. Designed for suborbital flights, the Stargazer aims to set new records in altitude and payload capacity for university-built rockets.",
-        specs: {
-            height: "30 m",
-            diameter: "3 m",
-            thrust: "250 kN",
-            maxAltitude: "120 km"
-        },
-        additionalInfo: {
-            propellantType: "Liquid (LOX/Methane)",
-            stages: "Two-stage",
-            payloadCapacity: "750 kg",
-            recoverySystem: "Fully reusable with propulsive landing",
-            launchSite: "Pacific Spaceport Complex - Alaska"
+    ],
+    2025: [
+        {
+            name: "Rowan Rocket 2",
+            specs: [
+                { name: "HEIGHT", value: "30 m", imperial: "98.4 ft" },
+                { name: "DIAMETER", value: "2.5 m", imperial: "8.2 ft" },
+                { name: "MASS", value: "50,000 kg", imperial: "110,000 lb" },
+                { name: "PAYLOAD TO LEO", value: "2,000 kg", imperial: "4,400 lb" },
+            ],
+            description: "Rowan Rocket 2 is our most ambitious project, capable of reaching space.",
+            modelPath: "/placeholder.svg?height=400&width=200" // Placeholder image
         }
-    }
+    ]
 };
 
-let currentYear = '2023';
-let scene, camera, renderer, rocket, stars, exhaust;
-let isBoostAnimationActive = false;
+let currentYear = "2024";
+let currentRocket = 0;
+let scene, camera, renderer, rocket, controls;
 
-function initThreeJS() {
-    try {
-        const container = document.getElementById('rocket-viewer');
-        
-        scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x000000); // Set background to black
-        camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-        camera.position.z = 10;
+function init() {
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, 600 / 400, 0.1, 1000);
+    camera.position.z = 5;
 
-        renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        container.appendChild(renderer.domElement);
+    renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('rocket-canvas'), antialias: true });
+    renderer.setSize(600, 400);
 
-        // Add stars
-        const starsGeometry = new THREE.BufferGeometry();
-        const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.1 });
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
 
-        const starsVertices = [];
-        for (let i = 0; i < 10000; i++) {
-            const x = (Math.random() - 0.5) * 2000;
-            const y = (Math.random() - 0.5) * 2000;
-            const z = -Math.random() * 2000;
-            starsVertices.push(x, y, z);
-        }
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(0, 1, 1);
+    scene.add(directionalLight);
 
-        starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starsVertices, 3));
-        stars = new THREE.Points(starsGeometry, starsMaterial);
-        scene.add(stars);
+    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.25;
+    controls.enableZoom = false;
 
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
-        scene.add(ambientLight);
+    setupYearTabs();
+    loadRocket();
+    updateRocketInfo();
+    setupCarouselNav();
 
-        const spotlight = new THREE.SpotLight(0xffffff, 2);
-        spotlight.position.set(5, 5, 5);
-        spotlight.angle = 0.3;
-        spotlight.penumbra = 0.5;
-        spotlight.decay = 1;
-        spotlight.distance = 20;
-        spotlight.castShadow = true;
-        spotlight.shadow.mapSize.width = 512;
-        spotlight.shadow.mapSize.height = 512;
-        scene.add(spotlight);
-
-        createRocket();
-
-        window.addEventListener('resize', onWindowResize, false);
-        animate();
-
-    } catch (error) {
-        console.error("Error initializing Three.js:", error);
-        document.getElementById('rocket-viewer').textContent = "Error loading 3D viewer";
-    }
+    animate();
 }
 
-function createRocket() {
-    rocket = new THREE.Group();
-
-    const bodyGeometry = new THREE.CylinderGeometry(0.5, 0.5, 4, 32);
-    const bodyMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
-    const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
-    body.castShadow = true;
-    body.receiveShadow = true;
-    rocket.add(body);
-
-    const noseGeometry = new THREE.ConeGeometry(0.5, 1, 32);
-    const noseMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
-    const nose = new THREE.Mesh(noseGeometry, noseMaterial);
-    nose.position.y = 2.5;
-    nose.castShadow = true;
-    nose.receiveShadow = true;
-    rocket.add(nose);
-
-    const finGeometry = new THREE.BoxGeometry(0.1, 1, 1);
-    const finMaterial = new THREE.MeshStandardMaterial({ color: 0x0000ff });
-    for (let i = 0; i < 4; i++) {
-        const fin = new THREE.Mesh(finGeometry, finMaterial);
-        fin.position.y = -1.5;
-        fin.rotation.y = (i * Math.PI) / 2;
-        fin.castShadow = true;
-        fin.receiveShadow = true;
-        rocket.add(fin);
-    }
-
-    // Add exhaust
-    const exhaustGeometry = new THREE.ConeGeometry(0.5, 2, 32);
-    const exhaustMaterial = new THREE.MeshBasicMaterial({ 
-        color: 0xff6600,
-        transparent: true,
-        opacity: 0.7
+function setupYearTabs() {
+    const yearTabs = document.querySelectorAll('.year-tab');
+    yearTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            yearTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            currentYear = tab.dataset.year;
+            currentRocket = 0;
+            loadRocket();
+            updateRocketInfo();
+            setupCarouselNav();
+        });
     });
-    exhaust = new THREE.Mesh(exhaustGeometry, exhaustMaterial);
-    exhaust.position.y = -3;
-    exhaust.rotation.x = Math.PI;
-    exhaust.visible = false;
-    rocket.add(exhaust);
-
-    scene.add(rocket);
 }
 
-function onWindowResize() {
-    const container = document.getElementById('rocket-viewer');
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth, container.clientHeight);
+function loadRocket() {
+    if (rocket) {
+        scene.remove(rocket);
+    }
+
+    // Since we don't have actual 3D models, we'll create a simple shape
+    const geometry = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
+    const material = new THREE.MeshPhongMaterial({ color: 0xc3ccccc });
+    rocket = new THREE.Mesh(geometry, material);
+    scene.add(rocket);
+
+    // If you have actual 3D models, you can use this code instead:
+    /*
+    const loader = new THREE.GLTFLoader();
+    loader.load(
+        rockets[currentYear][currentRocket].modelPath,
+        (gltf) => {
+            if (rocket) {
+                scene.remove(rocket);
+            }
+            rocket = gltf.scene;
+            rocket.scale.set(0.5, 0.5, 0.5); // Adjust scale as needed
+            scene.add(rocket);
+        },
+        (xhr) => {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+        },
+        (error) => {
+            console.error('An error happened', error);
+            // Fallback to a simple geometry if model fails to load
+            const geometry = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
+            const material = new THREE.MeshPhongMaterial({ color: 0xcccccc });
+            rocket = new THREE.Mesh(geometry, material);
+            scene.add(rocket);
+        }
+    );
+    */
 }
 
 function animate() {
     requestAnimationFrame(animate);
-    rocket.rotation.y += 0.01;
-    stars.rotation.y += 0.0005;
-
-    if (isBoostAnimationActive) {
-        rocket.position.y += 0.05;
-        if (rocket.position.y > 10) {
-            rocket.position.y = -10;
-        }
-        exhaust.scale.y = 1 + Math.sin(Date.now() * 0.01) * 0.2;
+    if (rocket) {
+        rocket.rotation.y += 0.005;
     }
-
+    controls.update();
     renderer.render(scene, camera);
 }
 
-function toggleBoostAnimation() {
-    isBoostAnimationActive = !isBoostAnimationActive;
-    exhaust.visible = isBoostAnimationActive;
-    if (!isBoostAnimationActive) {
-        rocket.position.y = 0;
-    }
-    const boostButton = document.getElementById('boost-button');
-    boostButton.textContent = isBoostAnimationActive ? 'Stop Boost' : 'Boost Rocket';
-}
-
-function updateRocketInfo(year) {
-    currentYear = year;
-    const currentRocket = rockets[year];
-    document.getElementById('rocket-name').textContent = currentRocket.name;
-    document.getElementById('rocket-description').textContent = currentRocket.shortDescription;
-    
+function updateRocketInfo() {
+    document.getElementById('rocket-name').textContent = rockets[currentYear][currentRocket].name;
     const specsContainer = document.getElementById('rocket-specs');
     specsContainer.innerHTML = '';
-    for (const [key, value] of Object.entries(currentRocket.specs)) {
+    rockets[currentYear][currentRocket].specs.forEach(spec => {
         const specItem = document.createElement('div');
         specItem.className = 'spec-item';
-        specItem.innerHTML = `<span class="spec-label">${key}:</span> ${value}`;
+        specItem.innerHTML = `
+            <span class="spec-name">${spec.name}</span>
+            <span class="spec-value">${spec.value} <span>/ ${spec.imperial}</span></span>
+        `;
         specsContainer.appendChild(specItem);
+    });
+}
+
+function setupCarouselNav() {
+    const nav = document.getElementById('carousel-nav');
+    nav.innerHTML = '';
+    rockets[currentYear].forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = `carousel-dot ${index === currentRocket ? 'active' : ''}`;
+        dot.addEventListener('click', () => {
+            currentRocket = index;
+            updateRocketInfo();
+            loadRocket();
+            updateCarouselNav();
+        });
+        nav.appendChild(dot);
+    });
+
+    document.querySelector('.prev-button').addEventListener('click', () => {
+        currentRocket = (currentRocket - 1 + rockets[currentYear].length) % rockets[currentYear].length;
+        updateRocketInfo();
+        loadRocket();
+        updateCarouselNav();
+    });
+
+    document.querySelector('.next-button').addEventListener('click', () => {
+        currentRocket = (currentRocket + 1) % rockets[currentYear].length;
+        updateRocketInfo();
+        loadRocket();
+        updateCarouselNav();
+    });
+}
+
+function updateCarouselNav() {
+    const dots = document.querySelectorAll('.carousel-dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentRocket);
+    });
+}
+
+// Scroll to top functionality
+const scrollTopButton = document.querySelector('.scroll-top');
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+        scrollTopButton.classList.add('visible');
+    } else {
+        scrollTopButton.classList.remove('visible');
     }
-
-    document.querySelectorAll('.year-button').forEach(button => {
-        button.classList.toggle('active', button.dataset.year === year);
-    });
-}
-
-function createYearSelector() {
-    const yearSelector = document.getElementById('year-selector');
-    Object.keys(rockets).forEach(year => {
-        const yearButton = document.createElement('button');
-        yearButton.className = 'year-button';
-        yearButton.textContent = year;
-        yearButton.dataset.year = year;
-        yearButton.addEventListener('click', () => updateRocketInfo(year));
-        yearSelector.appendChild(yearButton);
-    });
-}
-
-function initializeModal() {
-    const modal = document.getElementById("rocket-modal");
-    const seeMoreBtn = document.getElementById("see-more-button");
-    const boostBtn = document.getElementById("boost-button");
-    const span = document.getElementsByClassName("close")[0];
-
-    seeMoreBtn.addEventListener('click', function() {
-        console.log('See More button clicked'); // Debug log
-        const currentRocket = rockets[currentYear];
-        document.getElementById("modal-title").textContent = currentRocket.name;
-        document.getElementById("modal-description").textContent = currentRocket.fullDescription;
-        
-        const additionalInfoContainer = document.getElementById("modal-additional-info");
-        additionalInfoContainer.innerHTML = '';
-        for (const [key, value] of Object.entries(currentRocket.additionalInfo)) {
-            const infoItem = document.createElement('p');
-            infoItem.innerHTML = `<strong>${key}:</strong> ${value}`;
-            additionalInfoContainer.appendChild(infoItem);
-        }
-        
-        modal.style.display = "block";
-    });
-
-    boostBtn.addEventListener('click', toggleBoostAnimation);
-
-    span.addEventListener('click', function() {
-        modal.style.display = "none";
-    });
-
-    window.addEventListener('click', function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    });
-}
-
-function initScrollToTop() {
-    const scrollToTopButton = document.querySelector('.scroll-top');
-    
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 100) {
-            scrollToTopButton.classList.add('visible');
-        } else {
-            scrollToTopButton.classList.remove('visible');
-        }
-    });
-
-    scrollToTopButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    initThreeJS();
-    createYearSelector();
-    updateRocketInfo(currentYear);
-    initializeModal();
-    initScrollToTop();
 });
+
+scrollTopButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Mobile menu toggle
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const navList = document.querySelector('.nav-list');
+
+mobileMenuToggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+});
+
+// Initialize everything
+document.addEventListener('DOMContentLoaded', init);
