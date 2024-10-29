@@ -449,6 +449,7 @@ nav a:hover {
     display: flex;
     max-width: 500px;
     margin: 2rem auto 0;
+    border:var(--text);
 }
 
 .newsletter-form input {
