@@ -110,7 +110,6 @@ body {
     display: block;
   }
 
-
 header {
     background-color:var(--primary);
     color: white;
@@ -658,7 +657,7 @@ nav a:hover {
 }
 
 footer {
-    background: linear-gradient(to top, var(--primary), var(--secondary));
+    background: var(--primary);
     color: white;
     padding: 7rem 0 2rem;
 }
