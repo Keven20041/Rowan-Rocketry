@@ -1,41 +1,86 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const starField = document.createElement('div');
-    starField.id = 'starField';
-    starField.className = 'star-container';
-    document.body.prepend(starField);
+    // Star field animation
+    const canvas = document.createElement('canvas');
+    canvas.id = 'starField';
+    document.body.prepend(canvas);
+    const ctx = canvas.getContext('2d');
 
-    function createStar() {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.top = `${Math.random() * 100}%`;
-        
-        // Randomize the animation duration for more natural movement
-        const moveDuration = Math.random()/3; // 3-13 seconds
-        const twinkleDuration = Math.random()/3; // 2-7 seconds
+    // Set the z-index of the canvas
+    canvas.style.zIndex = '-1';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
 
-        star.style.animation = `
-            moveStar ${moveDuration}s infinite infinite,
-            twinkle ${twinkleDuration}s infinite alternate,
-        `;
+    let width, height, stars;
+    const FPS = 60;
+    const STAR_COUNT = 100;
 
-        starField.appendChild(star);
-
-        // Remove the star and create a new one after it completes its movement
-        setTimeout(() => {
-            createStar();
-            star.remove();
-        }, moveDuration * 1000);
+    function init() {
+        resizeCanvas();
+        createStars();
+        animate();
     }
 
-    // Create initial set of stars
-    for (let i = 0; i < 25; i++) {
-        setTimeout(createStar, Math.random() * 1000);
+    function resizeCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
     }
-    
+
+    function createStars() {
+        stars = [];
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 1.5,
+                speed: Math.random() * 0.5,
+                brihgtness: Math.random()
+            });
+        }
+    }
+
+    function drawStars() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = 'white';
+        stars.forEach(star => {
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(255, 255, 255, ${star.brightness})`;
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            ctx.fill();
+
+        });
+    }
+
+    function updateStars() {
+        stars.forEach(star => {
+            star.y += star.speed;
+            if (star.y > height) {
+                star.y = 0;
+                star.x = Math.random() * width;
+                // 0.001 to revert back to normal brihgtness
+                star.brightness = Math.abs(Math.sin(Date.now() * 0.01 * star.speed));
+            }
+        });
+    }
+
+    function animate() {
+        drawStars();
+        updateStars();
+        requestAnimationFrame(animate);
+    }
+
+    init();
+    window.addEventListener('resize', init);
+
     // Header scroll effect
     const header = document.querySelector('header');
     const scrollThreshold = 100;
+
+    // Ensure the header is above the star field
+    header.style.position = 'relative';
+    header.style.zIndex = '1';
 
     // Scroll to top button
     const scrollTopButton = document.querySelector('.scroll-top');
@@ -73,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 target.scrollIntoView({
-                   
                     behavior: 'smooth'
                 });
             }
@@ -118,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         slider.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
-        }, false);
+        }, { passive: true });
 
         slider.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
@@ -127,13 +171,13 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (touchEndX - touchStartX > 50) {
                 goToPrev();
             }
-        }, false);
+        }, { passive: true });
     });
 
     // Scroll to top button click event
     scrollTopButton.addEventListener('click', (e) => {
         e.preventDefault();
-        window.scrollTo({ top: 1, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     // Dropdown menu functionality
