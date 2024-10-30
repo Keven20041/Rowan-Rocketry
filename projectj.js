@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 y: Math.random() * height,
                 radius: Math.random() * 1.5,
                 speed: Math.random() * 0.5,
-                brihgtness: Math.random()
+                brightness: Math.random()
             });
         }
     }

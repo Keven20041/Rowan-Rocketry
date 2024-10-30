@@ -27,6 +27,7 @@
          header.classList.remove('scrolled');
      }
  });
+
  // this is for tab switching in the sponsorship.html page for the tabs
  document.addEventListener('DOMContentLoaded', function() {
     const tabs = document.querySelectorAll('.tab-btn');
@@ -44,6 +45,7 @@
         });
     });
 });
+
 //for mobile switching
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -62,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
 document.addEventListener('DOMContentLoaded', function() {
     // Create animated stars
     createStars();

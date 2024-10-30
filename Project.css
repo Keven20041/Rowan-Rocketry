@@ -131,7 +131,7 @@ header.scrolled {
 .hero-section {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 60vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;

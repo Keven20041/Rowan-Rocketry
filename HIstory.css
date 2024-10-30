@@ -4,7 +4,7 @@
     --background: #000000;
     --text: #ffffff;
     --accent: #FF4500;
-    --card-bg: #FFFFFF;
+    --card-bg: #1A1A1A; 
 }
 
 * {
@@ -25,6 +25,7 @@ body {
     margin: 0 auto;
     padding: 0 2rem;
 }
+
 
 header {
     background: linear-gradient(to bottom, var(--primary), transparent);
@@ -122,7 +123,6 @@ header {
 }
 
 #rocket-description {
-    
     margin-top: 1rem;
     font-style: italic;
     color: #aaa;
@@ -140,13 +140,14 @@ header {
     height: 100%;
 }
 
-.carousel-nav {
+
+.carousel-nav, .part-nav {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
 }
 
-.carousel-dot {
+ .part-dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -156,9 +157,10 @@ header {
     transition: background-color 0.3s ease;
 }
 
-.carousel-dot.active {
+.carousel-dot.active, .part-dot.active {
     background-color: var(--secondary);
 }
+
 
 .nav-button {
     position: absolute;
@@ -216,12 +218,7 @@ header {
     transition: background-color 0.3s, color 0.3s;
 }
 
-.year-tab:hover {
-    background-color: var(--secondary);
-    color: var(--background);
-}
-
-.year-tab.active {
+.year-tab:hover, .year-tab.active {
     background-color: var(--secondary);
     color: var(--background);
 }
@@ -265,7 +262,7 @@ header {
 }
 
 .timeline-content {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--card-bg);
     border-radius: 8px;
     padding: 1rem;
 }
@@ -284,7 +281,7 @@ header {
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--card-bg);
     border-radius: 8px;
     padding: 1.5rem;
 }
@@ -312,6 +309,65 @@ header {
     margin: 0;
 }
 
+.stats-section {
+    background-color: var(--card-bg);
+    padding: 4rem 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background-color: var(--background);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.stat-icon svg {
+    width: 30px;
+    height: 30px;
+    color: var(--secondary);
+}
+
+.stat-content {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--secondary);
+    margin: 0;
+}
+
+
 footer {
     background: linear-gradient(to top, var(--primary), var(--background));
     padding: 3rem 0 2rem;
@@ -327,6 +383,7 @@ footer {
 .footer-section h3 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
+    color: var(--secondary);
 }
 
 .footer-section ul {
@@ -365,7 +422,7 @@ footer {
 }
 
 .social-icons a:hover {
-    background-color: var(--text);
+    background-color: var(--secondary);
     color: var(--primary);
     transform: translateY(-2px);
 }
@@ -381,6 +438,7 @@ footer {
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 
 .scroll-top {
     position: fixed;
@@ -409,6 +467,7 @@ footer {
     transform: translateY(-5px);
 }
 
+
 @media screen and (max-width: 768px) {
     .nav-list {
         display: none;
@@ -432,6 +491,10 @@ footer {
     .team-stats {
         flex-direction: column;
         gap: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
     }
 }
 
