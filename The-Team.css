@@ -532,9 +532,7 @@ nav a:hover {
 }
 
 .team-card-front1 p{
-    font-size: 1rem;
-    color:#ffffff;
-    font-weight: bold;
+    background: white;
 }
 
 .team-card-back1 {
@@ -847,7 +845,7 @@ nav a:hover {
 }
 
 footer {
-    background: var(--primary);
+    background: linear-gradient(to top, var(--primary), transparent);
     color: white;
     padding: 7rem 0 2rem;
 }

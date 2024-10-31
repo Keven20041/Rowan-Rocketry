@@ -43,13 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function drawStars() {
         ctx.clearRect(0, 0, width, height);
-        ctx.fillStyle = 'white';
         stars.forEach(star => {
             ctx.beginPath();
             ctx.fillStyle = `rgba(255, 255, 255, ${star.brightness})`;
             ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
             ctx.fill();
-
         });
     }
 
@@ -59,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (star.y > height) {
                 star.y = 0;
                 star.x = Math.random() * width;
-                // 0.001 to revert back to normal brihgtness
                 star.brightness = Math.abs(Math.sin(Date.now() * 0.01 * star.speed));
             }
         });
@@ -72,7 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     init();
-    window.addEventListener('resize', init);
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(init, 200);
+    });
 
     // Header scroll effect
     const header = document.querySelector('header');
@@ -187,11 +189,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const dropdownContent = dropdown.querySelector('.dropdown-content');
         
         dropdown.addEventListener('mouseenter', () => {
-            dropdownContent.style.display = 'block';
+            dropdownContent.classList.add('visible');
         });
 
         dropdown.addEventListener('mouseleave', () => {
-            dropdownContent.style.display = 'none';
+            dropdownContent.classList.remove('visible');
         });
     });
 });
