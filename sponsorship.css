@@ -34,7 +34,7 @@ header {
     background-color: var(--primary);
     color: white;
     padding: 1rem 0;
-    position: sticky;
+    position: relative;
     top: 0;
     width: 100%;
     z-index: 1000;

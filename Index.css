@@ -90,7 +90,7 @@ header {
 }
 
 header.scrolled {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: var(--secondary);
     backdrop-filter: blur(10px);
 }
 
