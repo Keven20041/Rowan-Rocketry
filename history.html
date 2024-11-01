@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rowan Rocketry - Rocket Showcase</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="history.css">
+    <meta name="description" content="Explore the history and specifications of Rowan Rocketry's innovative rocket designs through an interactive 3D showcase.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="History.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script src="history.js" defer></script>
 </head>
@@ -26,96 +26,93 @@
                     </button>
                     <ul class="nav-list">
                         <li><a href="index.html">Home</a></li>
-                        <li><span class="nav-separator">|</span></li>
+                        <li style="color: #FFCC00;">|</li>
                         <li><a href="sponsorship.html">Sponsorship</a></li>
-                        <li><span class="nav-separator">|</span></li>
+                        <li style="color: #FFCC00;">|</li>
                         <li><a href="the-team.html">The Team</a></li>
-                        <li><span class="nav-separator">|</span></li>
+                        <li style="color: #FFCC00;">|</li>
                         <li><a href="project.html">Projects</a></li>
-                        <li><span class="nav-separator">|</span></li>
+                        <li style="color: #FFCC00;">|</li>
                         <li><a href="history.html">History</a></li>
-                        <li><span class="nav-separator">|</span></li>
+                        <li style="color: #FFCC00;">|</li>
                         <li><a href="#wiki">Wiki</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+
     <main>
         <section class="rocket-showcase">
             <div class="container">
-                <h1 class="page-title">ROCKET SHOWCASE</h1>
-                <div class="year-tabs">
-                    <button class="year-tab active" data-year="2024">2024</button>
-                    <button class="year-tab" data-year="2025">2025</button>
-                </div>
-                <div class="showcase">
-                    <div class="specs">
-                        <h2 id="rocket-name"></h2>
-                        <div id="rocket-specs"></div>
-                        <p id="rocket-description"></p>
-                    </div>
-                    <div class="model-viewer">
+                <h2 class="section-title">Rocket Showcase</h2>
+                <div class="year-buttons" id="year-buttons"></div>
+
+                <div class="showcase-content">
+                    <div class="model-card">
                         <canvas id="rocket-canvas"></canvas>
-                        <button class="nav-button prev-button" aria-label="Previous rocket">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        </button>
-                        <button class="nav-button next-button" aria-label="Next rocket">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                        </button>
                     </div>
+                    <div class="info-card" id="info-card"></div>
                 </div>
-                <div class="part-info">
-                    <div id="part-nav" class="part-nav"></div>
-                    <h3 id="part-name"></h3>
-                    <p id="part-description"></p>
+        
+                <div class="carousel-nav">
+                    <button class="nav-button" id="prev-button" aria-label="Previous">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <div id="carousel-dots" role="tablist"></div>
+                    <button class="nav-button" id="next-button" aria-label="Next">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
                 </div>
-                <div class="carousel-nav" id="carousel-nav"></div>
             </div>
         </section>
-         <section class="stats-section">
-        <div class="container">
-            <h2 class="section-title">Our Rich History in Numbers</h2>
-            <div class="stats-grid">
-                <div class="stat-card" id="years-card">
-                    <div class="stat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+
+
+
+        <section class="stats-section">
+            <div class="container">
+                <h2 class="section-title">Our Rich History in Numbers</h2>
+                <div class="stats-grid">
+                    <div class="stat-card" id="years-card">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-label">Years of History</h3>
+                            <p class="stat-value" id="years-value">0</p>
+                        </div>
                     </div>
-                    <div class="stat-content">
-                        <h3 class="stat-label">Years of History</h3>
-                        <p class="stat-value" id="years-value">0</p>
+                    <div class="stat-card" id="events-card">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scroll"><path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/></svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-label">Historical Events</h3>
+                            <p class="stat-value" id="events-value">0</p>
+                        </div>
                     </div>
-                </div>
-                <div class="stat-card" id="events-card">
-                    <div class="stat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scroll"><path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/></svg>
+                    <div class="stat-card" id="persons-card">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-label">Notable Persons</h3>
+                            <p class="stat-value" id="persons-value">0</p>
+                        </div>
                     </div>
-                    <div class="stat-content">
-                        <h3 class="stat-label">Historical Events</h3>
-                        <p class="stat-value" id="events-value">0</p>
-                    </div>
-                </div>
-                <div class="stat-card" id="persons-card">
-                    <div class="stat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-label">Notable Persons</h3>
-                        <p class="stat-value" id="persons-value">0</p>
-                    </div>
-                </div>
-                <div class="stat-card" id="awards-card">
-                    <div class="stat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-label">Awards & Recognitions</h3>
-                        <p class="stat-value" id="awards-value">0</p>
+                    <div class="stat-card" id="awards-card">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-label">Awards & Recognitions</h3>
+                            <p class="stat-value" id="awards-value">0</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
         <section class="milestones">
             <div class="container">
                 <h2 class="section-title">Major Milestones</h2>
@@ -136,38 +133,15 @@
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-time">2025</div>
-                            <h3 class="timeline-title">Rowan Rocket 1 Development</h3>
+                            <h3 class="timeline-title">Rowan Rocket 2 Development</h3>
                             <p class="timeline-body">Began development of our most ambitious project yet, capable of reaching space.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="team-growth">
-            <div class="container">
-                <h2 class="section-title">Team Growth</h2>
-                <div class="card">
-                    <div class="team-stats">
-                        <div class="stat-item">
-                            <i class="icon-users"></i>
-                            <p class="stat-number">2</p>
-                            <p class="stat-label">Founding Members</p>
-                        </div>
-                        <div class="stat-item">
-                            <i class="icon-users"></i>
-                            <p class="stat-number">19</p>
-                            <p class="stat-label">Current Team Size</p>
-                        </div>
-                        <div class="stat-item">
-                            <i class="icon-users"></i>
-                            <p class="stat-number">50+</p>
-                            <p class="stat-label">Alumni Network</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -214,6 +188,7 @@
             </div>
         </div>
     </footer>
+
     <a href="#" class="scroll-top" aria-label="Scroll to top">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
     </a>

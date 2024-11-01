@@ -1,4 +1,3 @@
-
 const rockets = {
     2024: [
         {
@@ -10,7 +9,13 @@ const rockets = {
                 { name: "PAYLOAD TO LEO", value: "670 kg", imperial: "1,480 lb" },
             ],
             description: "Rowan Rocketry's first orbital launch vehicle.",
-            modelPath: "/placeholder.svg?height=400&width=200" // Placeholder image
+            parts: [
+                { name: "Nose Cone", description: "Aerodynamic tip of the rocket that reduces air resistance.", weight: "50 kg", height: "2 m", diameter: "0.5 m" },
+                { name: "Payload Fairing", description: "Protects the payload during launch and ascent.", weight: "200 kg", height: "4 m", diameter: "1.68 m" },
+                { name: "Propellant Tanks", description: "Store the rocket's fuel and oxidizer.", weight: "2000 kg", height: "10 m", diameter: "1.68 m" },
+                { name: "Engines", description: "Provide thrust to propel the rocket.", weight: "1000 kg", height: "3 m", diameter: "1.5 m" },
+                { name: "Fins", description: "Stabilize the rocket during flight.", weight: "100 kg", height: "1.5 m", diameter: "0.3 m" }
+            ]
         }
     ],
     2025: [
@@ -23,180 +28,271 @@ const rockets = {
                 { name: "PAYLOAD TO LEO", value: "2,000 kg", imperial: "4,400 lb" },
             ],
             description: "Rowan Rocket 2 is our most ambitious project, capable of reaching space.",
-            modelPath: "/placeholder.svg?height=400&width=200" // Placeholder image
+            parts: [
+                { name: "Advanced Nose Cone", description: "Improved aerodynamics for higher speeds.", weight: "75 kg", height: "2.5 m", diameter: "0.8 m" },
+                { name: "Expanded Payload Bay", description: "Larger capacity for various mission types.", weight: "300 kg", height: "5 m", diameter: "2.5 m" },
+                { name: "Cryogenic Propellant Tanks", description: "Store super-cooled propellants for increased efficiency.", weight: "3000 kg", height: "15 m", diameter: "2.5 m" },
+                { name: "Multi-Stage Engines", description: "Provide optimal thrust at different altitudes.", weight: "1500 kg", height: "4 m", diameter: "2.2 m" },
+                { name: "Grid Fins", description: "Improve steering during descent for potential reusability.", weight: "150 kg", height: "2 m", diameter: "0.5 m" }
+            ]
         }
     ]
 };
 
 let currentYear = "2024";
-let currentRocket = 0;
+let currentIndex = 0;
 let scene, camera, renderer, rocket, controls;
 
 function init() {
+    setupYearButtons();
+    setupCarousel();
+    initThree();
+    updateContent();
+    setupScrollToTop();
+    setupMobileMenu();
+    animateStats();
+}
+
+function setupYearButtons() {
+    const yearButtonsContainer = document.getElementById('year-buttons');
+    Object.keys(rockets).forEach(year => {
+        const button = document.createElement('button');
+        button.textContent = year;
+        button.classList.add('year-button');
+        if (year === currentYear) {
+            button.classList.add('active');
+        }
+        button.addEventListener('click', () => {
+            currentYear = year;
+            currentIndex = 0;
+            updateContent();
+            document.querySelectorAll('.year-button').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+        yearButtonsContainer.appendChild(button);
+    });
+}
+
+function setupCarousel() {
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    prevButton.addEventListener('click', () => changeIndex(-1));
+    nextButton.addEventListener('click', () => changeIndex(1));
+}
+
+function changeIndex(direction) {
+    const totalItems = 1 + rockets[currentYear][0].parts.length;
+    currentIndex = (currentIndex + direction + totalItems) % totalItems;
+    updateContent();
+}
+
+function initThree() {
+    const canvas = document.getElementById('rocket-canvas');
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, 600 / 400, 0.1, 1000);
+    camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
     camera.position.z = 5;
 
-    renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('rocket-canvas'), antialias: true });
-    renderer.setSize(600, 400);
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    renderer.setClearColor(0x000000, 0);
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-    directionalLight.position.set(0, 1, 1);
+    directionalLight.position.set(5, 5, 5);
     scene.add(directionalLight);
 
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.25;
+    controls.screenSpacePanning = false;
+    controls.maxPolarAngle = Math.PI / 2;
     controls.enableZoom = false;
+    controls.enablePan = false;
 
-    setupYearTabs();
     loadRocket();
-    updateRocketInfo();
-    setupCarouselNav();
-
     animate();
+
+    window.addEventListener('resize', onWindowResize, false);
 }
 
-function setupYearTabs() {
-    const yearTabs = document.querySelectorAll('.year-tab');
-    yearTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            yearTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            currentYear = tab.dataset.year;
-            currentRocket = 0;
-            loadRocket();
-            updateRocketInfo();
-            setupCarouselNav();
-        });
-    });
+function onWindowResize() {
+    const canvas = document.getElementById('rocket-canvas');
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 }
-
 function loadRocket() {
     if (rocket) {
         scene.remove(rocket);
     }
 
-    // Since we don't have actual 3D models, we'll create a simple shape
-    const geometry = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
-    const material = new THREE.MeshPhongMaterial({ color: 0xc3ccccc });
-    rocket = new THREE.Mesh(geometry, material);
-    scene.add(rocket);
+    let geometry;
+    switch (currentIndex) {
+        case 0: // Full rocket
+            geometry = new THREE.CylinderGeometry(0.5, 0.5, 4, 32);
+            break;
+        case 1: // Nose Cone
+            geometry = new THREE.ConeGeometry(0.5, 1, 32);
+            break;
+        case 2: // Payload Fairing
+            geometry = new THREE.CylinderGeometry(0.5, 0.5, 1, 32);
+            break;
+        case 3: // Propellant Tanks
+            geometry = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
+            break;
+        case 4: // Engines
+            geometry = new THREE.Group();
+            const engineBase = new THREE.CylinderGeometry(0.3, 0.5, 1, 32);
+            const engineNozzle = new THREE.ConeGeometry(0.3, 0.5, 32);
+            engineNozzle.translate(0, -0.75, 0);
+            geometry.add(new THREE.Mesh(engineBase, new THREE.MeshPhongMaterial({ color: 0xcccccc })));
+            geometry.add(new THREE.Mesh(engineNozzle, new THREE.MeshPhongMaterial({ color: 0xcccccc })));
+            break;
+        case 5: // Fins
+            geometry = new THREE.BoxGeometry(0.1, 1, 0.5);
+            break;
+        default:
+            geometry = new THREE.SphereGeometry(0.5, 32, 32);
+    }
 
-    // If you have actual 3D models, you can use this code instead:
-    /*
-    const loader = new THREE.GLTFLoader();
-    loader.load(
-        rockets[currentYear][currentRocket].modelPath,
-        (gltf) => {
-            if (rocket) {
-                scene.remove(rocket);
-            }
-            rocket = gltf.scene;
-            rocket.scale.set(0.5, 0.5, 0.5); // Adjust scale as needed
-            scene.add(rocket);
-        },
-        (xhr) => {
-            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-        },
-        (error) => {
-            console.error('An error happened', error);
-            // Fallback to a simple geometry if model fails to load
-            const geometry = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
-            const material = new THREE.MeshPhongMaterial({ color: 0xcccccc });
-            rocket = new THREE.Mesh(geometry, material);
-            scene.add(rocket);
-        }
-    );
-    */
+    const material = new THREE.MeshPhongMaterial({ color: 0xcccccc });
+    rocket = new THREE.Mesh(geometry, material);
+    
+    // Center the rocket geometry
+    if (geometry.center) {
+        geometry.center();
+    }
+    
+    // Position the rocket at the center of the scene
+    rocket.position.set(0, 0, 0);
+    scene.add(rocket);
 }
 
 function animate() {
     requestAnimationFrame(animate);
     if (rocket) {
-        rocket.rotation.y += 0.005;
+        rocket.rotation.y += 0.01; // Add continuous rotation
     }
     controls.update();
     renderer.render(scene, camera);
 }
 
-function updateRocketInfo() {
-    document.getElementById('rocket-name').textContent = rockets[currentYear][currentRocket].name;
-    const specsContainer = document.getElementById('rocket-specs');
-    specsContainer.innerHTML = '';
-    rockets[currentYear][currentRocket].specs.forEach(spec => {
-        const specItem = document.createElement('div');
-        specItem.className = 'spec-item';
-        specItem.innerHTML = `
-            <span class="spec-name">${spec.name}</span>
-            <span class="spec-value">${spec.value} <span>/ ${spec.imperial}</span></span>
+function updateContent() {
+    const infoCard = document.getElementById('info-card');
+    const currentRocket = rockets[currentYear][0];
+    let content = '';
+
+    if (currentIndex === 0) {
+        content = `
+            <h2>${currentRocket.name}</h2>
+            <p>${currentRocket.description}</p>
+            <div class="specs">
+                ${currentRocket.specs.map(spec => `
+                    <div class="spec-item">
+                        <span class="spec-label">${spec.name}</span>
+                        <span>${spec.value} / ${spec.imperial}</span>
+                    </div>
+                `).join('')}
+            </div>
         `;
-        specsContainer.appendChild(specItem);
-    });
-}
-
-function setupCarouselNav() {
-    const nav = document.getElementById('carousel-nav');
-    nav.innerHTML = '';
-    rockets[currentYear].forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.className = `carousel-dot ${index === currentRocket ? 'active' : ''}`;
-        dot.addEventListener('click', () => {
-            currentRocket = index;
-            updateRocketInfo();
-            loadRocket();
-            updateCarouselNav();
-        });
-        nav.appendChild(dot);
-    });
-
-    document.querySelector('.prev-button').addEventListener('click', () => {
-        currentRocket = (currentRocket - 1 + rockets[currentYear].length) % rockets[currentYear].length;
-        updateRocketInfo();
-        loadRocket();
-        updateCarouselNav();
-    });
-
-    document.querySelector('.next-button').addEventListener('click', () => {
-        currentRocket = (currentRocket + 1) % rockets[currentYear].length;
-        updateRocketInfo();
-        loadRocket();
-        updateCarouselNav();
-    });
-}
-
-function updateCarouselNav() {
-    const dots = document.querySelectorAll('.carousel-dot');
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentRocket);
-    });
-}
-
-// Scroll to top functionality
-const scrollTopButton = document.querySelector('.scroll-top');
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 100) {
-        scrollTopButton.classList.add('visible');
     } else {
-        scrollTopButton.classList.remove('visible');
+        const part = currentRocket.parts[currentIndex - 1];
+        content = `
+            <h2>${part.name}</h2>
+            <p>${part.description}</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <span class="spec-label">Weight</span>
+                    <span>${part.weight}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Height</span>
+                    <span>${part.height}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Diameter</span>
+                    <span>${part.diameter}</span>
+                </div>
+            </div>
+        `;
     }
-});
 
-scrollTopButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+    infoCard.innerHTML = content;
+    updateCarouselDots();
+    loadRocket();
+}
 
-// Mobile menu toggle
-const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const navList = document.querySelector('.nav-list');
+function updateCarouselDots() {
+    const dotsContainer = document.getElementById('carousel-dots');
+    const totalItems = 1 + rockets[currentYear][0].parts.length;
+    dotsContainer.innerHTML = '';
 
-mobileMenuToggle.addEventListener('click', () => {
-    navList.classList.toggle('active');
-});
+    for (let i = 0; i < totalItems; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('carousel-dot');
+        dot.setAttribute('aria-label', `Go to item ${i + 1}`);
+        if (i === currentIndex) {
+            dot.classList.add('active');
+            dot.setAttribute('aria-current', 'true');
+        }
+        dot.addEventListener('click', () => {
+            currentIndex = i;
+            updateContent();
+        });
+        dotsContainer.appendChild(dot);
+    }
+}
 
-// Initialize everything
+function setupScrollToTop() {
+    const scrollTopButton = document.querySelector('.scroll-top');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+            scrollTopButton.classList.add('visible');
+        } else {
+            scrollTopButton.classList.remove('visible');
+        }
+    });
+
+    scrollTopButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+function setupMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    mobileMenuToggle.addEventListener('click', () => {
+        navList.classList.toggle('active');
+    });
+}
+
+function animateStats() {
+    const stats = [
+        { id: 'years-value', value: 10 },
+        { id: 'events-value', value: 50 },
+        { id: 'persons-value', value: 100 },
+        { id: 'awards-value', value: 25 }
+    ];
+
+    stats.forEach(stat => {
+        const element = document.getElementById(stat.id);
+        if (element) {
+            let current = 0;
+            const increment = stat.value / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = Math.round(current);
+                if (current >= stat.value) {
+                    element.textContent = stat.value;
+                    clearInterval(timer);
+                }
+            }, 20);
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', init);
