@@ -108,7 +108,7 @@ function initThree() {
     controls.dampingFactor = 0.25;
     controls.screenSpacePanning = false;
     controls.maxPolarAngle = Math.PI / 2;
-    controls.enableZoom = false;
+    controls.enableZoom = true;
     controls.enablePan = false;
 
     loadRocket();
