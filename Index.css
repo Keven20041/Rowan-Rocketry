@@ -83,7 +83,7 @@ header {
     background-color: #57150B ;
     color: white;
     padding: 1rem 0;
-    position: relative;
+    position: fixed;
     width: 100%;
     z-index: 1000;
     transition: background-color 0.3s ease;
