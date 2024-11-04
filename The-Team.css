@@ -314,6 +314,10 @@ header.scrolled {
     padding: 1.5rem;
 }
 
+.team-card.back1, a {
+    color: #FFCC00;
+}
+
 .image-container, .image-container1 {
     width: 180px;
     height: 180px;
