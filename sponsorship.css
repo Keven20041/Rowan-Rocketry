@@ -659,7 +659,9 @@ input:focus {
     font-weight: bold;
     text-transform: uppercase;
 }
-
+.subButton{
+    text-decoration: none;
+}
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .form-row {
