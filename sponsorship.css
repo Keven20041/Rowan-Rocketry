@@ -112,7 +112,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("Launch.jpg");
+    background-image: url("./media/Launch.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
