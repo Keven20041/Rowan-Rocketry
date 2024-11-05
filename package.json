@@ -4,5 +4,18 @@
     "bootstrap": "^5.3.3",
     "express": "^4.21.1",
     "three": "^0.169.0"
-  }
+  },
+  "name": "rowan_rocketry",
+  "description": "HTML5, W3.CSS 10/15/2024\r Rowan Rocketry",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Keven Guzman <placeholder@email.com>, Joshua Odom <joshuaodom32@gmail.com>",
+  "license": "ISC"
 }
