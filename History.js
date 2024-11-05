@@ -123,51 +123,62 @@ function onWindowResize() {
     camera.updateProjectionMatrix();
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 }
+
 function loadRocket() {
     if (rocket) {
         scene.remove(rocket);
     }
 
-    let geometry;
+    const loader = new THREE.GLTFLoader();
+    let modelUrl;
+
     switch (currentIndex) {
         case 0: // Full rocket
-            geometry = new THREE.CylinderGeometry(0.5, 0.5, 4, 32);
+            modelUrl = '/assets/3d/duck.glb';
             break;
         case 1: // Nose Cone
-            geometry = new THREE.ConeGeometry(0.5, 1, 32);
+            modelUrl = '/assets/3d/nose_cone.glb';
             break;
         case 2: // Payload Fairing
-            geometry = new THREE.CylinderGeometry(0.5, 0.5, 1, 32);
+            modelUrl = '/assets/3d/payload_fairing.glb';
             break;
         case 3: // Propellant Tanks
-            geometry = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
+            modelUrl = '/assets/3d/propellant_tanks.glb';
             break;
         case 4: // Engines
-            geometry = new THREE.Group();
-            const engineBase = new THREE.CylinderGeometry(0.3, 0.5, 1, 32);
-            const engineNozzle = new THREE.ConeGeometry(0.3, 0.5, 32);
-            engineNozzle.translate(0, -0.75, 0);
-            geometry.add(new THREE.Mesh(engineBase, new THREE.MeshPhongMaterial({ color: 0xcccccc })));
-            geometry.add(new THREE.Mesh(engineNozzle, new THREE.MeshPhongMaterial({ color: 0xcccccc })));
+            modelUrl = '/assets/3d/engines.glb';
             break;
         case 5: // Fins
-            geometry = new THREE.BoxGeometry(0.1, 1, 0.5);
+            modelUrl = '/assets/3d/fins.glb';
             break;
         default:
-            geometry = new THREE.SphereGeometry(0.5, 32, 32);
+            modelUrl = '/assets/3d/full_rocket.glb';
     }
 
-    const material = new THREE.MeshPhongMaterial({ color: 0xcccccc });
-    rocket = new THREE.Mesh(geometry, material);
-    
-    // Center the rocket geometry
-    if (geometry.center) {
-        geometry.center();
-    }
-    
-    // Position the rocket at the center of the scene
-    rocket.position.set(0, 0, 0);
-    scene.add(rocket);
+    loader.load(modelUrl, function(gltf) {
+        rocket = gltf.scene;
+        scene.add(rocket);
+
+        // Center the model
+        const box = new THREE.Box3().setFromObject(rocket);
+        const center = box.getCenter(new THREE.Vector3());
+        rocket.position.sub(center);
+
+        // Adjust camera to fit the model
+        const size = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        const fov = camera.fov * (Math.PI / 180);
+        let cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2));
+        cameraZ *= 1.5; // Zoom out a little so object fits comfortably
+        camera.position.z = cameraZ;
+        camera.updateProjectionMatrix();
+
+        // Update controls
+        controls.target.set(0, 0, 0);
+        controls.update();
+    }, undefined, function(error) {
+        console.error('An error happened', error);
+    });
 }
 
 function animate() {
@@ -296,3 +307,6 @@ function animateStats() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+// For demonstration purposes, we'll log a message to the console
+console.log("Rocket Viewer JavaScript loaded successfully!");
