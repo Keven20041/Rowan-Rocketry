@@ -16,6 +16,6 @@
     "devStart": "nodemon server.js"
   },
   "keywords": [],
-  "author": "Keven Guzman <placeholder@email.com>, Joshua Odom <joshuaodom32@gmail.com>",
+  "author": "Keven Guzman <kevenguzman2013@gmail.com>, Joshua Odom <joshuaodom32@gmail.com>",
   "license": "ISC"
 }
