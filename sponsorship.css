@@ -357,7 +357,8 @@ header {
 .intro-text {
     font-size: 1rem;
     margin-bottom: 1rem;
-    max-width: 800px;
+    max-width: 1200px;
+    text-align: center;
 }
 
 .benefits-container {
@@ -554,7 +555,7 @@ header {
         width: 150px;
     }
 }
-.sponsor-form {
+#sponsor-form {
     padding: 2rem 1rem;
     max-width: 800px;
     margin: 0 auto;
@@ -941,7 +942,7 @@ input:focus {
 @media print {
     .sponsorship-section,
     .contact-section,
-    .sponsor-form {
+    #sponsor-form {
         background-color: white;
         color: black;
     }
