@@ -357,7 +357,8 @@ header {
 .intro-text {
     font-size: 1rem;
     margin-bottom: 1rem;
-    max-width: 800px;
+    max-width: 1200px;
+    text-align: center;
 }
 
 .benefits-container {
@@ -554,94 +555,120 @@ header {
         width: 150px;
     }
 }
-.sponsor-form {
-    padding: 2rem 1rem;
-    max-width: 800px;
-    margin: 0 auto;
+#sponsor-form {
+    padding: 4rem 1rem;
+    background-color: var(--background);
+}
+
+.forms-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.form-column {
+    flex: 1 1 calc(50% - 1rem);
+    min-width: 300px;
 }
 
 .form-title {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     font-weight: bold;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
     text-align: center;
-    color: #FFCC00;
-    text-transform: uppercase;
-    line-height: 1.2;
 }
 
-.information-form {
-    width: 100%;
+.information-form,
+.donation-form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-bottom: 3rem;
 }
 
 .form-field {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    width: 100%;
+    gap: 0.5rem;
 }
 
 .form-row {
     display: flex;
     gap: 1rem;
-    width: 100%;
+}
+
+.form-row .form-field {
+    flex: 1;
 }
 
 label {
     font-size: 0.9rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #000;
+    color: var(--text);
 }
 
-input {
-    border: none;
-    border-bottom: 1px solid #000;
-    padding: 0.25rem 0;
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+textarea {
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    padding: 0.5rem;
     font-size: 1rem;
-    background: transparent;
-    width: 100%;
+    background-color: var(--background);
+    color: var(--text);
 }
 
-input:focus {
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+textarea:focus {
     outline: none;
-    border-bottom-width: 2px;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.2);
 }
 
-.contribution-field {
-    position: relative;
+.form-submit {
+    margin-top: 1rem;
 }
 
-.contribution-field input {
-    padding-left: 1rem;
-}
-
-.contribution-field::before {
-    content: '$';
-    position: absolute;
-    bottom: 0.25rem;
-    left: 0;
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
     font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary);
+    color: var(--accent-color);
 }
 
 .mailing-info {
     margin-top: 3rem;
-    text-align: left;
+    text-align: center;
 }
 
-.payment-instructions {
-    color: #FF0000;
+.instruction-text {
     font-weight: bold;
     margin-bottom: 1rem;
-    text-transform: uppercase;
+    color: var(--primary);
 }
 
 .mail-heading {
-    color: #FF0000;
+    color: var(--accent-color);
     font-weight: bold;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
@@ -650,27 +677,42 @@ input:focus {
 .mailing-address {
     font-style: normal;
     line-height: 1.6;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
+    margin-bottom: 1rem;
 }
 
 .contact-info {
-    color: #FF0000;
+    color: var(--primary);
     font-weight: bold;
     text-transform: uppercase;
 }
-.subButton{
-    text-decoration: none;
-}
+
 /* Responsive adjustments */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .forms-container {
+        flex-direction: column;
+    }
+
+    .form-column {
+        flex: 1 1 100%;
+    }
+
     .form-row {
         flex-direction: column;
         gap: 1.5rem;
     }
-    
+}
+
+@media (max-width: 480px) {
     .form-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+
+    label, 
+    input,
+    .instruction-text,
+    .mail-heading,
+    .contact-info {
+        font-size: 0.9rem;
     }
 }
 
@@ -941,7 +983,7 @@ input:focus {
 @media print {
     .sponsorship-section,
     .contact-section,
-    .sponsor-form {
+    #sponsor-form {
         background-color: white;
         color: black;
     }
