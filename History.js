@@ -1,520 +1,298 @@
-:root {
-    --primary: #57150B;
-    --secondary: #FFCC00;
-    --background: #000000;
-    --text: #ffffff;
-    --accent: #FF4500;
-    --card-bg: #1A1A1A;
+const rockets = {
+    2024: [
+        {
+            name: "Rowan rocket 1",
+            specs: [
+                { name: "HEIGHT", value: "22.25 m", imperial: "73 ft" },
+                { name: "DIAMETER", value: "1.68 m", imperial: "5.5 ft" },
+                { name: "MASS", value: "30,000 kg", imperial: "66,000 lb" },
+                { name: "PAYLOAD TO LEO", value: "670 kg", imperial: "1,480 lb" },
+            ],
+            description: "Rowan Rocketry's first orbital launch vehicle.",
+            parts: [
+                { name: "Nose Cone", description: "Aerodynamic tip of the rocket that reduces air resistance.", weight: "50 kg", height: "2 m", diameter: "0.5 m" },
+                { name: "Payload Fairing", description: "Protects the payload during launch and ascent.", weight: "200 kg", height: "4 m", diameter: "1.68 m" },
+                { name: "Propellant Tanks", description: "Store the rocket's fuel and oxidizer.", weight: "2000 kg", height: "10 m", diameter: "1.68 m" },
+                { name: "Engines", description: "Provide thrust to propel the rocket.", weight: "1000 kg", height: "3 m", diameter: "1.5 m" },
+                { name: "Fins", description: "Stabilize the rocket during flight.", weight: "100 kg", height: "1.5 m", diameter: "0.3 m" }
+            ]
+        }
+    ],
+    2025: [
+        {
+            name: "Rowan Rocket 2",
+            specs: [
+                { name: "HEIGHT", value: "30 m", imperial: "98.4 ft" },
+                { name: "DIAMETER", value: "2.5 m", imperial: "8.2 ft" },
+                { name: "MASS", value: "50,000 kg", imperial: "110,000 lb" },
+                { name: "PAYLOAD TO LEO", value: "2,000 kg", imperial: "4,400 lb" },
+            ],
+            description: "Rowan Rocket 2 is our most ambitious project, capable of reaching space.",
+            parts: [
+                { name: "Advanced Nose Cone", description: "Improved aerodynamics for higher speeds.", weight: "75 kg", height: "2.5 m", diameter: "0.8 m" },
+                { name: "Expanded Payload Bay", description: "Larger capacity for various mission types.", weight: "300 kg", height: "5 m", diameter: "2.5 m" },
+                { name: "Cryogenic Propellant Tanks", description: "Store super-cooled propellants for increased efficiency.", weight: "3000 kg", height: "15 m", diameter: "2.5 m" },
+                { name: "Multi-Stage Engines", description: "Provide optimal thrust at different altitudes.", weight: "1500 kg", height: "4 m", diameter: "2.2 m" },
+                { name: "Grid Fins", description: "Improve steering during descent for potential reusability.", weight: "150 kg", height: "2 m", diameter: "0.5 m" }
+            ]
+        }
+    ]
+};
+
+let currentYear = "2024";
+let currentIndex = 0;
+let scene, camera, renderer, rocket, controls;
+
+function init() {
+    setupYearButtons();
+    setupCarousel();
+    initThree();
+    updateContent();
+    setupScrollToTop();
+    setupMobileMenu();
+    animateStats();
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+function setupYearButtons() {
+    const yearButtonsContainer = document.getElementById('year-buttons');
+    Object.keys(rockets).forEach(year => {
+        const button = document.createElement('button');
+        button.textContent = year;
+        button.classList.add('year-button');
+        if (year === currentYear) {
+            button.classList.add('active');
+        }
+        button.addEventListener('click', () => {
+            currentYear = year;
+            currentIndex = 0;
+            updateContent();
+            document.querySelectorAll('.year-button').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+        yearButtonsContainer.appendChild(button);
+    });
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--background);
-    color: var(--text);
-    line-height: 1.6;
+function setupCarousel() {
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    prevButton.addEventListener('click', () => changeIndex(-1));
+    nextButton.addEventListener('click', () => changeIndex(1));
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
+function changeIndex(direction) {
+    const totalItems = 1 + rockets[currentYear][0].parts.length;
+    currentIndex = (currentIndex + direction + totalItems) % totalItems;
+    updateContent();
 }
 
-header {
-    background: linear-gradient(to bottom, var(--primary), transparent);
-    padding: 1rem 0;
-    position: relative;
-    width: 100%;
-    z-index: 1000;
+function initThree() {
+    const canvas = document.getElementById('rocket-canvas');
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    camera.position.z = 5;
+
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    renderer.setClearColor(0x000000, 0);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(5, 5, 5);
+    scene.add(directionalLight);
+
+    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.25;
+    controls.screenSpacePanning = false;
+    controls.maxPolarAngle = Math.PI / 2;
+    controls.enableZoom = false;
+    controls.enablePan = false;
+
+    loadRocket();
+    animate();
+
+    window.addEventListener('resize', onWindowResize, false);
 }
 
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+function onWindowResize() {
+    const canvas = document.getElementById('rocket-canvas');
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 }
-
-.logo img  {
-    width: 6rem;
-    height: auto;
-}
-
-.nav-list {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-}
-
-.nav-list a {
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.nav-list a:hover {
-    color: var(--secondary);
-}
-
-.mobile-menu-toggle {
-    display: none;
-}
-
-.rocket-showcase {
-    padding: 4rem 0;
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    margin-bottom: 4rem;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    color: var(--secondary);
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.year-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.year-button {
-    background-color: var(--primary);
-    border: none;
-    color: var(--text);
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.year-button:hover,
-.year-button.active {
-    background-color: var(--accent);
-    transform: translateY(-2px);
-}
-
-.showcase-content {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.model-card,
-.info-card {
-    flex: 1;
-    background-color: var(--background);
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#rocket-canvas {
-    width: 100%;
-    height: 400px;
-    border-radius: 8px;
-}
-
-.info-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.info-card h2 {
-    font-size: 2rem;
-    color: var(--secondary);
-    margin-bottom: 1rem;
-}
-
-.info-card p {
-    margin-bottom: 1rem;
-}
-
-.info-card .spec-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-}
-
-.info-card .spec-label {
-    font-weight: 600;
-    color: var(--secondary);
-}
-
-.carousel-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-
-.nav-button {
-    background-color: var(--primary);
-    border: none;
-    color: var(--text);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-button:hover {
-    background-color: var(--accent);
-    transform: scale(1.1);
-}
-
-.nav-button svg {
-    width: 24px;
-    height: 24px;
-}
-
-#carousel-dots {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.carousel-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: var(--primary);
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.carousel-dot.active {
-    background-color: var(--secondary);
-    transform: scale(1.2);
-}
-
-@media screen and (max-width: 768px) {
-    .showcase-content {
-        flex-direction: column;
+function loadRocket() {
+    if (rocket) {
+        scene.remove(rocket);
     }
 
-    .model-card,
-    .info-card {
-        width: 100%;
+    let geometry;
+    switch (currentIndex) {
+        case 0: // Full rocket
+            geometry = new THREE.CylinderGeometry(0.5, 0.5, 4, 32);
+            break;
+        case 1: // Nose Cone
+            geometry = new THREE.ConeGeometry(0.5, 1, 32);
+            break;
+        case 2: // Payload Fairing
+            geometry = new THREE.CylinderGeometry(0.5, 0.5, 1, 32);
+            break;
+        case 3: // Propellant Tanks
+            geometry = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
+            break;
+        case 4: // Engines
+            geometry = new THREE.Group();
+            const engineBase = new THREE.CylinderGeometry(0.3, 0.5, 1, 32);
+            const engineNozzle = new THREE.ConeGeometry(0.3, 0.5, 32);
+            engineNozzle.translate(0, -0.75, 0);
+            geometry.add(new THREE.Mesh(engineBase, new THREE.MeshPhongMaterial({ color: 0xcccccc })));
+            geometry.add(new THREE.Mesh(engineNozzle, new THREE.MeshPhongMaterial({ color: 0xcccccc })));
+            break;
+        case 5: // Fins
+            geometry = new THREE.BoxGeometry(0.1, 1, 0.5);
+            break;
+        default:
+            geometry = new THREE.SphereGeometry(0.5, 32, 32);
     }
 
-    #rocket-canvas {
-        height: 300px;
+    const material = new THREE.MeshPhongMaterial({ color: 0xcccccc });
+    rocket = new THREE.Mesh(geometry, material);
+    
+    // Center the rocket geometry
+    if (geometry.center) {
+        geometry.center();
     }
-}
-.carousel-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+    
+    // Position the rocket at the center of the scene
+    rocket.position.set(0, 0, 0);
+    scene.add(rocket);
 }
 
-.carousel-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+function animate() {
+    requestAnimationFrame(animate);
+    if (rocket) {
+        rocket.rotation.y += 0.01; // Add continuous rotation
+    }
+    controls.update();
+    renderer.render(scene, camera);
 }
 
-.carousel-dot.active {
-    background-color: var(--secondary);
-}
+function updateContent() {
+    const infoCard = document.getElementById('info-card');
+    const currentRocket = rockets[currentYear][0];
+    let content = '';
 
-.nav-button {
-    background-color: var(--primary);
-    border: none;
-    color: var(--text);
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.nav-button:hover {
-    background-color: var(--accent);
-}
-
-.section-title {
-    font-size: 2rem;
-    color: var(--secondary);
-    margin-bottom: 1.5rem;
-}
-
-.stats-section {
-    background-color: var(--card-bg);
-    padding: 4rem 2rem;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.stat-card {
-    background-color: var(--background);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.stat-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    background-color: var(--primary);
-    border-radius: 50%;
-    margin-bottom: 1rem;
-}
-
-.stat-icon svg {
-    width: 30px;
-    height: 30px;
-    color: var(--secondary);
-}
-
-.stat-content {
-    text-align: center;
-}
-
-.stat-label {
-    font-size: 1rem;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-}
-
-.stat-value {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--secondary);
-    margin: 0;
-}
-
-.timeline {
-    position: relative;
-    padding-left: 2rem;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: var(--secondary);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 2rem;
-}
-
-.timeline-point {
-    position: absolute;
-    left: -2.5rem;
-    width: 2rem;
-    height: 2rem;
-    background-color: var(--secondary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.timeline-content {
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    padding: 1rem;
-}
-
-.timeline-time {
-    font-weight: bold;
-    color: var(--secondary);
-}
-
-.timeline-title {
-    margin: 0.5rem 0;
-}
-
-footer {
-    background: linear-gradient(to top, var(--primary), var(--background));
-    padding: 3rem 0 2rem;
-    margin-top: 3rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-}
-
-.footer-section h3 {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    color: var(--secondary);
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-section a {
-    color: var(--text);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section a:hover {
-    color: var(--secondary);
-}
-
-.social-icons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.social-icons a {
-    display: inline-flex;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.social-icons a:hover {
-    background-color: var(--secondary);
-    color: var(--primary);
-    transform: translateY(-2px);
-}
-
-.social-icons svg {
-    width: 20px;
-    height: 20px;
-}
-
-.copyright {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.scroll-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--secondary);
-    color: var(--primary);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-}
-
-.scroll-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.scroll-top:hover {
-    transform: translateY(-5px);
-}
-
-@media screen and (max-width: 768px) {
-    .nav-list {
-        display: none;
+    if (currentIndex === 0) {
+        content = `
+            <h2>${currentRocket.name}</h2>
+            <p>${currentRocket.description}</p>
+            <div class="specs">
+                ${currentRocket.specs.map(spec => `
+                    <div class="spec-item">
+                        <span class="spec-label">${spec.name}</span>
+                        <span>${spec.value} / ${spec.imperial}</span>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    } else {
+        const part = currentRocket.parts[currentIndex - 1];
+        content = `
+            <h2>${part.name}</h2>
+            <p>${part.description}</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <span class="spec-label">Weight</span>
+                    <span>${part.weight}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Height</span>
+                    <span>${part.height}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Diameter</span>
+                    <span>${part.diameter}</span>
+                </div>
+            </div>
+        `;
     }
 
-    .nav-list.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--primary);
-        padding: 1rem;
-    }
+    infoCard.innerHTML = content;
+    updateCarouselDots();
+    loadRocket();
+}
 
-    .mobile-menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
+function updateCarouselDots() {
+    const dotsContainer = document.getElementById('carousel-dots');
+    const totalItems = 1 + rockets[currentYear][0].parts.length;
+    dotsContainer.innerHTML = '';
 
-    .mobile-menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--text);
-        margin: 5px 0;
-    }
-
-    .content-wrapper {
-        flex-direction: column;
-    }
-
-    .model-card, .info-card {
-        width: 100%;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
+    for (let i = 0; i < totalItems; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('carousel-dot');
+        dot.setAttribute('aria-label', `Go to item ${i + 1}`);
+        if (i === currentIndex) {
+            dot.classList.add('active');
+            dot.setAttribute('aria-current', 'true');
+        }
+        dot.addEventListener('click', () => {
+            currentIndex = i;
+            updateContent();
+        });
+        dotsContainer.appendChild(dot);
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+function setupScrollToTop() {
+    const scrollTopButton = document.querySelector('.scroll-top');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+            scrollTopButton.classList.add('visible');
+        } else {
+            scrollTopButton.classList.remove('visible');
+        }
+    });
+
+    scrollTopButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 }
+
+function setupMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    mobileMenuToggle.addEventListener('click', () => {
+        navList.classList.toggle('active');
+    });
+}
+
+function animateStats() {
+    const stats = [
+        { id: 'years-value', value: 10 },
+        { id: 'events-value', value: 50 },
+        { id: 'persons-value', value: 100 },
+        { id: 'awards-value', value: 25 }
+    ];
+
+    stats.forEach(stat => {
+        const element = document.getElementById(stat.id);
+        if (element) {
+            let current = 0;
+            const increment = stat.value / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = Math.round(current);
+                if (current >= stat.value) {
+                    element.textContent = stat.value;
+                    clearInterval(timer);
+                }
+            }, 20);
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', init);
