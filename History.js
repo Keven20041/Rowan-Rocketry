@@ -51,6 +51,7 @@ function init() {
     setupScrollToTop();
     setupMobileMenu();
     animateStats();
+   
 }
 
 function setupYearButtons() {
@@ -154,7 +155,7 @@ function loadRocket() {
         default:
             modelUrl = '/assets/3d/full_rocket.glb';
     }
-
+    
     loader.load(modelUrl, function(gltf) {
         rocket = gltf.scene;
         scene.add(rocket);
