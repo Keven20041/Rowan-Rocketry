@@ -2,7 +2,7 @@ const path = require('path')
 const express = require("express")
 const app = express()
 
-const formRouter = require("./routers/form")
+const formRouter = require("./routers/forms")
 
 // Sets up folder to serve static files, allows urls to omit the html and htm extension
 app.use(express.static('public', {extensions: ['html', 'htm']}))
@@ -12,7 +12,7 @@ app.use(express.static('public', {extensions: ['html', 'htm']}))
 //     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 // })
 
-app.use("/form", formRouter)
+app.use("/forms", formRouter)
 
 app.get("/test.express", (req, res) => {
     console.log("Visit");
