@@ -1,8 +1,8 @@
 const express = require("express")
 const app = express()
 
-// Sets up folder to serve static files
-app.use(express.static('public'));
+// Sets up folder to serve static files, allows urls to omit the html and htm extension
+app.use(express.static('public', {extensions: ['html', 'htm']}));
 
 // Obscures index.html as root
 app.get('/', (req, res) => {
