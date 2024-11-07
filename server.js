@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require("express")
 const app = express()
 
@@ -5,9 +6,9 @@ const app = express()
 app.use(express.static('public', {extensions: ['html', 'htm']}))
 
 // Obscures index.html as root
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-})
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public', 'index.html'))
+// })
 
 app.get("/test.express", (req, res) => {
     console.log("Visit");
@@ -15,12 +16,12 @@ app.get("/test.express", (req, res) => {
 })
 
 app.use((req, res, next) => {
-    res.status(404).send("404 Page not found")
+    res.status(404).sendFile(path.join(__dirname, '404.html'))
 })
 
 app.use((err, req, res, next) => {
     console.log("Error!")
-    next() // add error handling page here
+    next(err) // add error handling page here
 })
 
 app.listen(3000)
