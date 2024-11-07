@@ -178,13 +178,21 @@ header {
 /* About Section */
 .about-section {
     padding: 4rem 1rem;
+    background:linear-gradient(to top, var(--text), var(--background));
 }
 
 .section-title {
     font-size: 2.5rem;
     color: var(--accent-color);
     margin-bottom: 2rem;
+    animation: glow 1s infinite alternate;
 }
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px var(--secondary), 0 0 10px var(--secondary); }
+    to { text-shadow: 0 0 10px var(--secondary), 0 0 20px var(--primary), 0 0 30px var(--primary); }
+}
+
 
 .content {
     margin-bottom: 2rem;
@@ -193,6 +201,7 @@ header {
 .content p {
     margin-bottom: 1rem;
     font-size: 1.125rem;
+    color:#ffffff;
 }
 
 .team-photo {
@@ -219,6 +228,7 @@ header {
 /* Sub-systems Section */
 .sub-systems {
     padding: 4rem 1rem;
+    background-color: black;
 }
 
 .system-grid {
@@ -239,6 +249,7 @@ header {
 
 .system-content {
     text-align: center;
+    color:#ffffff;
 }
 
 .system-content h3 {
@@ -267,6 +278,7 @@ header {
 /* Executive Board Section */
 .executive-board {
     padding: 4rem 1rem;
+    background-color: var(--text);
 }
 
 .board-title {
@@ -325,6 +337,7 @@ header {
 .profile-card p {
     margin: 0;
     font-size: 1rem;
+    color: var(--background);
 }
 
 .leads-title {
@@ -343,11 +356,13 @@ header {
     gap: 2rem;
     max-width: 900px;
     margin: 0 auto;
+    color:#ffffff;
 }
 
 /* Sponsor Section */
 .sponsor-section {
     padding: 2rem 1rem;
+    background-color: #000000;
 }
 
 .sponsor-content {
@@ -359,6 +374,7 @@ header {
     margin-bottom: 1rem;
     max-width: 1200px;
     text-align: center;
+    color:#ffffff;
 }
 
 .benefits-container {
@@ -367,6 +383,7 @@ header {
     gap: 1.5rem;
     margin-top: 2rem;
     align-items: center;
+    color:#ffffff;
 }
 
 .benefit-section h3 {
@@ -393,6 +410,7 @@ header {
 .past-rocket {
     padding: 2rem 1rem;
     position: relative;
+    background-color: var(--text);
 }
 
 .rocket-content {
@@ -400,6 +418,7 @@ header {
     flex-direction: column;
     gap: 2rem;
     align-items: center;
+    color:#ffffff;
 }
 
 .rocket-diagram {
@@ -438,6 +457,7 @@ header {
 .sponsorship-section {
     padding: 2rem 1rem;
     position: relative;
+    background-color: var(--text);
 }
 
 .tiers-container {
@@ -465,6 +485,7 @@ header {
 
 .tier-content {
     padding: 1rem;
+    color:var(--background)
 }
 
 .tier-content ul {
@@ -557,7 +578,7 @@ header {
 }
 #sponsor-form {
     padding: 4rem 1rem;
-    background-color: var(--background);
+    background-color: var(--text);
 }
 
 .forms-container {
@@ -607,7 +628,7 @@ label {
     font-size: 0.9rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: var(--text);
+    color: var(--background);
 }
 
 input[type="text"],
@@ -664,11 +685,11 @@ textarea:focus {
 .instruction-text {
     font-weight: bold;
     margin-bottom: 1rem;
-    color: var(--primary);
+    color: var(--background);
 }
 
 .mail-heading {
-    color: var(--accent-color);
+    color: var(--background);
     font-weight: bold;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
@@ -678,10 +699,11 @@ textarea:focus {
     font-style: normal;
     line-height: 1.6;
     margin-bottom: 1rem;
+    color:#ffffff;
 }
 
 .contact-info {
-    color: var(--primary);
+    color: var(--background);
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -718,8 +740,7 @@ textarea:focus {
 
 /* Footer (Unchanged) */
 .site-footer {
-    
-    background-color: #57150B;
+    background:linear-gradient(to top, var(--primary), var(--text));
     color: #ffffff;
     padding: 4rem 2rem 2rem;
 }
