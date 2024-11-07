@@ -12,6 +12,8 @@ app.use((req, res, next) => {
 
 // Sets up folder to serve static files, allows urls to omit the html and htm extension
 app.use(express.static('public', {extensions: ['html', 'htm']}))
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
 
 // Obscures index.html as root
 // app.get('/', (req, res) => {
@@ -39,4 +41,6 @@ app.use((err, req, res, next) => {
     next(err) // add error handling page here
 })
 
-app.listen(3000)
+app.listen(3000, () => {
+    console.log("Server running on port 3000")
+})
