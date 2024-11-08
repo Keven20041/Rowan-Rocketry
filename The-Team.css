@@ -79,10 +79,12 @@ header.scrolled {
 
 .nav-list li::after {
     content: none;
+    
 }
 
 .nav-list li:last-child::after {
     content: none;
+    
 }
 
 .nav-list a, nav a {
@@ -90,6 +92,7 @@ header.scrolled {
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
+    position: relative;
 }
 
 .nav-list a:hover, nav a:hover {
@@ -486,6 +489,7 @@ footer {
     
     .nav-list.active {
         display: flex;
+        background: linear-gradient(to bottom, transparent, var(--primary));
     }
     
     .mobile-menu-toggle {
