@@ -647,7 +647,7 @@ footer {
     .team-card1.fade-in-up,
     .team-members h1.fade-in-up,
     .team-members h2.fade-in-up {
-        animation: none;
+        animation: fadeInUp 0.5s ease forwards;
         opacity: 1;
     }
 
