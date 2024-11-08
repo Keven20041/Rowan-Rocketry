@@ -12,11 +12,7 @@ router.post("/submit", (req, res) => {
 
     // TODO: Reorganize code
     if (req.body.type == "SponsorInfo") {
-        var query = `INSERT INTO SponsorInfos()
-           VALUES (
-                'Placeholder',
-                'Test
-           )`
+        var query = `INSERT INTO SponsorInfos() VALUES ('Placeholder', 'Test)`
         database.query(query, (err, result) => {
             if (err) {
                 console.error("Error executing query: " + err.stack)
@@ -26,11 +22,7 @@ router.post("/submit", (req, res) => {
             res.status(201).send("OK")
         })
     } else if (req.body.type == "SponsorDonation") {
-        var query = `INSERT INTO SponsorDonations()
-           VALUES (
-                'Placeholder',
-                'Test
-           )`
+        var query = `INSERT INTO SponsorDonations() VALUES ('Placeholder', 'Test)`
         database.query(query, (err, result) => {
             if (err) {
                 console.error("Error executing query: " + err.stack)
@@ -40,10 +32,7 @@ router.post("/submit", (req, res) => {
             res.status(201).send("OK")
         })
     } else if (req.body.type == "Email") {
-        var query = `INSERT INTO Emails(email)
-           VALUES (
-                ` + req.body.input.email + `
-           )`
+        var query = `INSERT INTO Emails(email) VALUES (` + req.body.input.email + `)`
         database.query(query, (err, result) => {
             if (err) {
                 console.error("Error executing query: " + err.stack)
