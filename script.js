@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             scrollTopBtn.classList.remove('visible');
         }
-
+    
         // Header background change on scroll
         if (window.pageYOffset > 50) {
             header.classList.add('scrolled');
@@ -54,6 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             ticking = true;
         }
+    });
+
+    // Scroll to top functionality
+    scrollTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 
     // Smooth scroll for anchor links
