@@ -1,4 +1,3 @@
-
 :root {
     --primary: #57150B;
     --secondary: #FFCC00;
@@ -506,7 +505,6 @@ footer {
 
 .scroll-top.visible {
     opacity: 1;
-    
     visibility: visible;
 }
 

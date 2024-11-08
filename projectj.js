@@ -5,14 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.prepend(canvas);
     const ctx = canvas.getContext('2d');
 
-    // Set the z-index of the canvas
     canvas.style.zIndex = '-1';
     canvas.style.position = 'fixed';
     canvas.style.top = '0';
     canvas.style.left = '0';
 
     let width, height, stars;
-    const FPS = 60;
     const STAR_COUNT = 100;
 
     function init() {
@@ -70,17 +68,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     init();
 
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(init, 200);
-    });
+    // Debounce function for better performance
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Throttle function for better performance
+    function throttle(func, limit) {
+        let inThrottle;
+        return function(...args) {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    }
+
+    // Debounced resize event listener
+    window.addEventListener('resize', debounce(() => {
+        init();
+    }, 200));
 
     // Header scroll effect
     const header = document.querySelector('header');
     const scrollThreshold = 100;
 
-    // Ensure the header is above the star field
     header.style.position = 'relative';
     header.style.zIndex = '1';
 
@@ -91,27 +112,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navList = document.querySelector('.nav-list');
 
-    // Scroll event listener
-    window.addEventListener('scroll', () => {
-        // Header scroll effect
+    function handleMenuToggle(e) {
+        e.preventDefault();
+        navList.classList.toggle('active');
+        mobileMenuToggle.setAttribute('aria-expanded', navList.classList.contains('active'));
+    }
+
+    mobileMenuToggle.addEventListener('click', handleMenuToggle);
+    mobileMenuToggle.addEventListener('touchend', handleMenuToggle);
+
+    // Prevent default touch behavior on the toggle button
+    mobileMenuToggle.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+    });
+
+    // Close mobile menu when clicking or touching outside
+    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('touchend', handleOutsideClick);
+
+    function handleOutsideClick(e) {
+        if (!header.contains(e.target) && navList.classList.contains('active')) {
+            navList.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        }
+    }
+
+
+    // Throttled scroll event listener
+    window.addEventListener('scroll', throttle(() => {
         if (window.scrollY > scrollThreshold) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
 
-        // Scroll to top button visibility
         if (window.pageYOffset > 300) {
             scrollTopButton.classList.add('visible');
         } else {
             scrollTopButton.classList.remove('visible');
         }
-    });
+    }, 100));
 
-    // Mobile menu toggle
-    mobileMenuToggle.addEventListener('click', () => {
-        navList.classList.toggle('active');
-    });
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -122,6 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 target.scrollIntoView({
                     behavior: 'smooth'
                 });
+                // Close mobile menu after clicking a link
+                navList.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
         });
     });
@@ -155,8 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         prevButton.addEventListener('click', goToPrev);
         nextButton.addEventListener('click', goToNext);
 
-        // Auto-advance the slider every 5 seconds
-        setInterval(goToNext, 5000);
+        let autoAdvanceInterval = setInterval(goToNext, 5000);
 
         // Touch events for mobile swipe
         let touchStartX = 0;
@@ -164,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         slider.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
+            clearInterval(autoAdvanceInterval);
         }, { passive: true });
 
         slider.addEventListener('touchend', (e) => {
@@ -173,7 +217,17 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (touchEndX - touchStartX > 50) {
                 goToPrev();
             }
+            autoAdvanceInterval = setInterval(goToNext, 5000);
         }, { passive: true });
+
+        // Pause auto-advance on hover for desktop
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(autoAdvanceInterval);
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            autoAdvanceInterval = setInterval(goToNext, 5000);
+        });
     });
 
     // Scroll to top button click event
@@ -187,13 +241,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
     dropdowns.forEach((dropdown) => {
         const dropdownContent = dropdown.querySelector('.dropdown-content');
+        const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
         
-        dropdown.addEventListener('mouseenter', () => {
-            dropdownContent.classList.add('visible');
+        dropdownToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdownContent.classList.toggle('visible');
+            dropdownToggle.setAttribute('aria-expanded', dropdownContent.classList.contains('visible'));
         });
 
-        dropdown.addEventListener('mouseleave', () => {
-            dropdownContent.classList.remove('visible');
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdownContent.classList.remove('visible');
+                dropdownToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Support keyboard navigation
+        dropdown.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                dropdownContent.classList.remove('visible');
+                dropdownToggle.setAttribute('aria-expanded', 'false');
+                dropdownToggle.focus();
+            }
         });
     });
+
+    // Additional mobile-specific functionality
+    if ('ontouchstart' in window) {
+        // Disable hover effects on touch devices
+        document.body.classList.add('touch-device');
+
+        // Add touch-friendly dropdown behavior
+        dropdowns.forEach((dropdown) => {
+            const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+            dropdownToggle.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                dropdowns.forEach((d) => {
+                    if (d !== dropdown) {
+                        d.querySelector('.dropdown-content').classList.remove('visible');
+                        d.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+                    }
+                });
+                dropdown.querySelector('.dropdown-content').classList.toggle('visible');
+                dropdownToggle.setAttribute('aria-expanded', dropdown.querySelector('.dropdown-content').classList.contains('visible'));
+            });
+        });
+    }
+
+    console.log('All scripts initialized successfully.');
+
+    const style = document.createElement('style');
+    style.textContent = `
+        .mobile-menu-toggle {
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1000;
+        }
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+        }
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none;
+            }
+            .nav-list.active {
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.9);
+                padding: 20px;
+            }
+        }
+    `;
+    document.head.appendChild(style);
 });

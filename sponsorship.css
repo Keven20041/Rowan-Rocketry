@@ -587,7 +587,7 @@ section {
 
 /* Sponsor Form Section */
 #sponsor-form {
-    background: var(--gradient-dark);
+    background: var(--background);
     color: var(--contact-text-color);
 }
 
@@ -674,7 +674,7 @@ textarea:focus {
 .mailing-info {
     margin-top: 4rem;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--background);
     padding: 2rem;
     border-radius: 12px;
 }
@@ -863,15 +863,37 @@ footer {
         display: block;
     }
 
-    .nav-list.active {
-        display: flex;
-        flex-direction: column;
+    .nav-list {
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
-        right: 0;
+        width: 100%;
         background-color: var(--primary);
         padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    /* Hide separators on mobile */
+    .nav-list li[style*="color: #FFCC00"] {
+        display: none;
     }
 
     .sponsorship-hero h1 {
