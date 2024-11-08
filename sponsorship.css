@@ -97,7 +97,7 @@ header {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: var(--secondary);
     margin: 5px 0;
     transition: 0.3s;
 }

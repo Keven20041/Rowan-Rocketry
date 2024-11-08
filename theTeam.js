@@ -70,11 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     init();
 
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(init, 200);
-    });
+    // Debounce function for better performance
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Debounced resize event listener
+    window.addEventListener('resize', debounce(() => {
+        init();
+    }, 200));
 
     // Header scroll effect
     const header = document.querySelector('header');
@@ -91,8 +103,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navList = document.querySelector('.nav-list');
 
-    // Scroll event listener
-    window.addEventListener('scroll', () => {
+    // Throttle function for better performance
+    function throttle(func, limit) {
+        let inThrottle;
+        return function(...args) {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    }
+
+    // Throttled scroll event listener
+    window.addEventListener('scroll', throttle(() => {
         // Header scroll effect
         if (window.scrollY > scrollThreshold) {
             header.classList.add('scrolled');
@@ -106,11 +130,20 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             scrollTopButton.classList.remove('visible');
         }
-    });
+    }, 100));
 
     // Mobile menu toggle
     mobileMenuToggle.addEventListener('click', () => {
         navList.classList.toggle('active');
+        mobileMenuToggle.setAttribute('aria-expanded', navList.classList.contains('active'));
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!header.contains(e.target) && navList.classList.contains('active')) {
+            navList.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        }
     });
 
     // Smooth scrolling for anchor links
@@ -122,6 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 target.scrollIntoView({
                     behavior: 'smooth'
                 });
+                // Close mobile menu after clicking a link
+                navList.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
         });
     });
@@ -156,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nextButton.addEventListener('click', goToNext);
 
         // Auto-advance the slider every 5 seconds
-        setInterval(goToNext, 5000);
+        let autoAdvanceInterval = setInterval(goToNext, 5000);
 
         // Touch events for mobile swipe
         let touchStartX = 0;
@@ -164,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         slider.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
+            clearInterval(autoAdvanceInterval); // Pause auto-advance on touch
         }, { passive: true });
 
         slider.addEventListener('touchend', (e) => {
@@ -173,7 +210,17 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (touchEndX - touchStartX > 50) {
                 goToPrev();
             }
+            autoAdvanceInterval = setInterval(goToNext, 5000); // Resume auto-advance
         }, { passive: true });
+
+        // Pause auto-advance on hover for desktop
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(autoAdvanceInterval);
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            autoAdvanceInterval = setInterval(goToNext, 5000);
+        });
     });
 
     // Scroll to top button click event
@@ -187,16 +234,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     dropdowns.forEach((dropdown) => {
         const dropdownContent = dropdown.querySelector('.dropdown-content');
+        const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
         
-        dropdown.addEventListener('mouseenter', () => {
-            dropdownContent.classList.add('visible');
+        dropdownToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdownContent.classList.toggle('visible');
+            dropdownToggle.setAttribute('aria-expanded', dropdownContent.classList.contains('visible'));
         });
 
-        dropdown.addEventListener('mouseleave', () => {
-            dropdownContent.classList.remove('visible');
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdownContent.classList.remove('visible');
+                dropdownToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Support keyboard navigation
+        dropdown.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                dropdownContent.classList.remove('visible');
+                dropdownToggle.setAttribute('aria-expanded', 'false');
+                dropdownToggle.focus();
+            }
         });
     });
 });
+
+// Intersection Observer for fade-in animations
 document.addEventListener('DOMContentLoaded', (event) => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -212,3 +277,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
         observer.observe(el);
     });
 });
+
+console.log("JavaScript code for mobile compatibility has been updated.");
