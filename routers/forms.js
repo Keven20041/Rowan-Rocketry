@@ -10,8 +10,14 @@ router.get("/get", (req, res) => {
 router.post("/submit", (req, res) => {
     console.log("Form Submit")
 
-    if (req.body.type == "information") {
-        database.query("", (err, result) => {
+    // TODO: Reorganize code
+    if (req.body.type == "SponsorInfo") {
+        var query = `INSERT INTO SponsorInfos()
+           VALUES (
+                'Placeholder',
+                'Test
+           )`
+        database.query(query, (err, result) => {
             if (err) {
                 console.error("Error executing query: " + err.stack)
                 res.status(500).send({"status": false, "error": "Error sending data"})
@@ -19,8 +25,13 @@ router.post("/submit", (req, res) => {
             }
             res.status(201).send("OK")
         })
-    } else if (req.body.type == "donation") {
-        database.query("", (err, result) => {
+    } else if (req.body.type == "SponsorDonation") {
+        var query = `INSERT INTO SponsorDonations()
+           VALUES (
+                'Placeholder',
+                'Test
+           )`
+        database.query(query, (err, result) => {
             if (err) {
                 console.error("Error executing query: " + err.stack)
                 res.status(500).send({"status": false, "error": "Error sending data"})
@@ -28,8 +39,12 @@ router.post("/submit", (req, res) => {
             }
             res.status(201).send("OK")
         })
-    } else if (req.body.type == "email") {
-        database.query("", (err, result) => {
+    } else if (req.body.type == "Email") {
+        var query = `INSERT INTO Emails(email)
+           VALUES (
+                ` + req.body.input.email + `
+           )`
+        database.query(query, (err, result) => {
             if (err) {
                 console.error("Error executing query: " + err.stack)
                 res.status(500).send({"status": false, "error": "Error sending data"})
