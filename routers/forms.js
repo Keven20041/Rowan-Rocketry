@@ -17,7 +17,7 @@ router.post("/submit", (req, res) => {
                 res.status(500).send({"status": false, "error": "Error sending data"})
                 return
             }
-            res.status(201).json({"status": true})
+            res.status(201).send("OK")
         })
     } else if (req.body.type == "donation") {
         database.query("", (err, result) => {
@@ -26,7 +26,16 @@ router.post("/submit", (req, res) => {
                 res.status(500).send({"status": false, "error": "Error sending data"})
                 return
             }
-            res.status(201).json({"status": true})
+            res.status(201).send("OK")
+        })
+    } else if (req.body.type == "email") {
+        database.query("", (err, result) => {
+            if (err) {
+                console.error("Error executing query: " + err.stack)
+                res.status(500).send({"status": false, "error": "Error sending data"})
+                return
+            }
+            res.status(201).send("OK")
         })
     } else {
         res.status(400).send("Bad Request")
