@@ -17,12 +17,25 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
+// Pass query and originalUrl to use in EJS
+app.use((req, res, next) => {
+    res.locals.query = req.query
+    res.locals.url = req.originalUrl
+    next()
+})
+
 // Set up dynamic page for index
 function index(req, res) {
     res.render(__dirname + "/public/index.ejs", {formsuccess: req.query.success})
 }
 app.get("/", index)
+app.get("/index", index)
 app.get("/index.html", index)
+
+app.get("*.ejs", (req, res) => {
+    console.log("Blocked access to ejs file " + req.url + " from ip address" + req.socket.remoteAddress)
+    res.status(404).sendFile(path.join(__dirname, '404.html'))
+})
 
 // Sets up folder to serve static files, allows urls to omit the html and htm extension
 app.use(express.static('public', {extensions: ['html', 'htm']}))
