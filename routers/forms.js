@@ -27,7 +27,7 @@ router.post("/submit/:type", (req, res) => {
                 res.redirect("/sponsorship.html/?type=info&success=true#sponsor-form")
                 return
             }
-            res.status(201).send("OK")
+            res.redirect("/sponsorship.html/?type=info&success=true#sponsor-form")
         })
     } else if (req.params.type == "sponsordonation") {
         console.log("Form Submit SponsorDonation")
