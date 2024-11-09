@@ -34,10 +34,10 @@ router.post("/submit/:type", (req, res) => {
         var query = `INSERT INTO SponsorDonations() VALUES (` +
         + database.escape(req.body["org-name"]) + `,`
         + database.escape(req.body["contact-name"]) + `,`
-        + database.escape(req.body.address) + `,`
         + database.escape(req.body.phone) + `,`
         + database.escape(req.body.email) + `,`
-        + database.escape(req.body.contribution) + `)`
+        + database.escape(req.body.contribution) + `,`
+        + database.escape(req.body.message) + `)`
         console.log("SQL Query: " + query)
         database.query(query, (err, result) => {
             if (err) {
