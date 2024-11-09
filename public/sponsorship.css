@@ -603,6 +603,30 @@ header {
     flex: 1;
 }
 
+.form-response {
+    display: flex;
+    align-items: center;
+}
+
+.form-response p {
+    display: flex;
+    justify-content: center;
+    width: 700px;
+    margin: auto;
+    padding: 5px;
+    border: 3px solid #57150B;
+    border-radius: 5px 5px 5px 5px;
+    color:white;
+}
+
+#form-success {
+    background-color: green;
+}
+
+#form-failed {
+    background-color: #830303;
+}
+
 label {
     font-size: 0.9rem;
     font-weight: bold;

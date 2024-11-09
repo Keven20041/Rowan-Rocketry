@@ -391,7 +391,13 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div><% if (locals.formsuccess === "true") { %>
+            <div class="form-response">
+                <p id="form-success">Thank you for filling out our form! We will get back to you as soon as we can.</p>
+            </div><% } else if (locals.formsuccess === "false") { %>
+            <div class="form-response">
+                <p id="form-failed">An error occurred! Sorry about that! Please try again later or email us directly.</p>
+            </div><% } %>
             <div class="mailing-info">
                 <p class="instruction-text">
                     PLEASE MAKE CHECKS PAYABLE TO THE "ROWAN UNIVERSITY" AND SPECIFY IN THE MEMO "FOR AMA ROWAN ROCKETRY".

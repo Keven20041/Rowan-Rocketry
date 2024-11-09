@@ -32,7 +32,13 @@ app.get("/", index)
 app.get("/index", index)
 app.get("/index.html", index)
 
-app.get("*.ejs", (req, res) => {
+function sponsorship(req, res) {
+    res.render(__dirname + "/public/sponsorship.ejs", {formsuccess: req.query.success, formtype: req.query.type})
+}
+app.get("/sponsorship", sponsorship)
+app.get("/sponsorship.html", sponsorship)
+
+app.use("*.ejs", (req, res) => {
     console.log("Blocked access to ejs file " + req.url + " from ip address" + req.socket.remoteAddress)
     res.status(404).sendFile(path.join(__dirname, '404.html'))
 })
