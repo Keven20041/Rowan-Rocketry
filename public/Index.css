@@ -477,6 +477,22 @@ nav a:hover {
     color: var(--secondary);
 }
 
+.newsletter-response {
+    display: flex;
+    align-items: center;
+}
+
+.newsletter-response p {
+    display: flex;
+    background-color: green;
+    justify-content: center;
+    width: 600px;
+    margin: auto;
+    padding: 5px;
+    border: 3px solid #57150B;
+    border-radius: 5px 5px 5px 5px;
+}
+
 footer {
     background-color: var(--primary);
     color: white;

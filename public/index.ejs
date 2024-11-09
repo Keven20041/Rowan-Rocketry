@@ -92,6 +92,13 @@
             <div class="container">
                 <h2>Stay Updated</h2>
                 <p>Subscribe to our newsletter for the latest news and events</p>
+                <br><% if (locals.formsuccess === true) { %>
+                <div class="newsletter-response form-success`">
+                    <p>Your email was successfully added to our newsletter!</p>
+                </div><% } else if (locals.formsuccess === false) { %>
+                <div class="newsletter-response form-failed">
+                    <p>An error occurred while attempting to add your email to our newsletter! Try again later.</p>
+                </div><% } %>
                 <form class="newsletter-form" action="/forms/submit/email" method="post">
                     <input type="email" name="email" placeholder="Enter your email" required>
                     <button type="submit">Subscribe</button>
