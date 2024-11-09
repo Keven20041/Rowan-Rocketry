@@ -10,32 +10,47 @@ router.get("/get", (req, res) => {
 
 router.post("/submit/:type", (req, res) => {
     // TODO: Reorganize code
+    // TODO: Validate input
     if (req.params.type == "sponsorinfo") {
         console.log("Form Submit SponsorInfo")
-        var query = `INSERT INTO SponsorInfos() VALUES ('Placeholder', 'Test)`
+        var query = `INSERT INTO SponsorInfos() VALUES (` +
+        + database.escape(req.body["org-name"]) + `,`
+        + database.escape(req.body["contact-name"]) + `,`
+        + database.escape(req.body.address) + `,`
+        + database.escape(req.body.phone) + `,`
+        + database.escape(req.body.email) + `,`
+        + database.escape(req.body.contribution) + `)`
+        console.log("SQL Query: " + query)
         database.query(query, (err, result) => {
             if (err) {
                 console.error("Error executing query: " + err.stack)
-                res.status(500).send({"status": false, "error": "Error sending data"})
+                res.redirect("/sponsorship.html/?type=info&success=true#sponsor-form")
                 return
             }
             res.status(201).send("OK")
         })
     } else if (req.params.type == "sponsordonation") {
         console.log("Form Submit SponsorDonation")
-        var query = `INSERT INTO SponsorDonations() VALUES ('Placeholder', 'Test)`
+        var query = `INSERT INTO SponsorDonations() VALUES (` +
+        + database.escape(req.body["org-name"]) + `,`
+        + database.escape(req.body["contact-name"]) + `,`
+        + database.escape(req.body.address) + `,`
+        + database.escape(req.body.phone) + `,`
+        + database.escape(req.body.email) + `,`
+        + database.escape(req.body.contribution) + `)`
+        console.log("SQL Query: " + query)
         database.query(query, (err, result) => {
             if (err) {
                 console.error("Error executing query: " + err.stack)
-                res.status(500).send({"status": false, "error": "Error sending data"})
+                res.redirect("/sponsorship.html/?type=donation&success=false#sponsor-form")
                 return
             }
-            res.status(201).send("OK")
+            res.redirect("/sponsorship.html/?type=donation&success=true#sponsor-form")
         })
     } else if (req.params.type == "email") {
         console.log("Form Submit Email")
         var query = `INSERT INTO Emails(email) VALUES (` + database.escape(req.body.email) + `)`
-        console.log(query)
+        console.log("SQL Query: " + query)
         database.query(query, (err, result) => {
             // TODO: Add a case for duplicate emails
             if (err) {
@@ -45,7 +60,6 @@ router.post("/submit/:type", (req, res) => {
             }
             res.redirect("/?success=true#newsletter")
         })
-        console.log("Email: " + req.body.email)
     } else {
         console.log("Form Submit Bad Request type: " + req.params.type)
         res.status(400).send("Bad Request")
