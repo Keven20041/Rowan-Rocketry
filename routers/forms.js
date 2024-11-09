@@ -13,7 +13,9 @@ router.post("/submit/:type", (req, res) => {
     // TODO: Validate input
     if (req.params.type == "sponsorinfo") {
         console.log("Form Submit SponsorInfo")
-        var query = `INSERT INTO SponsorInfos() VALUES (` +
+        console.log("req.body:")
+        console.log(req.body)
+        var query = `INSERT INTO SponsorInfos(orgname, contactname, addresslocation, phone, email, contribution) VALUES (`
         + database.escape(req.body["org-name"]) + `,`
         + database.escape(req.body["contact-name"]) + `,`
         + database.escape(req.body.address) + `,`
@@ -24,14 +26,16 @@ router.post("/submit/:type", (req, res) => {
         database.query(query, (err, result) => {
             if (err) {
                 console.error("Error executing query: " + err.stack)
-                res.redirect("/sponsorship.html/?type=info&success=true#sponsor-form")
+                res.redirect("/sponsorship.html?type=info&success=false#sponsor-form")
                 return
             }
-            res.redirect("/sponsorship.html/?type=info&success=true#sponsor-form")
+            res.redirect("/sponsorship.html?type=info&success=true#sponsor-form")
         })
     } else if (req.params.type == "sponsordonation") {
         console.log("Form Submit SponsorDonation")
-        var query = `INSERT INTO SponsorDonations() VALUES (` +
+        console.log("req.body:")
+        console.log(req.body)
+        var query = `INSERT INTO SponsorDonations(orgname, contactname, phone, email, contribution, messagetext) VALUES (`
         + database.escape(req.body["org-name"]) + `,`
         + database.escape(req.body["contact-name"]) + `,`
         + database.escape(req.body.phone) + `,`
@@ -42,10 +46,10 @@ router.post("/submit/:type", (req, res) => {
         database.query(query, (err, result) => {
             if (err) {
                 console.error("Error executing query: " + err.stack)
-                res.redirect("/sponsorship.html/?type=donation&success=false#sponsor-form")
+                res.redirect("/sponsorship.html?type=donation&success=false#sponsor-form")
                 return
             }
-            res.redirect("/sponsorship.html/?type=donation&success=true#sponsor-form")
+            res.redirect("/sponsorship.html?type=donation&success=true#sponsor-form")
         })
     } else if (req.params.type == "email") {
         console.log("Form Submit Email")
