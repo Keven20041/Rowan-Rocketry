@@ -4,11 +4,21 @@ const app = express()
 
 const formRouter = require("./routers/forms")
 
+// Set view engine as ejs for rendering dynamic webpages
+app.set("view engine", "ejs")
+
 // Site visits logger
 app.use((req, res, next) => {
     console.log("Visit on " + req.originalUrl + " from ip address " + req.socket.remoteAddress)
     next()
 })
+
+// Set up dynamic page for index
+function index(req, res) {
+    res.render(__dirname + "/public/index.ejs")
+}
+app.get("/", index)
+app.get("/index.html", index)
 
 // Sets up folder to serve static files, allows urls to omit the html and htm extension
 app.use(express.static('public', {extensions: ['html', 'htm']}))
