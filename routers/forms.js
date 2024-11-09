@@ -44,7 +44,8 @@ router.post("/submit/:type", (req, res) => {
         //     res.render(__dirname + "/public/index.ejs", {formsuccess: true})
         // })
         console.log("Email: " + req.body.email)
-        res.render(__dirname + "/../public/index.ejs", {formsuccess: true})
+        res.redirect("/?success=true#newsletter")
+        // res.render(__dirname + "/../public/index.ejs", {formsuccess: true})
     } else {
         console.log("Form Submit Bad Request type: " + req.params.type)
         res.status(400).send("Bad Request")

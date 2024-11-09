@@ -13,17 +13,20 @@ app.use((req, res, next) => {
     next()
 })
 
+// Allows usage of encoded urls and json
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+
 // Set up dynamic page for index
 function index(req, res) {
-    res.render(__dirname + "/public/index.ejs")
+    console.log(req.query.success)
+    res.render(__dirname + "/public/index.ejs", {formsuccess: req.query.success})
 }
 app.get("/", index)
 app.get("/index.html", index)
 
 // Sets up folder to serve static files, allows urls to omit the html and htm extension
 app.use(express.static('public', {extensions: ['html', 'htm']}))
-app.use(express.urlencoded({extended: true}))
-app.use(express.json())
 
 // Obscures index.html as root
 // app.get('/', (req, res) => {
