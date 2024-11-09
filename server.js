@@ -19,7 +19,6 @@ app.use(express.json())
 
 // Set up dynamic page for index
 function index(req, res) {
-    console.log(req.query.success)
     res.render(__dirname + "/public/index.ejs", {formsuccess: req.query.success})
 }
 app.get("/", index)

@@ -34,18 +34,18 @@ router.post("/submit/:type", (req, res) => {
         })
     } else if (req.params.type == "email") {
         console.log("Form Submit Email")
-        // var query = `INSERT INTO Emails(email) VALUES (` + req.body.email + `)`
-        // database.query(query, (err, result) => {
-        //     if (err) {
-        //         console.error("Error executing query: " + err.stack)
-        //         res.render(__dirname + "/public/index.ejs", {formsuccess: false})
-        //         return
-        //     }
-        //     res.render(__dirname + "/public/index.ejs", {formsuccess: true})
-        // })
+        var query = `INSERT INTO Emails(email) VALUES (` + database.escape(req.body.email) + `)`
+        console.log(query)
+        database.query(query, (err, result) => {
+            // TODO: Add a case for duplicate emails
+            if (err) {
+                console.error("Error executing query: " + err.stack)
+                res.redirect("/?success=false#newsletter")
+                return
+            }
+            res.redirect("/?success=true#newsletter")
+        })
         console.log("Email: " + req.body.email)
-        res.redirect("/?success=true#newsletter")
-        // res.render(__dirname + "/../public/index.ejs", {formsuccess: true})
     } else {
         console.log("Form Submit Bad Request type: " + req.params.type)
         res.status(400).send("Bad Request")
