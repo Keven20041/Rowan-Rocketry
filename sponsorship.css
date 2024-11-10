@@ -25,11 +25,13 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     line-height: 1.6;
     color: var(--text);
     background-color: var(--background);
     text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -42,16 +44,16 @@ body {
 /* Header and Navigation */
 header {
     background: var(--primary);
-    color: var(--text);
     padding: 1rem 0;
-    position: relative;
+    position: sticky;
+    top: 0;
     width: 100%;
     z-index: 1000;
     transition: background-color 0.3s ease;
 }
 
 header.scrolled {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color:var(--primary);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
@@ -62,6 +64,7 @@ header.scrolled {
     align-items: center;
     flex-wrap: wrap;
 }
+
 .logo {
     display: flex;
     align-items: center;
@@ -129,6 +132,7 @@ header.scrolled {
 .sponsorship-hero {
     position: relative;
     height: 90vh;
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,7 +164,7 @@ header.scrolled {
 }
 
 .sponsorship-hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: bold;
     margin-bottom: 1rem;
     animation: fadeInUp 0.3s ease-out;
@@ -168,7 +172,7 @@ header.scrolled {
 }
 
 .sponsorship-hero p {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     margin-bottom: 2rem;
     animation: fadeInUp 0.8s ease-out 0.3s both;
 }
@@ -242,7 +246,7 @@ section {
 
 .content p {
     margin-bottom: 1.5rem;
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.8;
     max-width: 800px;
     margin-left: auto;
@@ -304,7 +308,7 @@ section {
 }
 
 .system-content h3 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     color: var(--accent-color);
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -337,7 +341,7 @@ section {
 }
 
 .board-title {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 4vw, 3.5rem);
     margin-bottom: 3rem;
     position: relative;
     text-transform: uppercase;
@@ -412,7 +416,7 @@ section {
     color: var(--text);
     padding: 0.75rem 2rem;
     margin: 3rem auto 2rem;
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
     text-transform: uppercase;
     letter-spacing: 2px;
     border-radius: 30px;
@@ -442,7 +446,7 @@ section {
 }
 
 .intro-text {
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
     margin-bottom: 2rem;
     text-align: center;
     max-width: 800px;
@@ -475,7 +479,7 @@ section {
 
 .benefit-section h3 {
     color: var(--secondary);
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -536,7 +540,7 @@ section {
 }
 
 .history-text {
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.8;
     max-width: 800px;
     margin: 0 auto;
@@ -585,7 +589,7 @@ section {
 .tier-header {
     background-color: var(--accent-color);
     color: var(--text);
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
     padding: 1rem;
     margin: 0;
     font-weight: bold;
@@ -649,7 +653,7 @@ section {
 }
 
 .form-title {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: bold;
     margin-bottom: 2rem;
     color: var(--contact-accent-color);
@@ -729,7 +733,7 @@ textarea:focus {
 .instruction-text {
     font-weight: bold;
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2vw, 1.1rem);
     color: var(--contact-accent-color);
 }
 
@@ -769,7 +773,7 @@ footer {
 }
 
 .footer-section h3 {
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
     margin-bottom: 1rem;
     text-align: center;
 }
@@ -886,15 +890,15 @@ footer {
 
 @media (max-width: 968px) {
     .section-title {
-        font-size: 2.25rem;
+        font-size: clamp(2rem, 4vw, 2.25rem);
     }
 
     .system-content h3 {
-        font-size: 1.75rem;
+        font-size: clamp(1.5rem, 3vw, 1.75rem);
     }
 
     .board-title {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 5vw, 3rem);
     }
 
     .leads-grid {
@@ -945,11 +949,11 @@ footer {
     }
 
     .sponsorship-hero h1 {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 5vw, 2.5rem);
     }
 
     .sponsorship-hero p {
-        font-size: 1.125rem;
+        font-size: clamp(1rem, 2.5vw, 1.125rem);
     }
 
     .hero-buttons {
@@ -958,7 +962,7 @@ footer {
     }
 
     .system-content h3 {
-        font-size: 1.5rem;
+        font-size: clamp(1.25rem, 3vw, 1.5rem);
     }
 
     .footer-content {
@@ -973,25 +977,25 @@ footer {
 
 @media (max-width: 480px) {
     .section-title {
-        font-size: 2rem;
+        font-size: clamp(1.75rem, 4vw, 2rem);
     }
 
     .system-content h3 {
-        font-size: 1.25rem;
+        font-size: clamp(1.1rem, 3vw, 1.25rem);
     }
 
     .board-title {
-        font-size: 2.25rem;
+        font-size: clamp(2rem, 5vw, 2.25rem);
     }
 
     .profile-card img,
     .profile-card.large img {
-        width: 180px;
-        height: 180px;
+        width: 150px;
+        height: 150px;
     }
 
     .form-title {
-        font-size: 1.5rem;
+        font-size: clamp(1.25rem, 3vw, 1.5rem);
     }
 
     label, 
@@ -999,7 +1003,7 @@ footer {
     .instruction-text,
     .mail-heading,
     .contact-info {
-        font-size: 0.9rem;
+        font-size: clamp(0.9rem, 2vw, 1rem);
     }
 }
 
@@ -1075,7 +1079,7 @@ textarea:focus {
 }
 
 .section-title {
-    font-size: 2.75rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
     color: var(--secondary);
     margin-bottom: 3rem;
     text-align: center;
@@ -1107,4 +1111,48 @@ textarea:focus {
 .card-style:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Cross-browser compatibility */
+@supports (-webkit-overflow-scrolling: touch) {
+    /* iOS-specific styles */
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@supports not (-webkit-overflow-scrolling: touch) {
+    /* Non-iOS styles */
+    body {
+        overflow-y: auto;
+    }
+}
+
+/* Fallback for browsers that don't support CSS variables */
+@supports not (--foo: green) {
+    body {
+        background-color: #000000;
+        color: #ffffff;
+    }
+    .btn-primary {
+        background-color: #FFCC00;
+        color: #57150B;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+    .btn,
+    .profile-card,
+    .tier {
+        border: 2px solid currentColor;
+    }
 }
