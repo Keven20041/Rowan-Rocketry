@@ -483,14 +483,14 @@ footer {
     color: var(--secondary);
 }
 
-.social-icons {
+#social-icons {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
     justify-content: center;
 }
 
-.social-icons a {
+#social-icons a {
     display: inline-flex;
     width: 40px;
     height: 40px;
@@ -501,13 +501,13 @@ footer {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.social-icons a:hover {
+#social-icons a:hover {
     background-color: var(--text);
     color: var(--primary);
     transform: translateY(-2px);
 }
 
-.social-icons svg {
+#social-icons svg {
     width: 20px;
     height: 20px;
 }
@@ -712,10 +712,10 @@ footer {
 }
 
 @supports not (display: flex) {
-    .header-content, .nav-list, .content-wrapper, .social-icons {
+    .header-content, .nav-list, .content-wrapper, #social-icons {
         display: block;
     }
-    .social-icons a {
+    #social-icons a {
         display: inline-block;
         margin-right: 1rem;
     }
