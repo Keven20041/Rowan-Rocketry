@@ -206,6 +206,7 @@ section {
 .about-section {
     background: var(--gradient-primary);
     color: white;
+    padding: 3rem 0;
 }
 
 .about-section .section-transition {
@@ -241,6 +242,7 @@ section {
 .sub-systems {
     background: var(--gradient-dark);
     color: white;
+    padding: 3rem 0;
 }
 
 .sub-systems .section-transition {
@@ -294,6 +296,7 @@ section {
 .executive-board {
     background: var(--gradient-primary);
     color: white;
+    padding: 3rem 0;
 }
 
 .executive-board .section-transition {
@@ -398,6 +401,7 @@ section {
 .sponsor-section {
     background: var(--gradient-primary);
     color: white;
+    padding: 3rem 0;
 }
 
 .sponsor-section .section-transition {
@@ -469,6 +473,7 @@ section {
 .past-rocket {
     background: var(--gradient-dark);
     color: white;
+    padding: 3rem 0;
 }
 
 .past-rocket .section-transition {
@@ -514,6 +519,7 @@ section {
 .sponsorship-section {
     background: var(--gradient-primary);
     color: white;
+    padding: 3rem 0;
 }
 
 .sponsorship-section .section-transition {
@@ -589,6 +595,7 @@ section {
 #sponsor-form {
     background: var(--background);
     color: var(--contact-text-color);
+    padding: 3rem 0;
 }
 
 .forms-container {
