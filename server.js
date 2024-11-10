@@ -9,9 +9,7 @@ app.set("view engine", "ejs")
 
 // Site visits logger
 app.use((req, res, next) => {
-    console.log("['x-real-ip']: " + req.headers["x-real-ip"])
-    console.log("['x-forwarded-for']: " + req.headers["x-forwarded-for"])
-    console.log("Visit on " + req.originalUrl + " from ip address " + req.socket.remoteAddress)
+    console.log("Visit on " + req.originalUrl + " from ip address " + req.headers["x-forwarded-for"])
     next()
 })
 
@@ -41,9 +39,7 @@ app.get("/sponsorship", sponsorship)
 app.get("/sponsorship.html", sponsorship)
 
 app.use("*.ejs", (req, res) => {
-    console.log("['x-real-ip']: " + req.headers["x-real-ip"])
-    console.log("['x-forwarded-for']: " + req.headers["x-forwarded-for"])
-    console.log("Blocked access to ejs file " + req.url + " from ip address" + req.socket.remoteAddress)
+    console.log("Blocked access to ejs file " + req.url + " from ip address" + req.headers["x-forwarded-for"])
     res.status(404).sendFile(path.join(__dirname, '404.html'))
 })
 
@@ -66,9 +62,7 @@ app.get("/test.express", (req, res) => {
 
 // When file not found
 app.use((req, res, next) => {
-    console.log("['x-real-ip']: " + req.headers["x-real-ip"])
-    console.log("['x-forwarded-for']: " + req.headers["x-forwarded-for"])
-    console.log("404 on " + req.url + " from ip address " + req.socket.remoteAddress)
+    console.log("404 on " + req.url + " from ip address " + req.headers["x-forwarded-for"])
     res.status(404).sendFile(path.join(__dirname, '404.html'))
 })
 
