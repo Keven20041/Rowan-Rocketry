@@ -79,12 +79,10 @@ header.scrolled {
 
 .nav-list li::after {
     content: none;
-    
 }
 
 .nav-list li:last-child::after {
     content: none;
-    
 }
 
 .nav-list a, nav a {
@@ -207,7 +205,7 @@ header.scrolled {
     justify-content: center;
     gap: 2rem;
     max-width: 1200px;
-    margin-top: 2rem;
+    margin: 2rem auto 0;
 }
 
 .team-card, .team-card1 {
@@ -217,9 +215,6 @@ header.scrolled {
     perspective: 1000px;
     height: 350px;
     margin-bottom: 2rem;
-}
-
-.team-card, .team-card1 {
     opacity: 0;
 }
 
@@ -285,8 +280,9 @@ header.scrolled {
     padding: 1.5rem;
 }
 
-.team-card.back1, a {
-    color: #FFCC00;
+.team-card-back1 a,
+.team-card-back a {
+    color: var(--secondary);
 }
 
 .image-container, .image-container1 {
@@ -427,6 +423,7 @@ footer {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
 .mobile-menu-toggle {
     display: none;
     background: none;
@@ -442,6 +439,7 @@ footer {
     margin: 5px 0;
     transition: 0.3s;
 }
+
 .scroll-top.visible {
     opacity: 1;
     visibility: visible;
@@ -452,6 +450,8 @@ footer {
     .team-grid,
     .team-grid1 {
         max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .team-card, .team-card1 {
@@ -470,6 +470,7 @@ footer {
 @media (max-width: 768px) {
     .team-section {
         flex-direction: column;
+        align-items: center;
     }
     
     .team-card, .team-card1 {
@@ -485,6 +486,9 @@ footer {
         width: 100%;
         background-color: var(--primary);
         padding: 1rem;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     
     .nav-list.active {
@@ -494,34 +498,11 @@ footer {
     
     .mobile-menu-toggle {
         display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
+        margin: 0 auto;
     }
     
     .mobile-menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--secondary);
-        margin: 5px 0;
-    }
-    .nav-list {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--primary);
-        padding: 1rem;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-list.active {
-        display: flex;
+        margin: 5px auto;
     }
 
     .nav-list li {
@@ -534,7 +515,6 @@ footer {
         padding: 0.5rem 0;
     }
 
-    /* Hide separators on mobile */
     .nav-list li[style*="color: #FFCC00"] {
         display: none;
     }
@@ -543,6 +523,7 @@ footer {
     .team-members h2 {
         font-size: 2.5rem;
         padding: 1rem;
+        text-align: center;
     }
     
     .team-members h1::before,
@@ -572,6 +553,7 @@ footer {
     .team-members h1,
     .team-members h2 {
         font-size: 2rem;
+        text-align: center;
     }
     
     .team-members h1::before,
@@ -589,11 +571,15 @@ footer {
 
     .team-card, .team-card1 {
         height: 300px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .image-container, .image-container1 {
         width: 150px;
         height: 150px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .team-card1 .image-container1 {
@@ -622,7 +608,6 @@ footer {
     }
 }
 
-/* Improve touch interactions for mobile devices */
 @media (hover: none) {
     .team-card:active .team-card-inner,
     .team-card1:active .team-card-inner1 {
@@ -634,14 +619,12 @@ footer {
     }
 }
 
-/* Ensure smooth scrolling on iOS devices */
 @supports (-webkit-overflow-scrolling: touch) {
     html, body {
         -webkit-overflow-scrolling: touch;
     }
 }
 
-/* Improve performance for animations on lower-end devices */
 @media (prefers-reduced-motion: reduce) {
     .team-card.fade-in-up,
     .team-card1.fade-in-up,
