@@ -53,6 +53,7 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo {
@@ -73,6 +74,17 @@ header.scrolled {
     display: flex;
     gap: 1rem;
     list-style: none;
+    flex-wrap: wrap;
+}
+
+.nav-list li::after {
+    content: none;
+    
+}
+
+.nav-list li:last-child::after {
+    content: none;
+    
 }
 
 .nav-list a, nav a {
@@ -80,6 +92,7 @@ header.scrolled {
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
+    position: relative;
 }
 
 .nav-list a:hover, nav a:hover {
@@ -93,10 +106,12 @@ header.scrolled {
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .team-content {
     flex: 1;
+    min-width: 300px;
 }
 
 .team-content h1 {
@@ -107,8 +122,9 @@ header.scrolled {
 
 .team-image-container {
     flex: 1;
- 
+    min-width: 300px;
 }
+
 .team-image {
     width: 100%;
     height: auto;
@@ -138,6 +154,7 @@ header.scrolled {
     box-shadow: 0 0 30px rgba(87, 21, 11, 0.3);
     animation: headerPulse 3s ease-in-out infinite;
 }
+
 @keyframes headerPulse {
     0% { text-shadow: 0 0 10px rgba(255, 204, 0, 0.3); }
     50% { text-shadow: 0 0 20px rgba(255, 204, 0, 0.5); }
@@ -167,7 +184,6 @@ header.scrolled {
     right: 25%;
 }
 
-
 .team-members h1,
 .team-members h2 {
     text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
@@ -183,54 +199,6 @@ header.scrolled {
         transparent 100%
     );
     border-bottom: 3px solid var(--secondary);
-}
-
-@media (max-width: 768px) {
-    .team-members h1,
-    .team-members h2 {
-        font-size: 2.5rem;
-        padding: 1rem;
-    }
-    
-    .team-members h1::before,
-    .team-members h1::after,
-    .team-members h2::before,
-    .team-members h2::after {
-        width: 30px;
-    }
-    
-    .team-members h1::before,
-    .team-members h2::before {
-        left: 10%;
-    }
-    
-    .team-members h1::after,
-    .team-members h2::after {
-        right: 10%;
-    }
-}
-
-@media (max-width: 480px) {
-    .team-members h1,
-    .team-members h2 {
-        font-size: 2rem;
-    }
-    
-    .team-members h1::before,
-    .team-members h1::after,
-    .team-members h2::before,
-    .team-members h2::after {
-        display: none;
-    }
-}
-
-@keyframes headerGlow {
-    from {
-        text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
-    }
-    to {
-        text-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
-    }
 }
 
 .team-grid, .team-grid1 {
@@ -250,6 +218,7 @@ header.scrolled {
     height: 350px;
     margin-bottom: 2rem;
 }
+
 .team-card, .team-card1 {
     opacity: 0;
 }
@@ -257,6 +226,7 @@ header.scrolled {
 .team-card.fade-in-up, .team-card1.fade-in-up {
     animation: fadeInUp 0.5s ease forwards;
 }
+
 .team-members h1, 
 .team-members h2 {
     opacity: 0;
@@ -266,6 +236,7 @@ header.scrolled {
 .team-members h2.fade-in-up {
     animation: fadeInUp 0.5s ease forwards;
 }
+
 .team-card-inner, .team-card-inner1 {
     position: relative;
     width: 100%;
@@ -284,8 +255,8 @@ header.scrolled {
 .team-card-front, .team-card-back,
 .team-card-front1, .team-card-back1 {
     position: absolute;
-    width: 275px;
-    height: 350px;
+    width: 100%;
+    height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 10px;
@@ -350,27 +321,6 @@ header.scrolled {
     font-weight: bold;
 }
 
-
-@media (max-width: 1200px) {
-    .team-card, .team-card1 {
-        flex: 0 0 calc(33.33% - 1.33rem);
-        max-width: calc(33.33% - 1.33rem);
-    }
-}
-
-@media (max-width: 992px) {
-    .team-card, .team-card1 {
-        flex: 0 0 calc(50% - 1rem);
-        max-width: calc(50% - 1rem);
-    }
-}
-
-@media (max-width: 576px) {
-    .team-card, .team-card1 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-}
 .linkedin-link {
     margin-top: 1rem;
     display: inline-block;
@@ -477,17 +427,43 @@ footer {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--secondary);
+    margin: 5px 0;
+    transition: 0.3s;
+}
 .scroll-top.visible {
     opacity: 1;
     visibility: visible;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .container,
     .team-grid,
     .team-grid1 {
         max-width: 90%;
+    }
+
+    .team-card, .team-card1 {
+        flex: 0 0 calc(33.33% - 1.33rem);
+        max-width: calc(33.33% - 1.33rem);
+    }
+}
+
+@media (max-width: 992px) {
+    .team-card, .team-card1 {
+        flex: 0 0 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
     }
 }
 
@@ -513,6 +489,7 @@ footer {
     
     .nav-list.active {
         display: flex;
+        background: linear-gradient(to bottom, transparent, var(--primary));
     }
     
     .mobile-menu-toggle {
@@ -526,14 +503,102 @@ footer {
         display: block;
         width: 25px;
         height: 3px;
-        background-color: white;
+        background-color: var(--secondary);
         margin: 5px 0;
+    }
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary);
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    /* Hide separators on mobile */
+    .nav-list li[style*="color: #FFCC00"] {
+        display: none;
+    }
+
+    .team-members h1,
+    .team-members h2 {
+        font-size: 2.5rem;
+        padding: 1rem;
+    }
+    
+    .team-members h1::before,
+    .team-members h1::after,
+    .team-members h2::before,
+    .team-members h2::after {
+        width: 30px;
+    }
+    
+    .team-members h1::before,
+    .team-members h2::before {
+        left: 10%;
+    }
+    
+    .team-members h1::after,
+    .team-members h2::after {
+        right: 10%;
+    }
+}
+
+@media (max-width: 576px) {
+    .team-card, .team-card1 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .team-members h1,
+    .team-members h2 {
+        font-size: 2rem;
+    }
+    
+    .team-members h1::before,
+    .team-members h1::after,
+    .team-members h2::before,
+    .team-members h2::after {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
     .team-card, .team-card1 {
-        width: 100%;
+        height: 300px;
+    }
+
+    .image-container, .image-container1 {
+        width: 150px;
+        height: 150px;
+    }
+
+    .team-card1 .image-container1 {
+        width: 180px;
+        height: 180px;
     }
 }
 
@@ -545,5 +610,49 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes headerGlow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+    }
+}
+
+/* Improve touch interactions for mobile devices */
+@media (hover: none) {
+    .team-card:active .team-card-inner,
+    .team-card1:active .team-card-inner1 {
+        transform: rotateY(180deg);
+    }
+
+    .social-icons a:active {
+        background-color: black;
+    }
+}
+
+/* Ensure smooth scrolling on iOS devices */
+@supports (-webkit-overflow-scrolling: touch) {
+    html, body {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Improve performance for animations on lower-end devices */
+@media (prefers-reduced-motion: reduce) {
+    .team-card.fade-in-up,
+    .team-card1.fade-in-up,
+    .team-members h1.fade-in-up,
+    .team-members h2.fade-in-up {
+        animation: fadeInUp 0.5s ease forwards;
+        opacity: 1;
+    }
+
+    .team-members h1,
+    .team-members h2 {
+        animation: none;
     }
 }

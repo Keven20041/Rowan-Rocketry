@@ -50,9 +50,11 @@ header {
     gap: 1rem;
     list-style: none;
 }
-
+.nav-list.active {
+    display: flex;
+}
 .nav-list a {
-    color: var(--text);
+    color: white;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
@@ -60,10 +62,13 @@ header {
 
 .nav-list a:hover {
     color: var(--secondary);
+    text-decoration: underline;
 }
 
 .mobile-menu-toggle {
     display: none;
+    background-color: var(--secondary);
+    
 }
 
 .rocket-showcase {
@@ -572,17 +577,36 @@ footer {
 @media screen and (max-width: 768px) {
     .nav-list {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background:linear-gradient(to bottom, var(--background), var(--primary));
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .nav-list.active {
         display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--primary);
-        padding: 1rem;
+        color:#FFCC00;
+    }
+
+    .nav-list li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    /* Hide separators on mobile */
+    .nav-list li[style*="color: #FFCC00"] {
+        display: none;
     }
 
     .mobile-menu-toggle {
@@ -596,7 +620,7 @@ footer {
         display: block;
         width: 25px;
         height: 3px;
-        background-color: var(--text);
+        background-color: var(--secondary);
         margin: 5px 0;
     }
 
