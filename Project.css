@@ -72,6 +72,14 @@ header.scrolled {
     margin-right: 0.5rem;
 }
 
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
 nav ul {
     display: flex;
     gap: 2rem;

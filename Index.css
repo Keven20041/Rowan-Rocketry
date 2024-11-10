@@ -113,6 +113,7 @@ header.scrolled {
     height: auto;
     margin-right: 0.5rem;
 }
+
 nav ul {
     display: flex;
     gap: 2rem;
