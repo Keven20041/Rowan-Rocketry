@@ -475,21 +475,33 @@ footer {
     .team-card, .team-card1 {
         width: calc(50% - 1rem);
     }
-    
     .nav-list {
         display: none;
-        flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--primary);
+        background:linear-gradient(to bottom, var(--background), var(--primary));
         padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    
+
     .nav-list.active {
         display: flex;
-        background: linear-gradient(to bottom, transparent, var(--primary));
+        color:#FFCC00;
+    }
+
+    .nav-list li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: 0.5rem 0;
     }
     
     .mobile-menu-toggle {

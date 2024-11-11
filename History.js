@@ -123,51 +123,61 @@ function onWindowResize() {
     camera.updateProjectionMatrix();
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 }
+
 function loadRocket() {
     if (rocket) {
         scene.remove(rocket);
     }
 
-    let geometry;
+    const loader = new THREE.GLTFLoader();
+    let modelPath;
+
     switch (currentIndex) {
-        case 0: // Full rocket
-            geometry = new THREE.CylinderGeometry(0.5, 0.5, 4, 32);
+        case 0:
+            modelPath = `rocket_assembly_v3.gltf`;
             break;
-        case 1: // Nose Cone
-            geometry = new THREE.ConeGeometry(0.5, 1, 32);
+        case 1:
+            modelPath = `/rockets/nose_cone.glb`;
             break;
-        case 2: // Payload Fairing
-            geometry = new THREE.CylinderGeometry(0.5, 0.5, 1, 32);
+        case 2:
+            modelPath = `/rockets/payload_fairing.glb`;
             break;
-        case 3: // Propellant Tanks
-            geometry = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
+        case 3:
+            modelPath = `/rockets/propellant_tanks.glb`;
             break;
-        case 4: // Engines
-            geometry = new THREE.Group();
-            const engineBase = new THREE.CylinderGeometry(0.3, 0.5, 1, 32);
-            const engineNozzle = new THREE.ConeGeometry(0.3, 0.5, 32);
-            engineNozzle.translate(0, -0.75, 0);
-            geometry.add(new THREE.Mesh(engineBase, new THREE.MeshPhongMaterial({ color: 0xcccccc })));
-            geometry.add(new THREE.Mesh(engineNozzle, new THREE.MeshPhongMaterial({ color: 0xcccccc })));
+        case 4:
+            modelPath = `/rockets/engines.glb`;
             break;
-        case 5: // Fins
-            geometry = new THREE.BoxGeometry(0.1, 1, 0.5);
+        case 5:
+            modelPath = `/rockets/fins.glb`;
             break;
         default:
-            geometry = new THREE.SphereGeometry(0.5, 32, 32);
+            console.error('Invalid rocket part index');
+            return;
     }
 
-    const material = new THREE.MeshPhongMaterial({ color: 0xcccccc });
-    rocket = new THREE.Mesh(geometry, material);
-    
-    // Center the rocket geometry
-    if (geometry.center) {
-        geometry.center();
-    }
-    
-    // Position the rocket at the center of the scene
-    rocket.position.set(0, 0, 0);
-    scene.add(rocket);
+    loader.load(
+        modelPath,
+        (gltf) => {
+            rocket = gltf.scene;
+            scene.add(rocket);
+
+            // Center and scale the model
+            const box = new THREE.Box3().setFromObject(rocket);
+            const center = box.getCenter(new THREE.Vector3());
+            const size = box.getSize(new THREE.Vector3());
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const scale = 2 / maxDim;
+            rocket.scale.setScalar(scale);
+            rocket.position.sub(center.multiplyScalar(scale));
+        },
+        (xhr) => {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+        },
+        (error) => {
+            console.error('An error happened', error);
+        }
+    );
 }
 
 function animate() {
