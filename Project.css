@@ -92,7 +92,9 @@ nav ul {
 }
 .nav-list.active {
     display: flex;
+    color:#FFCC00;
 }
+
 .nav-list a {
     color: white;
     text-decoration: none;
@@ -590,7 +592,7 @@ footer {
         padding: 1rem;
         flex-direction: column;nav ul {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             list-style: none;
         }
         .nav-list {
@@ -600,6 +602,7 @@ footer {
         }
         .nav-list.active {
             display: flex;
+            color: var(--secondary);
         }
         .nav-list a {
             color: white;
@@ -633,6 +636,7 @@ footer {
     .nav-list.active {
         display: block;
         background-color: #57150B;
+        color:var(--secondary);
     }
     
     .mobile-menu-toggle {
@@ -640,14 +644,14 @@ footer {
         background: none;
         border: none;
         cursor: pointer;
-        
+        color:var(--secondary);
     }
     
     .mobile-menu-toggle span {
         display: block;
         width: 25px;
         height: 3px;
-        background-color: var(--secondary);
+        color: var(--secondary);
         margin: 5px 0;
     }
 
