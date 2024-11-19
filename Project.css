@@ -553,6 +553,7 @@ footer {
     background: none;
     border: none;
     cursor: pointer;
+    color:var(--secondary);
 }
 
 .mobile-menu-toggle span {
@@ -594,11 +595,13 @@ footer {
             display: flex;
             gap: 1rem;
             list-style: none;
+            color:var(--secondary);
         }
         .nav-list {
             display: flex;
             gap: 1rem;
             list-style: none;
+            color:var(--secondary);
         }
         .nav-list.active {
             display: flex;
@@ -609,6 +612,7 @@ footer {
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
+            color:var(--secondary);
         }
         
         .nav-list a:hover {
@@ -633,20 +637,10 @@ footer {
         z-index: 1000;
     }
     
-    .nav-list.active {
-        display: block;
-        background-color: #57150B;
-        color:var(--secondary);
-    }
-    
     .mobile-menu-toggle {
         display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
         color:var(--secondary);
     }
-    
     .mobile-menu-toggle span {
         display: block;
         width: 25px;
@@ -654,7 +648,11 @@ footer {
         color: var(--secondary);
         margin: 5px 0;
     }
-
+    .nav-list.active {
+        display: block;
+        background-color: #57150B;
+        color:var(--secondary);
+    }
     .nav-list li {
         width: 100%;
         text-align: center;

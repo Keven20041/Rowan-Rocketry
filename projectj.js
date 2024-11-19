@@ -297,12 +297,13 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor: pointer;
             padding: 10px;
             z-index: 1000;
+            color: #FFCC00;
         }
         .mobile-menu-toggle span {
             display: block;
             width: 25px;
             height: 3px;
-            background-color: white;
+            background-color: #FFCC00;;
             margin: 5px 0;
         }
         @media (max-width: 768px) {
