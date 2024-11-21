@@ -176,12 +176,12 @@ header.scrolled {
 
 .team-members h1::before,
 .team-members h2::before {
-    left: 25%;
+    left: 10%;
 }
 
 .team-members h1::after,
 .team-members h2::after {
-    right: 25%;
+    right: 10%;
 }
 
 .team-members h1,
@@ -205,9 +205,10 @@ header.scrolled {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 2rem;
     max-width: 1200px;
-    margin-top: 2rem;
+    margin: 0 auto;
 }
 
 .team-card, .team-card1 {
@@ -474,6 +475,7 @@ footer {
     
     .team-card, .team-card1 {
         width: calc(50% - 1rem);
+        margin: 0 auto;
     }
     .nav-list {
         display: none;
@@ -561,7 +563,7 @@ footer {
     .team-members h1::after,
     .team-members h2::before,
     .team-members h2::after {
-        width: 30px;
+        width: 10px;
     }
     
     .team-members h1::before,
@@ -661,6 +663,7 @@ footer {
     .team-members h2.fade-in-up {
         animation: fadeInUp 0.5s ease forwards;
         opacity: 1;
+        
     }
 
     .team-members h1,

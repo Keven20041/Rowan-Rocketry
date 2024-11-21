@@ -209,15 +209,11 @@ nav a:hover {
     padding: 20px;
     max-width: 1000px;
 }
-
-#title h1 {
-    font-family: 'Orbitron', 'Poppins', sans-serif;
-    font-size: 3rem;
+#title {
+    font-size: 4rem;
     color: var(--secondary);
-    text-shadow: 5px 5px 10px var(--primary);
-    animation: glow 2s ease-in-out infinite alternate;
-    margin: 0;
-    padding: 0;
+    text-shadow: 0 0 5px var(--secondary);
+    animation: glow 1s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
