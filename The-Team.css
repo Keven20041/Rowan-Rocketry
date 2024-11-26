@@ -6,6 +6,7 @@
     --accent: #FF4500;
 }
 
+/* Global Styles */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -33,6 +34,7 @@ body {
     padding: 0 1rem;
 }
 
+/* Header Styles */
 header {
     background: linear-gradient(to bottom, var(--primary), transparent);
     color: var(--text);
@@ -53,7 +55,8 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 1rem;
 }
 
 .logo {
@@ -70,21 +73,22 @@ header.scrolled {
     margin-right: 0.5rem;
 }
 
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation Styles */
 .nav-list {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;  /* Increased gap between nav items */
     list-style: none;
-    flex-wrap: wrap;
+    margin-left: auto;  /* Push to the right */
+    align-items: center;
 }
 
-.nav-list li::after {
-    content: none;
-    
-}
-
-.nav-list li:last-child::after {
-    content: none;
-    
+.nav-list li {
+    margin: 0;
+    padding: 0;
 }
 
 .nav-list a, nav a {
@@ -93,6 +97,15 @@ header.scrolled {
     font-weight: 600;
     transition: color 0.3s ease;
     position: relative;
+    font-size: 0.9rem;
+}
+
+.nav-list li::after {
+    content: none;
+}
+
+.nav-list li:last-child::after {
+    content: none;
 }
 
 .nav-list a:hover, nav a:hover {
@@ -100,6 +113,7 @@ header.scrolled {
     text-decoration: underline;
 }
 
+/* Team Section Styles */
 .team-section {
     padding: 4rem 0;
     display: flex;
@@ -134,6 +148,7 @@ header.scrolled {
     outline: 3px solid var(--secondary);
 }
 
+/* Team Members Styles */
 .team-members h1, 
 .team-members h2 {
     text-align: center;
@@ -153,12 +168,6 @@ header.scrolled {
     letter-spacing: 4px;
     box-shadow: 0 0 30px rgba(87, 21, 11, 0.3);
     animation: headerPulse 3s ease-in-out infinite;
-}
-
-@keyframes headerPulse {
-    0% { text-shadow: 0 0 10px rgba(255, 204, 0, 0.3); }
-    50% { text-shadow: 0 0 20px rgba(255, 204, 0, 0.5); }
-    100% { text-shadow: 0 0 10px rgba(255, 204, 0, 0.3); }
 }
 
 .team-members h1::before,
@@ -218,9 +227,6 @@ header.scrolled {
     perspective: 1000px;
     height: 350px;
     margin-bottom: 2rem;
-}
-
-.team-card, .team-card1 {
     opacity: 0;
 }
 
@@ -286,7 +292,7 @@ header.scrolled {
     padding: 1.5rem;
 }
 
-.team-card.back1, a {
+.team-card-back1 a {
     color: #FFCC00;
 }
 
@@ -338,6 +344,7 @@ header.scrolled {
     color: var(--secondary);
 }
 
+/* Footer Styles */
 footer {
     background: linear-gradient(to top, var(--primary), transparent);
     color: white;
@@ -411,6 +418,7 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Scroll to Top Button */
 .scroll-top {
     position: fixed;
     bottom: 20px;
@@ -428,6 +436,13 @@ footer {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: none;
     background: none;
@@ -443,11 +458,8 @@ footer {
     margin: 5px 0;
     transition: 0.3s;
 }
-.scroll-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
 
+/* Media Queries */
 @media (max-width: 1200px) {
     .container,
     .team-grid,
@@ -477,23 +489,25 @@ footer {
         width: calc(50% - 1rem);
         margin: 0 auto;
     }
+
     .nav-list {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background:linear-gradient(to bottom, var(--background), var(--primary));
+        background: linear-gradient(to bottom, var(--background), var(--primary));
         padding: 1rem;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-left: 0;
     }
 
     .nav-list.active {
         display: flex;
-        color:#FFCC00;
+        color: #FFCC00;
     }
 
     .nav-list li {
@@ -508,49 +522,6 @@ footer {
     
     .mobile-menu-toggle {
         display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-    
-    .mobile-menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--secondary);
-        margin: 5px 0;
-    }
-    .nav-list {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--primary);
-        padding: 1rem;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-list.active {
-        display: flex;
-    }
-
-    .nav-list li {
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-list a {
-        display: block;
-        padding: 0.5rem 0;
-    }
-
-    /* Hide separators on mobile */
-    .nav-list li[style*="color: #FFCC00"] {
-        display: none;
     }
 
     .team-members h1,
@@ -616,6 +587,7 @@ footer {
     }
 }
 
+/* Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -636,7 +608,13 @@ footer {
     }
 }
 
-/* Improve touch interactions for mobile devices */
+@keyframes headerPulse {
+    0% { text-shadow: 0 0 10px rgba(255, 204, 0, 0.3); }
+    50% { text-shadow: 0 0 20px rgba(255, 204, 0, 0.5); }
+    100% { text-shadow: 0 0 10px rgba(255, 204, 0, 0.3); }
+}
+
+/* Touch Device Optimizations */
 @media (hover: none) {
     .team-card:active .team-card-inner,
     .team-card1:active .team-card-inner1 {
@@ -648,14 +626,14 @@ footer {
     }
 }
 
-/* Ensure smooth scrolling on iOS devices */
+/* iOS Smooth Scrolling */
 @supports (-webkit-overflow-scrolling: touch) {
     html, body {
         -webkit-overflow-scrolling: touch;
     }
 }
 
-/* Improve performance for animations on lower-end devices */
+/* Reduced Motion Preferences */
 @media (prefers-reduced-motion: reduce) {
     .team-card.fade-in-up,
     .team-card1.fade-in-up,
@@ -663,7 +641,6 @@ footer {
     .team-members h2.fade-in-up {
         animation: fadeInUp 0.5s ease forwards;
         opacity: 1;
-        
     }
 
     .team-members h1,
@@ -671,3 +648,4 @@ footer {
         animation: none;
     }
 }
+

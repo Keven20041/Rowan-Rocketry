@@ -64,6 +64,7 @@ header.scrolled {
     font-size: 1.5rem;
     font-weight: 700;
     gap: 10px;
+    margin-right: auto; 
 }
 
 .logo img {

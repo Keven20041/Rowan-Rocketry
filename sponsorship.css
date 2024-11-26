@@ -41,7 +41,6 @@ body {
     padding: 0 1rem;
 }
 
-/* Header and Navigation */
 header {
     background: var(--primary);
     padding: 1rem 0;
@@ -66,11 +65,10 @@ header.scrolled {
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    gap: 10px;
+        display: flex;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-left: auto; 
 }
 
 .logo img {
@@ -88,14 +86,6 @@ header.scrolled {
     gap: 1rem;
     list-style: none;
     flex-wrap: wrap;
-}
-
-.nav-list li::after {
-    content: none;
-}
-
-.nav-list li:last-child::after {
-    content: none;
 }
 
 .nav-list a, nav a {
