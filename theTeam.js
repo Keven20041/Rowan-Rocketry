@@ -92,10 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     const scrollThreshold = 100;
 
-    // Ensure the header is above the star field
-    header.style.position = 'relative';
-    header.style.zIndex = '1';
-
     // Scroll to top button
     const scrollTopButton = document.querySelector('.scroll-top');
 

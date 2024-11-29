@@ -34,6 +34,15 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+header {
+    background-color: #57150B;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
 .container {
     width: 100%;
     max-width: 1200px;
@@ -41,64 +50,91 @@ body {
     padding: 0 1rem;
 }
 
-header {
-    background: var(--primary);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-}
-
-header.scrolled {
-    background-color:var(--primary);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .logo {
-        display: flex;
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-left: auto; 
+    display: flex;
+    align-items: center;
 }
 
 .logo img {
     width: 6rem;
     height: auto;
-    margin-right: 0.5rem;
 }
 
-.logo img:hover {
-    transform: scale(1.05);
+nav {
+    margin-left: auto;
 }
 
-.nav-list {
+nav ul {
     display: flex;
-    gap: 1rem;
+    align-items: center;
     list-style: none;
-    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    gap: 1rem;
 }
 
-.nav-list a, nav a {
-    color: var(--text);
+nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: white;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
-    position: relative;
+    padding: 0 0.5rem;
 }
 
-.nav-list a:hover, nav a:hover {
-    color: var(--secondary);
-    text-decoration: underline;
+nav a:hover {
+    color: #FFCC00;
+}
+
+/* Yellow separators */
+nav ul li:not(:last-child) {
+    content: '|';
+    color: #FFCC00;
+}
+
+/* Mobile menu styles */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+    }
+
+    .nav-list.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #57150B;
+        padding: 1rem 0;
+    }
+
+    nav ul li::after {
+        display: none;
+    }
 }
 
 .mobile-menu-toggle {
