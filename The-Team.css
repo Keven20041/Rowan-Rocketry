@@ -87,11 +87,6 @@ header.scrolled {
     margin-left: 75%;  /* Push to the right */
 }
 
-.nav-list li {
-    margin: 0;
-    padding: 0;
-}
-
 .nav-list a, nav a {
     color: var(--text);
     text-decoration: none;
@@ -99,14 +94,6 @@ header.scrolled {
     transition: color 0.3s ease;
     position: relative;
     font-size: 0.9rem;
-}
-
-.nav-list li::after {
-    content: none;
-}
-
-.nav-list li:last-child::after {
-    content: none;
 }
 
 .nav-list a:hover, nav a:hover {
@@ -465,7 +452,7 @@ footer {
     .container,
     .team-grid,
     .team-grid1 {
-        max-width: 90%;
+        max-width: 100%;
     }
 
     .team-card, .team-card1 {

@@ -11,10 +11,8 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-html {
-    font-size: 16px;
-    scroll-behavior: smooth;
-}
+
+
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -28,13 +26,11 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
-    
 }
 
 header {
     background-color: #57150B ;
     color: white;
-    padding: .35rem 0;
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -50,6 +46,7 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo {
@@ -58,6 +55,7 @@ header.scrolled {
     font-size: 1.5rem;
     font-weight: 700;
     gap: 10px;
+    margin-right: 2rem;
 }
 
 .logo img {
@@ -66,11 +64,6 @@ header.scrolled {
     margin-right: 0.5rem;
 }
 
-nav ul {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
 .nav-list {
     display: flex;
     gap: 1rem;
