@@ -134,7 +134,7 @@ nav a:hover {
     z-index: 1;
     text-align: center;
     color: white;
-    padding: 0 1rem;
+    padding: 0 0rem;
     max-width: 1000px;
   }
 #title{

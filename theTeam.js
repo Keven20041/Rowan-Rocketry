@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.prepend(canvas);
     const ctx = canvas.getContext('2d');
 
-    // Set the z-index of the canvas
     canvas.style.zIndex = '-1';
     canvas.style.position = 'fixed';
     canvas.style.top = '0';
@@ -29,16 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createStars() {
-        stars = [];
-        for (let i = 0; i < STAR_COUNT; i++) {
-            stars.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                radius: Math.random() * 1.5,
-                speed: Math.random() * 0.5,
-                brightness: Math.random()
-            });
-        }
+        stars = Array.from({ length: STAR_COUNT }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: Math.random() * 1.5,
+            speed: Math.random() * 0.5,
+            brightness: Math.random()
+        }));
     }
 
     function drawStars() {
@@ -70,8 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     init();
 
-    // Debounce function for better performance
-    function debounce(func, wait) {
+    // Utility functions
+    const debounce = (func, wait) => {
         let timeout;
         return function executedFunction(...args) {
             const later = () => {
@@ -81,12 +77,21 @@ document.addEventListener('DOMContentLoaded', () => {
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
         };
-    }
+    };
 
-    // Debounced resize event listener
-    window.addEventListener('resize', debounce(() => {
-        init();
-    }, 200));
+    const throttle = (func, limit) => {
+        let inThrottle;
+        return function(...args) {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    };
+
+    // Responsive design
+    window.addEventListener('resize', debounce(init, 200));
 
     // Header scroll effect
     const header = document.querySelector('header');
@@ -99,33 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navList = document.querySelector('.nav-list');
 
-    // Throttle function for better performance
-    function throttle(func, limit) {
-        let inThrottle;
-        return function(...args) {
-            if (!inThrottle) {
-                func.apply(this, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
-            }
-        }
-    }
-
-    // Throttled scroll event listener
+    // Scroll event listener
     window.addEventListener('scroll', throttle(() => {
-        // Header scroll effect
         if (window.scrollY > scrollThreshold) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
 
-        // Scroll to top button visibility
-        if (window.pageYOffset > 300) {
-            scrollTopButton.classList.add('visible');
-        } else {
-            scrollTopButton.classList.remove('visible');
-        }
+        scrollTopButton.classList.toggle('visible', window.pageYOffset > 300);
     }, 100));
 
     // Mobile menu toggle
@@ -148,10 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close mobile menu after clicking a link
+                target.scrollIntoView({ behavior: 'smooth' });
                 navList.classList.remove('active');
                 mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
@@ -169,25 +153,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const progressBar = slider.querySelector('.progress-bar');
         let currentIndex = 0;
 
-        function updateSlider() {
+        const updateSlider = () => {
             container.style.transform = `translateX(-${currentIndex * 100}%)`;
             progressBar.style.transform = `translateX(${currentIndex * 100}%)`;
-        }
+        };
 
-        function goToNext() {
+        const goToNext = () => {
             currentIndex = (currentIndex + 1) % items.length;
             updateSlider();
-        }
+        };
 
-        function goToPrev() {
+        const goToPrev = () => {
             currentIndex = (currentIndex - 1 + items.length) % items.length;
             updateSlider();
-        }
+        };
 
         prevButton.addEventListener('click', goToPrev);
         nextButton.addEventListener('click', goToNext);
 
-        // Auto-advance the slider every 5 seconds
         let autoAdvanceInterval = setInterval(goToNext, 5000);
 
         // Touch events for mobile swipe
@@ -196,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         slider.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
-            clearInterval(autoAdvanceInterval); // Pause auto-advance on touch
+            clearInterval(autoAdvanceInterval);
         }, { passive: true });
 
         slider.addEventListener('touchend', (e) => {
@@ -206,17 +189,12 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (touchEndX - touchStartX > 50) {
                 goToPrev();
             }
-            autoAdvanceInterval = setInterval(goToNext, 5000); // Resume auto-advance
+            autoAdvanceInterval = setInterval(goToNext, 5000);
         }, { passive: true });
 
         // Pause auto-advance on hover for desktop
-        slider.addEventListener('mouseenter', () => {
-            clearInterval(autoAdvanceInterval);
-        });
-
-        slider.addEventListener('mouseleave', () => {
-            autoAdvanceInterval = setInterval(goToNext, 5000);
-        });
+        slider.addEventListener('mouseenter', () => clearInterval(autoAdvanceInterval));
+        slider.addEventListener('mouseleave', () => autoAdvanceInterval = setInterval(goToNext, 5000));
     });
 
     // Scroll to top button click event
@@ -255,23 +233,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
 
-// Intersection Observer for fade-in animations
-document.addEventListener('DOMContentLoaded', (event) => {
+    // Intersection Observer for fade-in animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in-up');
             }
         });
-    }, {
-        threshold: 0.1
-    });
-
+    }, { threshold: 0.1 });
     document.querySelectorAll('.team-card, .team-card1, .team-members h1, .team-members h2').forEach(el => {
         observer.observe(el);
     });
 });
 
-console.log("JavaScript code for mobile compatibility has been updated.");
+console.log("JavaScript code for mobile compatibility has been updated and optimized.");

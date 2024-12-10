@@ -52,19 +52,20 @@ header.scrolled {
 }
 
 .header-content {
+    width: 100%;
+    max-width: 1200px; /* Add a max-width for larger screens */
+    margin: 0 auto; /* Center the content */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 0 1rem;
-}
+  }
 
-.logo {
+  .logo {
     display: flex;
     align-items: center;
     font-size: 1.5rem;
     font-weight: 700;
-    gap: 10px;
+    margin-right: 2rem;
 }
 
 .logo img {
@@ -78,6 +79,16 @@ header.scrolled {
 }
 
 /* Navigation Styles */
+nav {
+    width: 100%; /* Change from fixed width to full width */
+    height: auto; /* Allow height to adjust naturally */
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+  }
+
 .nav-list {
     display: flex;
     gap: 2rem;  /* Increased gap between nav items */
@@ -100,6 +111,7 @@ header.scrolled {
     color: var(--secondary);
     text-decoration: underline;
 }
+
 
 /* Team Section Styles */
 .team-section {
@@ -449,7 +461,6 @@ footer {
 
 /* Media Queries */
 @media (max-width: 1200px) {
-    .container,
     .team-grid,
     .team-grid1 {
         max-width: 100%;
@@ -472,7 +483,13 @@ footer {
     .team-section {
         flex-direction: column;
     }
-    
+    header{
+        width: 100%;
+    }
+    .header-content{
+        width: 100%;
+    }
+      
     .team-card, .team-card1 {
         width: calc(50% - 1rem);
         margin: 0 auto;
