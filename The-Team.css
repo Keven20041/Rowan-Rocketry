@@ -63,25 +63,24 @@ header.scrolled {
   .logo {
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-right: 2rem;
+    margin-right: 1rem;
 }
 
 .logo img {
-    width: 6rem;
+    width: 4rem;
     height: auto;
     margin-right: 0.5rem;
 }
-
 .logo img:hover {
     transform: scale(1.05);
 }
 
 /* Navigation Styles */
 nav {
-    width: 100%; /* Change from fixed width to full width */
-    height: auto; /* Allow height to adjust naturally */
+    width: 100%;
+    height: auto; 
     padding: 1rem;
     display: flex;
     justify-content: space-between;
@@ -89,14 +88,16 @@ nav {
     background-color: transparent;
   }
 
-.nav-list {
+
+  .nav-list {
     display: flex;
-    gap: 2rem;  /* Increased gap between nav items */
+    gap: 1.5rem;
     list-style: none;
     align-items: center;
     white-space: nowrap;
-    margin-left: 75%;  /* Push to the right */
+    margin-left: auto;
 }
+
 
 .nav-list a, nav a {
     color: var(--text);
@@ -489,12 +490,13 @@ footer {
     .header-content{
         width: 100%;
     }
-      
     .team-card, .team-card1 {
         width: calc(50% - 1rem);
         margin: 0 auto;
     }
-
+    nav{
+        width: 100%;
+    }
     .nav-list {
         display: none;
         position: absolute;
