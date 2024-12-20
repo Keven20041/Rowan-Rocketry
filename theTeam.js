@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.style.position = 'fixed';
     canvas.style.top = '0';
     canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.overflow = 'hidden';
 
     let width, height, stars;
     const FPS = 60;
@@ -248,3 +251,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 console.log("JavaScript code for mobile compatibility has been updated and optimized.");
+
