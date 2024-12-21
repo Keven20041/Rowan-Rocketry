@@ -9,7 +9,6 @@
 *, *::before, *::after {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -28,7 +27,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1168px;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -36,7 +35,7 @@ body {
 header {
     background: linear-gradient(to bottom, var(--primary), transparent);
     color: var(--text);
-    padding: 1rem 0;
+    padding: 0;
     position: fixed;
     top: 0;
     left: 0;
