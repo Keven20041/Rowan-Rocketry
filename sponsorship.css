@@ -995,6 +995,9 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .logo{
+        margin-right: 100%;
+    }
     .header-content {
         display: flex;
         justify-content: space-between;
