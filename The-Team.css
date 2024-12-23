@@ -232,26 +232,22 @@ nav {
     -moz-animation: fadeInUp 0.5s ease forwards;
     animation: fadeInUp 0.5s ease forwards;
 }
-
-.team-card-inner, .team-card-inner1 {
+.team-card-inner,
+.team-card-inner1 {
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
-    -webkit-transition: -webkit-transform 0.6s;
-    -moz-transition: -moz-transform 0.6s;
     transition: transform 0.6s;
+    transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
 .team-card:hover .team-card-inner,
 .team-card1:hover .team-card-inner1 {
+    transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
-    transform: rotateY(180deg);
 }
 
 .team-card-front, .team-card-back,
@@ -276,23 +272,25 @@ nav {
     justify-content: center;
 }
 
-.team-card-back, .team-card-back1 {
+.team-card-back, 
+.team-card-back1 {
     background-color: var(--primary);
-    color: white;
+    transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1.5rem;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .team-card-back1 a {
     color: #FFCC00;
 }
-
+.team-card-back a{
+    color: var(--secondary);
+}
 .image-container, .image-container1 {
     width: 180px;
     height: 180px;
@@ -335,7 +333,7 @@ nav {
 }
 
 .linkedin-link:hover {
-    transform: scale(1.1);
+    transform: scale(1.0);
 }
 
 .linkedin-icon {
@@ -450,7 +448,7 @@ footer {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 0;
     margin-left: auto;
 }
 
@@ -496,12 +494,22 @@ footer {
         align-items: center;
         justify-content: space-between;
     }
+
     .logo {
-        margin-right: 0;
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        gap: 10px;
+    }
+     .nav-list li[style*="color: #FFCC00"] {
+        display: none;
     }
 
     .logo img {
-        width: 4rem;
+        width: 6rem;
+        height: auto;
+        margin-right: 100%;
     }
     nav {
         margin-top: 0;
@@ -516,7 +524,7 @@ footer {
         padding: 1rem 0;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 2rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
@@ -591,13 +599,15 @@ footer {
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-device-width: 320px) and (max-device-width: 481px) {
     html {
         font-size: 14px;
     }
-
+    .team-grid{
+        max-width: 90%;
+    }
     .team-card, .team-card1 {
-        height: 300px;
+        height: 250px;
     }
 
     .image-container, .image-container1 {
@@ -606,8 +616,8 @@ footer {
     }
 
     .team-card1 .image-container1 {
-        width: 180px;
-        height: 180px;
+        width: 150px;
+        height: 150px;
     }
 
     .container {
@@ -628,7 +638,7 @@ footer {
 @-webkit-keyframes fadeInUp {
     from {
         opacity: 0;
-        -webkit-transform: translateY(20px);
+        -webkit-transform: translateY(0px);
     }
     to {
         opacity: 1;
@@ -639,7 +649,7 @@ footer {
 @-moz-keyframes fadeInUp {
     from {
         opacity: 0;
-        -moz-transform: translateY(20px);
+        -moz-transform: translateY(0px);
     }
     to {
         opacity: 1;
@@ -650,7 +660,7 @@ footer {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(0px);
     }
     to {
         opacity: 1;

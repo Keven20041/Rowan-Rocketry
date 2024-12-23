@@ -55,13 +55,12 @@ header.scrolled {
     font-size: 1.5rem;
     font-weight: 700;
     gap: 10px;
-    margin-right: 2rem;
 }
 
 .logo img {
     width: 6rem;
     height: auto;
-    margin-right: 0.5rem;
+    margin-right: 100%;
 }
 
 .nav-list {
