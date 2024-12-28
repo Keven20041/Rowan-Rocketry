@@ -213,7 +213,7 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
     max-width: 1100px;
     margin: 0 auto;
 }
