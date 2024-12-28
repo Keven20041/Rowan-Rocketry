@@ -466,7 +466,7 @@ footer {
 @media screen and (max-width: 1200px) {
     .team-grid,
     .team-grid1 {
-        max-width: 90%;
+        max-width: 95%;
         gap: 2rem;
     }
 
