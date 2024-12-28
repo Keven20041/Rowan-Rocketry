@@ -37,7 +37,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1168px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 0rem;
     overflow: hidden;
@@ -99,12 +99,13 @@ nav {
 
 /* Team Section Styles */
 .team-section {
-    padding: 4rem 0;
+    padding: 4rem 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .team-content {
