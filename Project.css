@@ -275,7 +275,9 @@ nav a:hover {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     color: var(--text);
-    text-shadow: 0 0 10px var(--primary);
+    text-shadow: 0 0 10px var(--primary),
+    0 0 20px var(--accent),
+    0 0 30px var(--secondary);
 }
 
 .button-group {
