@@ -213,7 +213,7 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     max-width: 1100px;
     margin: 0 auto;
 }
@@ -466,7 +466,8 @@ footer {
 @media screen and (max-width: 1200px) {
     .team-grid,
     .team-grid1 {
-        max-width: 100%;
+        max-width: 90%;
+        gap: 2rem;
     }
 
     .team-card, .team-card1 {
@@ -600,12 +601,15 @@ footer {
     }
 }
 
-@media screen and (min-device-width: 320px) and (max-device-width: 481px) {
+@media screen and (min-device-width: 319px) and (max-device-width: 481px) {
     html {
         font-size: 14px;
     }
     .team-grid{
         max-width: 90%;
+    }
+    .team-grid1, .team-grid{
+        gap: 3rem;
     }
     .team-card, .team-card1 {
         height: 250px;
