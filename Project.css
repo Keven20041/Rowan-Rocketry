@@ -245,15 +245,14 @@ nav a:hover {
 
 #title {
     font-size: 4.5rem;
-    font-weight: 700;
+    font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--secondary);
     position: relative;
     z-index: 3;
     text-shadow: 0 0 10px var(--secondary),
-                 0 0 20px var(--secondary),
-                 0 0 30px var(--secondary);
+                 0 0 15px var(--secondary);
     animation: titleGlow 2s ease-in-out infinite alternate;
 }
 
