@@ -107,11 +107,10 @@ function loadRocket() {
   let modelPath;
 
   if (currentIndex === 0) {
-    modelPath = 'rocket_assembly_v3.glb';
+    modelPath = '/models/rocket_assembly_v3.glb';
   } else {
-    // For other parts, we'll use placeholder paths. Replace these with actual paths when available.
     const partNames = ['nose_cone', 'payload_fairing', 'propellant_tanks', 'engines', 'fins'];
-    modelPath = `https://example.com/rockets/${partNames[currentIndex - 1]}.glb`;
+    modelPath = `/models/${partNames[currentIndex - 1]}.glb`;
   }
 
   // Show loading indicator
@@ -123,6 +122,24 @@ function loadRocket() {
     (gltf) => {
       rocket = gltf.scene;
       scene.add(rocket);
+
+      rocket.traverse((child) => {
+        if (child.isMesh) {
+          child.material.onBeforeCompile = (shader) => {
+            shader.fragmentShader = shader.fragmentShader.replace(
+              '#include <map_fragment>',
+              `
+              #ifdef USE_MAP
+                vec4 texelColor = texture2D(map, vUv);
+                if (texelColor.a < 0.5) discard;
+                texelColor = mapTexelToLinear(texelColor);
+                diffuseColor *= texelColor;
+              #endif
+              `
+            );
+          };
+        }
+      });
 
       // Center and scale the model
       const box = new THREE.Box3().setFromObject(rocket);
@@ -141,13 +158,17 @@ function loadRocket() {
     },
     (error) => {
       console.error('An error happened', error);
-      // Hide loading indicator and show error message
       if (loadingIndicator) loadingIndicator.style.display = 'none';
       const errorMessage = document.getElementById('error-message');
       if (errorMessage) {
-        errorMessage.textContent = 'Failed to load the model. Please try again later.';
+        errorMessage.textContent = 'Failed to load the model. Please check if the file exists and try again.';
         errorMessage.style.display = 'block';
       }
+      // Load a default cube if the model fails to load
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+      rocket = new THREE.Mesh(geometry, material);
+      scene.add(rocket);
     }
   );
 }
@@ -278,3 +299,4 @@ function animateStats() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+

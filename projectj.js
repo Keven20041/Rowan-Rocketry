@@ -69,19 +69,21 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
 
     // Planet animation
+    const titleContainer = document.getElementById('title-container');
     const planets = document.querySelectorAll('.planet');
 
     function animatePlanets() {
-        planets.forEach((planet, index) => {
-            const angle = Date.now() * 0.001 * (index + 1) * 0.5; // Adjust speed here
-            const radius = 90 + index * 20; // Adjust orbit radius here
-            const centerX = planet.parentElement.offsetWidth / 2;
-            const centerY = planet.parentElement.offsetHeight / 2;
+        const containerRect = titleContainer.getBoundingClientRect();
+        const centerX = containerRect.width / 2;
+        const centerY = containerRect.height / 2;
 
+        planets.forEach((planet, index) => {
+            const angle = Date.now() * 0.001 * (index + 1) * 0.5;
+            const radius = 80 + index * 30;
             const x = centerX + Math.cos(angle) * radius;
             const y = centerY + Math.sin(angle) * radius;
 
-            planet.style.transform = `translate(${x}px, ${y}px)`;
+            planet.style.transform = `translate(${x - planet.offsetWidth / 2}px, ${y - planet.offsetHeight / 2}px)`;
         });
 
         requestAnimationFrame(animatePlanets);
