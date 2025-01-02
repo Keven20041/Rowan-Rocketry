@@ -82,13 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const radius = 80 + index * 30;
             const x = centerX + Math.cos(angle) * radius;
             const y = centerY + Math.sin(angle) * radius;
-
             planet.style.transform = `translate(${x - planet.offsetWidth / 2}px, ${y - planet.offsetHeight / 2}px)`;
         });
-
         requestAnimationFrame(animatePlanets);
     }
-
     animatePlanets();
 
     // Debounce function for better performance
@@ -313,37 +310,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     console.log('All scripts initialized successfully.');
-
-    const style = document.createElement('style');
-    style.textContent = `
-        .mobile-menu-toggle {
-            cursor: pointer;
-            padding: 10px;
-            z-index: 1000;
-            color: #FFCC00;
-        }
-        .mobile-menu-toggle span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: #FFCC00;;
-            margin: 5px 0;
-        }
-        @media (max-width: 768px) {
-            .nav-list {
-                display: none;
-            }
-            .nav-list.active {
-                display: block;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: rgba(0, 0, 0, 0.9);
-                padding: 20px;
-            }
-        }
-    `;
-    document.head.appendChild(style);
 });
 
