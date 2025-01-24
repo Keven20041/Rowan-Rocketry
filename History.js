@@ -276,9 +276,9 @@ function setupMobileMenu() {
 function animateStats() {
   const stats = [
     { id: 'years-value', value: 10 },
-    { id: 'events-value', value: 50 },
-    { id: 'persons-value', value: 100 },
-    { id: 'awards-value', value: 25 }
+    { id: 'events-value', value: 3 },
+    { id: 'persons-value', value: 12 },
+    { id: 'awards-value', value: 2 }
   ];
 
   stats.forEach(stat => {
@@ -299,4 +299,3 @@ function animateStats() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
-

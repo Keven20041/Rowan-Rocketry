@@ -602,7 +602,7 @@ footer {
         padding: 1rem;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 0 !important; /* Remove the gap between items */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 1000;
     }
@@ -619,6 +619,9 @@ footer {
         width: 100%;
         text-align: center;
     }
+    .nav-list li[style*="color: #FFCC00;"] {
+        color: transparent !important;
+      }
 
     .nav-list a {
         display: block;
