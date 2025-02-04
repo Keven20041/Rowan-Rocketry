@@ -15,7 +15,7 @@ const rockets = {
       ],
       description: "Rowan Rocketry's first orbital launch vehicle.",
       parts: [
-        { name: "Nose Cone", description: "Aerodynamic tip of the rocket that reduces air resistance.", weight: "50 kg", height: "2 m", diameter: "0.5 m" },
+        { name: "Nose Cone", description: "Aerodynamic tip of the rocket that reduces air resistance.", weight: "7.231 kg", height: "2 m", diameter: "0.5 m" },
         { name: "Payload Fairing", description: "Protects the payload during launch and ascent.", weight: "200 kg", height: "4 m", diameter: "1.68 m" },
         { name: "Propellant Tanks", description: "Store the rocket's fuel and oxidizer.", weight: "2000 kg", height: "10 m", diameter: "1.68 m" },
         { name: "Engines", description: "Provide thrust to propel the rocket.", weight: "1000 kg", height: "3 m", diameter: "1.5 m" },
@@ -107,7 +107,7 @@ function loadRocket() {
   let modelPath;
 
   if (currentIndex === 0) {
-    modelPath = '/models/rocket_assembly_v3.glb';
+    modelPath = 'c:\Users\Keven\Downloads\Solidworks\Rocket Assembly v3.GLB';
   } else {
     const partNames = ['nose_cone', 'payload_fairing', 'propellant_tanks', 'engines', 'fins'];
     modelPath = `/models/${partNames[currentIndex - 1]}.glb`;
