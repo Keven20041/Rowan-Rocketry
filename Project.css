@@ -586,6 +586,21 @@ footer {
     transform: translateY(0);
 }
 
+@media screen and (max-width: 600px) {
+    .hero-content { padding: 2rem 0; }
+    #title { font-size: 3rem; }
+    .subtitle { font-size: 1rem; }
+    .button-group { flex-direction: column; gap: 1rem; }
+    .btn { width: 100%; }
+    .project-section::before { background-size: cover; }
+    .content-wrapper { flex-direction: column; }
+    .text-content, .image-content { width: 100%; }
+    .slider-caption { font-size: 1rem; padding: 8px 16px; }
+    .slider-button { width: 40px; height: 40px; }
+    .slider-button svg { width: 20px; height: 20px; }
+    
+}
+
 @media screen and (max-width: 768px) {
     html { font-size: 14px; }
     .hero-section { background-attachment: scroll; }
