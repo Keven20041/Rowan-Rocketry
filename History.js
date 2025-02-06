@@ -100,7 +100,7 @@ function loadRocket() {
   }
 
   const loader = new GLTFLoader();
-  const dracoLoader = new DRACOLoader();
+  const dracoLoader = new DRACOLoader(); // Optional: Provide DRACOLoader to decode compressed mesh data
   dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
   loader.setDRACOLoader(dracoLoader);
 
@@ -109,7 +109,7 @@ function loadRocket() {
   if (currentIndex === 0) {
     modelPath = 'c:\Users\Keven\Downloads\Solidworks\Rocket Assembly v3.GLB';
   } else {
-    const partNames = ['nose_cone', 'payload_fairing', 'propellant_tanks', 'engines', 'fins'];
+    const partNames = ['nose_cone', 'payload_bay', 'propellant_tanks', 'motor', 'fins'];
     modelPath = `/models/${partNames[currentIndex - 1]}.glb`;
   }
 
