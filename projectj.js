@@ -88,6 +88,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animatePlanets();
 
+    // Debounce function for better performance
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
     // Debounced resize event listener
     window.addEventListener('resize', debounce(() => {
         init();
