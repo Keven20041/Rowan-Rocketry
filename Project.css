@@ -77,9 +77,11 @@ header.scrolled {
 
 .nav-list {
     display: flex;
+    position: relative;
     gap: 1rem;
     list-style: none;
-}
+    z-index: 1500;
+  }
 
 .nav-list a {
     color: white;
@@ -151,6 +153,7 @@ header.scrolled {
     align-items: center;
     margin-bottom: 2rem;
     min-height: 300px;
+    z-index: 0;
 }
 
 #title {
@@ -160,7 +163,7 @@ header.scrolled {
     letter-spacing: 2px;
     color: var(--secondary);
     position: relative;
-    z-index: 3;
+    z-index: 2;
     text-shadow: 0 0 10px var(--secondary),
                  0 0 20px var(--secondary),
                  0 0 30px var(--secondary);
