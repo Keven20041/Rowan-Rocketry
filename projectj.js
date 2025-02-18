@@ -101,6 +101,18 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
+    // Throttle function for better performance
+    function throttle(func, limit) {
+        let inThrottle;
+        return function(...args) {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    }
+
     // Debounced resize event listener
     window.addEventListener('resize', debounce(() => {
         init();
