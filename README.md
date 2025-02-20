@@ -1,4 +1,6 @@
 HTML5, W3.CSS, JavaScript, SQL(Dev-Branch), Node.js 10/15/2024
+Version: 2.322.0
+OS System: Ubuntu 24.04
 Authors: Keven Guzman, Joshua Odom
 Rowan Rocketry
 
