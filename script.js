@@ -98,4 +98,5 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    console.log("If you see this message the code works with no errors");
 });
