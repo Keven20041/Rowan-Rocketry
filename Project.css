@@ -76,7 +76,7 @@ header.scrolled {
 }
 
 .nav-list {
-    display: flex;
+    display: flex ;
     position: relative;
     gap: 1rem;
     list-style: none;
@@ -651,6 +651,7 @@ footer {
         width: 100%;
         text-align: center;
     }
+    
     .nav-list li[style*="color: #FFCC00;"] {
         color: transparent !important;
       }
