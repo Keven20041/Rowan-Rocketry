@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resizeCanvas();
         createStars();
         animate();
+        console.log('If you see this the code is working');
     }
 
     function resizeCanvas() {
@@ -308,7 +309,5 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
-    console.log('All scripts initialized successfully.');
 });
 
