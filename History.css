@@ -463,7 +463,7 @@ header {
 
 .timeline-point {
     position: absolute;
-    left: -2.5rem;
+    left: -2.925rem;
     width: 2rem;
     height: 2rem;
     background-color: var(--secondary);
