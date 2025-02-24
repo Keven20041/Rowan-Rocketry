@@ -29,18 +29,9 @@ let currentYear = "2024";
 let currentIndex = 0;
 let scene, camera, renderer, rocket, controls;
 
-function init() {
-  setupYearButtons();
-  setupCarousel();
-  initThree();
-  updateContent();
-  setupScrollToTop();
-  setupMobileMenu();
-  animateStats();
-}
-
 function setupYearButtons() {
   // No year buttons needed as we only have one year
+  // This function can be left empty or removed
 }
 
 function setupCarousel() {
@@ -100,22 +91,18 @@ function loadRocket() {
   }
 
   const loader = new GLTFLoader();
-  const dracoLoader = new DRACOLoader(); // Optional: Provide DRACOLoader to decode compressed mesh data
+  const dracoLoader = new DRACOLoader();
   dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
   loader.setDRACOLoader(dracoLoader);
 
   let modelPath;
 
   if (currentIndex === 0) {
-    modelPath = 'c:\Users\Keven\Downloads\Solidworks\Rocket Assembly v3.GLB';
+    modelPath = '/models/Rocket Assembly v3.glb';
   } else {
     const partNames = ['nose_cone', 'payload_bay', 'propellant_tanks', 'motor', 'fins'];
     modelPath = `/models/${partNames[currentIndex - 1]}.glb`;
   }
-
-  // Show loading indicator
-  const loadingIndicator = document.getElementById('loading-indicator');
-  if (loadingIndicator) loadingIndicator.style.display = 'block';
 
   loader.load(
     modelPath,
@@ -141,7 +128,6 @@ function loadRocket() {
         }
       });
 
-      // Center and scale the model
       const box = new THREE.Box3().setFromObject(rocket);
       const center = box.getCenter(new THREE.Vector3());
       const size = box.getSize(new THREE.Vector3());
@@ -149,22 +135,12 @@ function loadRocket() {
       const scale = 2 / maxDim;
       rocket.scale.setScalar(scale);
       rocket.position.sub(center.multiplyScalar(scale));
-
-      // Hide loading indicator
-      if (loadingIndicator) loadingIndicator.style.display = 'none';
     },
     (xhr) => {
       console.log((xhr.loaded / xhr.total * 100) + '% loaded');
     },
     (error) => {
       console.error('An error happened', error);
-      if (loadingIndicator) loadingIndicator.style.display = 'none';
-      const errorMessage = document.getElementById('error-message');
-      if (errorMessage) {
-        errorMessage.textContent = 'Failed to load the model. Please check if the file exists and try again.';
-        errorMessage.style.display = 'block';
-      }
-      // Load a default cube if the model fails to load
       const geometry = new THREE.BoxGeometry(1, 1, 1);
       const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
       rocket = new THREE.Mesh(geometry, material);
@@ -176,7 +152,7 @@ function loadRocket() {
 function animate() {
   requestAnimationFrame(animate);
   if (rocket) {
-    rocket.rotation.y += 0.01; // Add continuous rotation
+    rocket.rotation.y += 0.01;
   }
   controls.update();
   renderer.render(scene, camera);
@@ -296,6 +272,16 @@ function animateStats() {
       }, 20);
     }
   });
+}
+
+function init() {
+  setupYearButtons();
+  setupCarousel();
+  initThree();
+  updateContent();
+  setupScrollToTop();
+  setupMobileMenu();
+  animateStats();
 }
 
 document.addEventListener('DOMContentLoaded', init);
