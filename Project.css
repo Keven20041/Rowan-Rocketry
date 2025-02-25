@@ -143,6 +143,7 @@ header.scrolled {
     height: 100vh;
     text-align: center;
     position: relative;
+    contain: layout size style;
 }
 
 #title-container {
@@ -191,6 +192,7 @@ header.scrolled {
     position: absolute;
     border-radius: 50%;
     opacity: 0.8;
+    contain: layout size style;
     
   }
   
