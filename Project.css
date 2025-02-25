@@ -177,6 +177,7 @@ header.scrolled {
                      0 0 30px var(--secondary);
     }
 }
+
 @keyframes titleGlow {
     to {
         text-shadow: 0 0 15px var(--secondary),
@@ -186,7 +187,6 @@ header.scrolled {
     }
 }
 
- 
   .planet {
     position: absolute;
     border-radius: 50%;
