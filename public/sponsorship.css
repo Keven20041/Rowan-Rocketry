@@ -38,38 +38,48 @@ body {
     padding: 0 1rem;
 }
 
-/* Header and Navigation */
 header {
-    background-color: var(--primary);
+    background-color: #57150B ;
     color: white;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
+    position: fixed;
     width: 100%;
     z-index: 1000;
     transition: background-color 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 20%;
 }
 
 .logo img {
     width: 6rem;
     height: auto;
-    transition: transform 0.3s ease;
+    margin-right: 0.5rem;
 }
 
-.logo img:hover {
-    transform: scale(1.05);
+
+/* Navigation Styles */
+
+nav {
+    display: block;
+    align-items: center;
+    margin-left: auto;
 }
 
 .nav-list {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     list-style: none;
 }
 
@@ -77,16 +87,76 @@ header {
     color: white;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
+    font-size: 1rem;
 }
 
 .nav-list a:hover {
     color: var(--secondary);
-    transform: translateY(-2px);
-    text-decoration: underline;
 }
 
+/* Mobile Menu Styles */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 0px;
+    background-color: var(--secondary);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .nav-list {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary);
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    /* Hide separators on mobile */
+    .nav-list li[style*="color: #FFCC00"] {
+        display: none;
+    }
+}
+/* Yellow separators */
+nav ul li:not(:last-child) {
+    content: '|';
+    color: #FFCC00;
+}
+
+/* Mobile menu styles */
 .mobile-menu-toggle {
     display: none;
     background: none;
@@ -94,12 +164,52 @@ header {
     cursor: pointer;
 }
 
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+    }
+
+    .nav-list.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #57150B;
+        padding: 1rem 0;
+    }
+
+    nav ul li::after {
+        display: none;
+    }
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
 .mobile-menu-toggle span {
     display: block;
     width: 25px;
     height: 3px;
     background-color: var(--secondary);
-    margin: 5px 0;
+    margin: 5px auto;
     transition: 0.3s;
 }
 
@@ -107,6 +217,7 @@ header {
 .sponsorship-hero {
     position: relative;
     height: 90vh;
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,10 +245,11 @@ header {
     color: white;
     padding: 0 1rem;
     max-width: 800px;
+    margin: 0 auto;
 }
 
 .sponsorship-hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: bold;
     margin-bottom: 1rem;
     animation: fadeInUp 0.3s ease-out;
@@ -145,13 +257,17 @@ header {
 }
 
 .sponsorship-hero p {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     margin-bottom: 2rem;
     animation: fadeInUp 0.8s ease-out 0.3s both;
 }
 
 .hero-buttons {
     animation: fadeInUp 0.8s ease-out 0.6s both;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -206,6 +322,7 @@ section {
 .about-section {
     background: var(--gradient-primary);
     color: white;
+    padding: 3rem 0;
 }
 
 .about-section .section-transition {
@@ -214,8 +331,11 @@ section {
 
 .content p {
     margin-bottom: 1.5rem;
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .team-photo {
@@ -224,7 +344,7 @@ section {
 }
 
 .team-photo img {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     max-height: 400px;
     object-fit: cover;
@@ -241,6 +361,7 @@ section {
 .sub-systems {
     background: var(--gradient-dark);
     color: white;
+    padding: 3rem 0;
 }
 
 .sub-systems .section-transition {
@@ -250,6 +371,7 @@ section {
 .system-grid {
     display: grid;
     gap: 4rem;
+    justify-content: center;
 }
 
 .system-item {
@@ -258,6 +380,8 @@ section {
     align-items: center;
     gap: 2rem;
     transition: transform 0.3s ease;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .system-item:hover {
@@ -269,7 +393,7 @@ section {
 }
 
 .system-content h3 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     color: var(--accent-color);
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -294,6 +418,7 @@ section {
 .executive-board {
     background: var(--gradient-primary);
     color: white;
+    padding: 3rem 0;
 }
 
 .executive-board .section-transition {
@@ -301,7 +426,7 @@ section {
 }
 
 .board-title {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 4vw, 3.5rem);
     margin-bottom: 3rem;
     position: relative;
     text-transform: uppercase;
@@ -376,7 +501,7 @@ section {
     color: var(--text);
     padding: 0.75rem 2rem;
     margin: 3rem auto 2rem;
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
     text-transform: uppercase;
     letter-spacing: 2px;
     border-radius: 30px;
@@ -387,7 +512,7 @@ section {
 .leads-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    gap: 1rem;
     justify-items: center;
     justify-content: center;
     max-width: 1000px;
@@ -398,6 +523,7 @@ section {
 .sponsor-section {
     background: var(--gradient-primary);
     color: white;
+    padding: 3rem 0;
 }
 
 .sponsor-section .section-transition {
@@ -405,7 +531,7 @@ section {
 }
 
 .intro-text {
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
     margin-bottom: 2rem;
     text-align: center;
     max-width: 800px;
@@ -438,7 +564,7 @@ section {
 
 .benefit-section h3 {
     color: var(--secondary);
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -454,6 +580,7 @@ section {
     line-height: 1.6;
     position: relative;
     padding-left: 1.5rem;
+    text-align: left;
 }
 
 .benefit-section li::before {
@@ -469,6 +596,7 @@ section {
 .past-rocket {
     background: var(--gradient-dark);
     color: white;
+    padding: 3rem 0;
 }
 
 .past-rocket .section-transition {
@@ -497,7 +625,7 @@ section {
 }
 
 .history-text {
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.8;
     max-width: 800px;
     margin: 0 auto;
@@ -508,12 +636,14 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    justify-content: center;
 }
 
 /* Sponsorship Tiers Section */
 .sponsorship-section {
     background: var(--gradient-primary);
     color: white;
+    padding: 3rem 0;
 }
 
 .sponsorship-section .section-transition {
@@ -533,6 +663,7 @@ section {
     max-width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     backdrop-filter: blur(10px);
+    margin: 0 auto;
 }
 
 .tier:hover {
@@ -543,7 +674,7 @@ section {
 .tier-header {
     background-color: var(--accent-color);
     color: var(--text);
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
     padding: 1rem;
     margin: 0;
     font-weight: bold;
@@ -568,6 +699,7 @@ section {
     line-height: 1.6;
     position: relative;
     padding-left: 1.5rem;
+    text-align: left;
 }
 
 .tier-content li::before {
@@ -589,22 +721,24 @@ section {
 #sponsor-form {
     background: var(--background);
     color: var(--contact-text-color);
+    padding: 3rem 0;
 }
 
 .forms-container {
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .form-column {
     flex: 1 1 calc(50% - 1.5rem);
     min-width: 300px;
+    max-width: 500px;
 }
 
 .form-title {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: bold;
     margin-bottom: 2rem;
     color: var(--contact-accent-color);
@@ -665,6 +799,7 @@ label {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--contact-accent-color);
+    text-align: left;
 }
 
 input[type="text"],
@@ -693,6 +828,7 @@ textarea:focus {
 
 .form-submit {
     margin-top: 2rem;
+    text-align: center;
 }
 
 .mailing-info {
@@ -706,7 +842,7 @@ textarea:focus {
 .instruction-text {
     font-weight: bold;
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2vw, 1.1rem);
     color: var(--contact-accent-color);
 }
 
@@ -742,10 +878,11 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
+    justify-content: center;
 }
 
 .footer-section h3 {
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
     margin-bottom: 1rem;
     text-align: center;
 }
@@ -835,7 +972,6 @@ footer {
     visibility: visible;
 }
 
-/* Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -853,24 +989,21 @@ footer {
     100% { background-position: 0% 50%; }
 }
 
-/* Media Queries */
-@media (max-width: 1024px) {
-    .container {
-        max-width: 90%;
-    }
-}
-
 @media (max-width: 968px) {
+    .continer{
+        max-width: 100%;
+        margin: auto;
+    }
     .section-title {
-        font-size: 2.25rem;
+        font-size: clamp(2rem, 4vw, 2.25rem);
     }
 
     .system-content h3 {
-        font-size: 1.75rem;
+        font-size: clamp(1.5rem, 3vw, 1.75rem);
     }
 
     .board-title {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 5vw, 3rem);
     }
 
     .leads-grid {
@@ -878,27 +1011,35 @@ footer {
     }
 }
 
+@media (max-width: 1200px) {
+    .header-content {
+        width: 100%;
+        padding: 0 1rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .nav-list {
-        display: none;
+    .logo{
+        margin-right: 100%;
+    }
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
     .mobile-menu-toggle {
         display: block;
+        align-self: flex-end;
+        margin-top: -4.75rem;
     }
 
     .nav-list {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--primary);
-        padding: 1rem;
         flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        padding: 1rem 0;
     }
 
     .nav-list.active {
@@ -915,66 +1056,32 @@ footer {
         padding: 0.5rem 0;
     }
 
-    /* Hide separators on mobile */
-    .nav-list li[style*="color: #FFCC00"] {
+    .nav-list li[style*="color: var(--secondary)"] {
         display: none;
-    }
-
-    .sponsorship-hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .sponsorship-hero p {
-        font-size: 1.125rem;
-    }
-
-    .hero-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .system-content h3 {
-        font-size: 1.5rem;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-
-    .form-row {
-        flex-direction: column;
-        gap: 1.5rem;
     }
 }
 
-@media (max-width: 480px) {
+@media screen and (min-device-width: 320px) and ( max-device-width: 481px){
     .section-title {
-        font-size: 2rem;
+        font-size: clamp(1.75rem, 4vw, 2rem);
     }
 
     .system-content h3 {
-        font-size: 1.25rem;
+        font-size: clamp(1.1rem, 3vw, 1.25rem);
     }
 
     .board-title {
-        font-size: 2.25rem;
+        font-size: clamp(2rem, 5vw, 2.25rem);
     }
 
     .profile-card img,
     .profile-card.large img {
-        width: 180px;
-        height: 180px;
+        width: 150px;
+        height: 150px;
     }
 
     .form-title {
-        font-size: 1.5rem;
+        font-size: clamp(1.25rem, 3vw, 1.5rem);
     }
 
     label, 
@@ -982,7 +1089,7 @@ footer {
     .instruction-text,
     .mail-heading,
     .contact-info {
-        font-size: 0.9rem;
+        font-size: clamp(0.9rem, 2vw, 1rem);
     }
 }
 
@@ -1014,7 +1121,10 @@ textarea:focus {
         color: black;
     }
 
-    header,
+    header{
+        display: none;
+        max-width: 100%;
+    }
     footer,
     .scroll-top,
     .btn {
@@ -1058,7 +1168,7 @@ textarea:focus {
 }
 
 .section-title {
-    font-size: 2.75rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
     color: var(--secondary);
     margin-bottom: 3rem;
     text-align: center;
@@ -1090,4 +1200,48 @@ textarea:focus {
 .card-style:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Cross-browser compatibility */
+@supports (-webkit-overflow-scrolling: touch) {
+    /* iOS-specific styles */
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@supports not (-webkit-overflow-scrolling: touch) {
+    /* Non-iOS styles */
+    body {
+        overflow-y: auto;
+    }
+}
+
+/* Fallback for browsers that don't support CSS variables */
+@supports not (--foo: green) {
+    body {
+        background-color: #000000;
+        color: #ffffff;
+    }
+    .btn-primary {
+        background-color: #FFCC00;
+        color: #57150B;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+    .btn,
+    .profile-card,
+    .tier {
+        border: 2px solid currentColor;
+    }
 }

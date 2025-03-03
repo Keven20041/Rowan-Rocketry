@@ -21,14 +21,14 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1168px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 0rem;
 }
 
 header {
     background: linear-gradient(to bottom, var(--primary), transparent);
-    padding: 1rem 0;
+    padding: 0;
     position: relative;
     width: 100%;
     z-index: 1000;
@@ -39,10 +39,22 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    gap: 10px;
+}
 
-.logo img  {
+.logo img {
     width: 6rem;
     height: auto;
+    margin-right: 0.5rem;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
 }
 
 .nav-list {
