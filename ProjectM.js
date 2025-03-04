@@ -173,10 +173,9 @@ document.addEventListener("DOMContentLoaded", () => {
                           <img src="Nose-Cone.png" alt="Nose Cone Design" />
                           <p>Key specifications:</p>
                           <ul>
-                              <li>Material: Carbon fiber composite</li>
-                              <li>Length: 24 inches</li>
-                              <li>Base diameter: 5.5 inches</li>
-                              <li>Fineness ratio: 4.36:1</li>
+                              <li>Material: Fiber Glass</li>
+                              <li>Length: 39.11 inches </li>
+                              <li>Base diameter: 6.18 inches</li>
                           </ul>
                       </div>
                       
@@ -186,21 +185,20 @@ document.addEventListener("DOMContentLoaded", () => {
                           <img src="RecoverySection.png" alt="Recovery System Design" />
                           <p>Components:</p>
                           <ul>
-                              <li>Main parachute: 84" diameter, deployed at 700 ft</li>
-                              <li>Drogue parachute: 24" diameter, deployed at apogee</li>
-                              <li>Dual StratoLoggerCF altimeters</li>
-                              <li>Redundant black powder charges</li>
+                                <li> Material: Ripstop Nylon </li>
+                                <li> Recovery System: 27.34 inches | 5.98" diameter</li>
+                              <li>Main parachute: 20 inches | 4" diameter | deployed at 1500 ft</li>
+                              <li>Drogue parachute: 5.66 inches | 4" in diameter | deployed at apogee</li>
                           </ul>
                       </div>
-                      
                       <div class="design-item">
                           <h3>Payload Section</h3>
                           <p>The payload section houses our scientific experiment and telemetry systems. It's designed for easy access and integration.</p>
                           <img src="PayloadSection.png" alt="Payload Section Design" />
                           <p>Features:</p>
                           <ul>
-                              <li>Modular bay design for experiment flexibility</li>
-                              <li>Environmental sensors package</li>
+                              <li>Material: Carbon fiber</li>
+                              <li>Payload bay: 11.82 inches long | 3.94" diameter</li>
                               <li>GPS tracking system</li>
                               <li>Live data transmission capabilities</li>
                           </ul>
@@ -212,10 +210,9 @@ document.addEventListener("DOMContentLoaded", () => {
                           <img src="MotorSection.png" alt="Motor Section Design" />
                           <p>Specifications:</p>
                           <ul>
-                              <li>Motor mount: 75mm diameter</li>
-                              <li>Compatible with Cesaroni Pro75 motors</li>
-                              <li>Thrust plate: Aircraft-grade aluminum</li>
-                              <li>Retention system: AeroPack 75mm retainer</li>
+                            <li> Material: Fiber Glass</li>
+                              <li>Motor mount: 38.05 inches | 6" diameter</li>
+                              <li> Sustainer Body Tube: 43.75 inches | 6.22" DIameter</li>
                           </ul>
                       </div>
                       
@@ -225,17 +222,12 @@ document.addEventListener("DOMContentLoaded", () => {
                           <img src="FinsSection.png" alt="Fin Design" />
                           <p>Details:</p>
                           <ul>
-                              <li>Material: G10 fiberglass</li>
-                              <li>Configuration: 3 fins, 120° apart</li>
-                              <li>Root chord: 12 inches</li>
-                              <li>Tip chord: 6 inches</li>
-                              <li>Span: 5 inches</li>
-                              <li>Thickness: 0.25 inches</li>
+                              <li>Material: G10 (Woven Fiberglass cloth & Epoxy resin) </li>
+                              <li>Configuration: 4 fins | 90° apart</li>
                           </ul>
                       </div>
                   </div>
               `
-  
         openModal(designsContent)
       })
     }
