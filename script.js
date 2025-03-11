@@ -107,39 +107,36 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  // Parallax effect for stars on desktop only
-  if (window.innerWidth > 768) {
-    window.addEventListener("mousemove", (e) => {
-      const stars = document.querySelector(".stars-overlay")
-      if (stars) {
-        const x = e.clientX / window.innerWidth
-        const y = e.clientY / window.innerHeight
-        stars.style.transform = `translate(${x * 10}px, ${y * 10}px)`
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Accordion menu functionality
+    const navLinks = document.querySelectorAll(".nav-link");
+  
+    navLinks.forEach((link) => {
+      // Set initial state for links with submenus
+      const submenu = link.nextElementSibling;
+      if (submenu && submenu.classList.contains("nav-submenu")) {
+        link.style.setProperty("--content", '"+"');
       }
-    })
-  }
-
-  // Accordion menu functionality
-  const navLinks = document.querySelectorAll(".nav-link")
-
-  navLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault()
-
-        const submenu = this.nextElementSibling
-        if (submenu && submenu.classList.contains("nav-submenu")) {
-          submenu.classList.toggle("active")
-
-          // Update the + to - or vice versa
-          if (submenu.classList.contains("active")) {
-            this.style.setProperty("--content", '"-"')
-          } else {
-            this.style.setProperty("--content", '"+"')
+      link.addEventListener("click", function(e) {
+        if (window.innerWidth <= 768) {
+          const submenu = this.nextElementSibling;
+          
+          if (submenu && submenu.classList.contains("nav-submenu")) {
+            e.preventDefault(); // Only prevent default if there's a submenu
+            
+            submenu.classList.toggle("active");
+  
+            // Update the + to - or vice versa
+            if (submenu.classList.contains("active")) {
+              this.style.setProperty("--content", '"-"');
+            } else {
+              this.style.setProperty("--content", '"+"');
+            }
           }
         }
-      }
-    })
-  })
+      });
+    });
+  });
 })
 
