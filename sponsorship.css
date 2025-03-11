@@ -317,7 +317,216 @@ section {
     transform: skewY(-3deg);
     transform-origin: 100%;
 }
-
+/* Sponsors Section Styles */
+.sponsors-section {
+    background: var(--gradient-dark);
+    color: white;
+    padding: 4rem 0;
+    position: relative;
+  }
+  
+  .sponsors-section .section-title {
+    margin-bottom: 2rem;
+  }
+  
+  .sponsors-tabs {
+    margin: 3rem 0;
+  }
+  
+  .tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tab-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    border: none;
+    border-radius: 30px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .tab-btn:hover {
+    background-color: rgba(255, 204, 0, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .tab-btn.active {
+    background-color: var(--secondary);
+    color: var(--primary);
+  }
+  
+  .tab-content {
+    display: none;
+  }
+  
+  .tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .sponsor-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sponsor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .tier-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--accent-color);
+    color: var(--primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .sponsor-logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .sponsor-card:hover .sponsor-logo {
+    transform: scale(1.05);
+  }
+  
+  .sponsor-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+  }
+  
+  .sponsor-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+  
+  .sponsor-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 204, 0, 0.2);
+    color: var(--secondary);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .sponsor-link:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+  }
+  
+  /* Tier-specific styling */
+  .tier-4-card {
+    border: 2px solid var(--secondary);
+  }
+  
+  .tier-3-card {
+    border: 1px solid var(--secondary);
+  }
+  
+  .become-sponsor {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem;
+    background: rgba(87, 21, 11, 0.3);
+    border-radius: 12px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .become-sponsor h3 {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+  }
+  
+  .become-sponsor p {
+    margin-bottom: 1.5rem;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .tab-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .tab-btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .sponsors-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sponsor-card {
+      padding: 1.5rem;
+    }
+  
+    .sponsor-name {
+      font-size: 1.1rem;
+    }
+  
+    .sponsor-description {
+      font-size: 0.85rem;
+    }
+  }
+  
 /* About Section */
 .about-section {
     background: var(--gradient-primary);

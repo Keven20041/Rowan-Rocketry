@@ -108,35 +108,35 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  document.addEventListener('DOMContentLoaded', function() {
-    // Accordion menu functionality
-    const navLinks = document.querySelectorAll(".nav-link");
-  
-    navLinks.forEach((link) => {
-      // Set initial state for links with submenus
-      const submenu = link.nextElementSibling;
-      if (submenu && submenu.classList.contains("nav-submenu")) {
-        link.style.setProperty("--content", '"+"');
-      }
-      link.addEventListener("click", function(e) {
-        if (window.innerWidth <= 768) {
-          const submenu = this.nextElementSibling;
+document.addEventListener('DOMContentLoaded', function() {
+  // Accordion menu functionality
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  navLinks.forEach((link) => {
+    // Set initial state for links with submenus
+    const submenu = link.nextElementSibling;
+    if (submenu && submenu.classList.contains("nav-submenu")) {
+      link.style.setProperty("--content", '"+"');
+    }
+    link.addEventListener("click", function(e) {
+      if (window.innerWidth <= 768) {
+        const submenu = this.nextElementSibling;
+        
+        if (submenu && submenu.classList.contains("nav-submenu")) {
+          e.preventDefault(); // Only prevent default if there's a submenu
           
-          if (submenu && submenu.classList.contains("nav-submenu")) {
-            e.preventDefault(); // Only prevent default if there's a submenu
-            
-            submenu.classList.toggle("active");
-  
-            // Update the + to - or vice versa
-            if (submenu.classList.contains("active")) {
-              this.style.setProperty("--content", '"-"');
-            } else {
-              this.style.setProperty("--content", '"+"');
-            }
+          submenu.classList.toggle("active");
+
+          // Update the + to - or vice versa
+          if (submenu.classList.contains("active")) {
+            this.style.setProperty("--content", '"-"');
+          } else {
+            this.style.setProperty("--content", '"+"');
           }
         }
-      });
+      }
     });
   });
+});
 })
 
