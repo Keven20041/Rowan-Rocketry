@@ -254,19 +254,19 @@ document.addEventListener("DOMContentLoaded", () => {
                               </thead>
                               <tbody>
                                   <tr>
-                                      <td>Carbon fiber airframe tubes</td>
-                                      <td>3</td>
-                                      <td>$750</td>
+                                      <td>6" Dia. 9.6 oz/sq yrd Fiberglass tubular sleeve</td>
+                                      <td>11</td>
+                                      <td>$35.86</td>
                                   </tr>
                                   <tr>
-                                      <td>G10 fiberglass sheets</td>
-                                      <td>2</td>
-                                      <td>$180</td>
-                                  </tr>
-                                  <tr>
-                                      <td>Cesaroni Pro75 motor hardware</td>
+                                      <td>g12 fiberglass 6" coupler</td>
                                       <td>1</td>
-                                      <td>$350</td>
+                                      <td>$71</td>
+                                  </tr>
+                                  <tr>
+                                      <td>6 Inch Light Fiberglass Sleeving</td>
+                                      <td>32</td>
+                                      <td>$101.12</td>
                                   </tr>
                                   <tr>
                                       <td>Motor reloads</td>

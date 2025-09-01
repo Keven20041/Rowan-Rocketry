@@ -1,3 +1,81 @@
+// Cosmic Header Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.cosmic-header');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navList = document.querySelector('.nav-list');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+    // Mobile menu toggle
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navList.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            header.classList.toggle('menu-open');
+            document.body.style.overflow = navList.classList.contains('active') ? 'hidden' : '';
+        });
+    }
+
+    // Mobile menu close button
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function() {
+            mobileMenuToggle.classList.remove('active');
+            navList.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            header.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Close menu when clicking overlay
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', function() {
+            mobileMenuToggle.classList.remove('active');
+            navList.classList.remove('active');
+            this.classList.remove('active');
+            header.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Close menu when clicking a nav link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                mobileMenuToggle.classList.remove('active');
+                navList.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                header.classList.remove('menu-open');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+
+    // Header scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll <= 0) {
+            header.classList.remove('scroll-up');
+            return;
+        }
+        
+        if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+            // Scrolling down
+            header.classList.remove('scroll-up');
+            header.classList.add('scroll-down');
+        } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+            // Scrolling up
+            header.classList.remove('scroll-down');
+            header.classList.add('scroll-up');
+        }
+        lastScroll = currentScroll;
+    });
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     // Existing code from the provided JavaScript
     const mobileMenuToggle = document.querySelector(".mobile-menu-toggle")

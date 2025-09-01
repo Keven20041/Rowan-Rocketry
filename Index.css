@@ -31,7 +31,7 @@ body {
 }
 
 .cosmic-header {
-  position: fixed;
+  position: relative;
   width: 100%;
   z-index: 1000;
   background: linear-gradient(180deg, var(--rowan-brown) 0%, var(--space-dark) 100%);
