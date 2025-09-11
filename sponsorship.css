@@ -54,7 +54,6 @@ body {
     z-index: 1000;
     background: linear-gradient(180deg, var(--rowan-brown) 0%, var(--space-dark) 100%);
     overflow: hidden;
-    transition: background 0.3s ease;
 }
 
 .cosmic-header.menu-open {
@@ -209,6 +208,7 @@ body {
     filter: drop-shadow(0 0 10px var(--rowan-gold));
 }
 
+
 .nav-list {
     display: flex;
     gap: 2rem;
@@ -245,7 +245,6 @@ body {
 .nav-link:hover::before {
     width: 100%;
 }
-
 .mobile-menu-toggle {
     display: none;
     background: none;
@@ -512,7 +511,7 @@ nav {
 .nav-list a {
     color: white;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1rem;
 }
 
