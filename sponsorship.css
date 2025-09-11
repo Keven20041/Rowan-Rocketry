@@ -577,7 +577,7 @@ section {
 .sponsors-section {
     background: var(--gradient-dark);
     color: white;
-    padding: 4rem 0;
+    padding: 10rem 0;
     position: relative;
   }
   
@@ -673,7 +673,6 @@ section {
     max-width: 100%;
     height: auto;
     margin-bottom: 1.5rem;
-    border-radius: 8px;
     transition: transform 0.3s ease;
   }
   
