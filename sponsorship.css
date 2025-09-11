@@ -209,31 +209,6 @@ body {
     filter: drop-shadow(0 0 10px var(--rowan-gold));
 }
 
-.logo-orbit {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
-    border: 2px solid var(--orbit-color);
-    border-radius: 50%;
-    animation: orbit 20s linear infinite;
-}
-
-.orbit-circle {
-    position: absolute;
-    top: -5px;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    background-color: var(--rowan-gold);
-    border-radius: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 0 10px var(--rowan-gold);
-    animation: circleOrbit 20s linear infinite;
-}
-
 .nav-list {
     display: flex;
     gap: 2rem;
@@ -673,6 +648,7 @@ section {
     max-width: 100%;
     height: auto;
     margin-bottom: 1.5rem;
+    border-radius: 8px;
     transition: transform 0.3s ease;
   }
   
