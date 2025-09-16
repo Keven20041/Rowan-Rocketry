@@ -61,21 +61,6 @@ body {
     height: 100vh;
 }
 
-.stars-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: radial-gradient(1px 1px at 20px 30px, var(--star-color), rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 40px 70px, var(--star-color), rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 50px 160px, var(--star-color), rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 90px 40px, var(--star-color), rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 130px 80px, var(--star-color), rgba(0, 0, 0, 0));
-    background-repeat: repeat;
-    animation: twinkle 4s ease-in-out infinite;
-    opacity: 0.5;
-}
 
 .top-bar {
     background-color: var(--space-dark);
@@ -323,10 +308,7 @@ body {
         width: 3.5rem;
     }
 
-    .logo-orbit {
-        width: 70px;
-        height: 70px;
-    }
+   
 
     .mobile-menu-toggle {
         display: block;
@@ -489,7 +471,7 @@ header {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 2px solid #FFCC00;
+ 
     object-fit: contain;
 }
 
