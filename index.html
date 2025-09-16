@@ -1,131 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rowan Rocketry </title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Index.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rowan Rocketry</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Index.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html"><img src="NewR.png" alt="Rowan Rocketry Logo"></a>
-                </div>
-                <nav>
-                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <ul class="nav-list">
-                        <li><a href="index.html">Home</a></li>
-                        <li style="color: #FFCC00;">|</li>
-                        <li><a href="sponsorship.html">Sponsorship</a></li>
-                        <li style="color: #FFCC00;">|</li>
-                        <li><a href="the-team.html">The Team</a></li>
-                        <li style="color: #FFCC00;">|</li>
-                        <li><a href="project.html">Projects</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+  <div class="menu-overlay"></div>
+  <header class="cosmic-header">
+      <div class="stars-overlay"></div>
+      
+      <div class="top-bar">
+          <div class="container">
+              <div class="contact-wrapper">
+                  <a href="mailto:rowanrocketry@gmail.com" class="contact-link">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="contact-icon"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                      <span class="contact-text">rowanrocketry@gmail.com</span>
+                  </a>
+                  <a href="tel:+16092512600" class="contact-link">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="contact-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                      <span class="contact-text">(609) 251-2600</span>
+                  </a>
+              </div>
+              <div class="social-links">
+                  <a href="https://www.instagram.com/rowanrocketry/" class="social-link" aria-label="Instagram">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  </a>
+                  <a href="https://www.youtube.com/@RowanRocketry" class="social-link" aria-label="YouTube">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                  </a>
+              </div>
+          </div>
+      </div>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-            <div id="title"><h1>Welcome to Rowan Rocketry</h1></div>
-                <hr>
-                <a href="#about" class="btn">Learn More</a>
-            </div>
-        </section>
+      <div class="main-nav">
+          <div class="container">
+              <div class="nav-content">
+                  <div class="logo-wrapper">
+                      <a href="index.html" class="logo">
+                          <img src="NewR.png" alt="Rowan Rocketry Logo" class="logo-img">
+                          <div class="logo-orbit">
+                              <span class="orbit-circle"></span>
+                          </div>
+                      </a>
+                  </div>
+                  <nav class="navigation">
+                      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                      </button>
+                      <ul class="nav-list">
+                          <li class="nav-item"><a href="index.html" class="nav-link">HOME</a></li>
+                          <li class="nav-item"><a href="sponsorship.html" class="nav-link">SPONSORSHIP</a></li>
+                          <li class="nav-item"><a href="the-team.html" class="nav-link">THE TEAM</a></li>
+                          <li class="nav-item"><a href="project.html" class="nav-link">PROJECTS</a></li>
+                          <li class="nav-item"><a href="history.html" class="nav-link">HISTORY</a></li>
+                      </ul>
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </header>
 
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2>Overview</h2>
-                <hr>
-                <div class="projects-content">
-                    <div class="projects-text">
-                        <p>The Rowan University Rocketry Team participates in the Spaceport America Cup, the world's largest intercollegiate rocket engineering competition, which will take place in June 2025. Each year, over 150 schools from around the globe gather in New Mexico to compete, with thousands of students, faculty, and industry professionals in attendance. This event provides a unique opportunity for students to apply their knowledge by designing, building, and launching rockets.</p>
-                    </div>
-                    <img src="Launch.jpg" alt="Spaceport America Cup" class="projects-image">
-                </div>
-            </div>
-        </section>
+  <main>
+      <section id="home" class="hero">
+          <div class="hero-content">
+              <div id="title"><h2>Welcome to Rowan Rocketry</h2></div>
+              <hr>
+              <a href="#about" class="btn">Learn More</a>
+          </div>
+      </section>
 
-        <section id="mission" class="mission">
-            <div class="container">
-                <h2>Our Mission</h2>
-                <hr>
-                <div class="mission-content">
-                    <img src="GroupPhoto.jpg" alt="Rowan Rocketry Team" class="mission-image">
-                    <div class="mission-text">
-                        <p>Our mission for this year's competition is to construct a sounding rocket capable of exceeding an altitude of 10,000 feet. The team is organized into six specialized sub-teams—airframe, avionics, payload, recovery, propulsion, and operations/logistics. Each sub-team plays a critical role in the development process, from structural design to data transmission and safe recovery, ensuring the success of our rocket.</p>
-                        <p>Beyond the technical aspects, the project fosters hands-on learning and professional development in areas such as problem-solving, teamwork, and project management. By engaging with real-world aerospace applications, our team members acquire essential skills for careers in the aerospace industry, gaining both practical experience and a solid foundation in rocket science.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="about" class="about">
-            <div class="container">
-                <h2>About Us</h2>
-                <hr>
-                <div class="about-content">
-                    <img src="GroupPhoto.jpg" alt="Rowan Rocketry Team" class="about-image">
-                    <div class="about-text">
-                <p>Rowan Rocketry is a student organization dedicated to the advancement of rocketry and aerospace engineering. Our mission is to provide students with the opportunity to gain hands-on experience in the field of aerospace engineering and to foster a community of like-minded individuals who are passionate about space exploration.</p>
-            </div>
-        </div>
-    </div>
-        </section>
+      <section id="projects" class="projects">
+          <div class="container">
+              <h2>Overview</h2>
+              <hr>
+              <div class="projects-content">
+                  <div class="projects-text">
+                      <p>The Rowan University Rocketry Team participates in the Spaceport America Cup, the world's largest intercollegiate rocket engineering competition, which will take place in June 2025. Each year, over 150 schools from around the globe gather in New Mexico to compete, with thousands of students, faculty, and industry professionals in attendance. This event provides a unique opportunity for students to apply their knowledge by designing, building, and launching rockets.</p>
+                  </div>
+                  <img src="Launch.jpg" alt="Spaceport America Cup" class="projects-image">
+              </div>
+          </div>
+      </section>
 
-    </main>
+      <section id="mission" class="mission">
+          <div class="container">
+              <h2>Our Mission</h2>
+              <hr>
+              <div class="mission-content">
+                  <img src="GroupPhoto.jpg" alt="Rowan Rocketry Team" class="mission-image">
+                  <div class="mission-text">
+                      <p>Our mission for this year's competition is to construct a sounding rocket capable of exceeding an altitude of 10,000 feet. The team is organized into six specialized sub-teams—airframe, avionics, payload, recovery, propulsion, and operations/logistics. Each sub-team plays a critical role in the development process, from structural design to data transmission and safe recovery, ensuring the success of our rocket.</p>
+                      <p>Beyond the technical aspects, the project fosters hands-on learning and professional development in areas such as problem-solving, teamwork, and project management. By engaging with real-world aerospace applications, our team members acquire essential skills for careers in the aerospace industry, gaining both practical experience and a solid foundation in rocket science.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+      
+      <section id="about" class="about">
+          <div class="container">
+              <h2>About Us</h2>
+              <hr>
+              <div class="about-content">
+                  <img src="GroupPhoto.jpg" alt="Rowan Rocketry Team" class="about-image">
+                  <div class="about-text">
+                      <p>Rowan Rocketry is a student organization dedicated to the advancement of rocketry and aerospace engineering. Our mission is to provide students with the opportunity to gain hands-on experience in the field of aerospace engineering and to foster a community of like-minded individuals who are passionate about space exploration.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <ul>
-                        <li><a href="mailto:rowanrocketry@gmail.com">rowanrocketry@gmail.com</a></li>
-                        <li><a href="tel:+16092512600">(609) 251-2600</a></li>
-                        <li>201 Mullica Hill Rd, Glassboro, NJ 08028</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="project.html">Projects</a></li>
-                        <li><a href="the-team.html">Team</a></li>
-                        <li><a href="sponsorship.html">Sponsorship</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/rowanrocketry/" aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                        </a>
-                        <a href="https://www.youtube.com/@RowanRocketry" aria-label="YouTube">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 Rowan Rocketry. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <a href="#" class="scroll-top" aria-label="Scroll to top">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
-    </a>
+  <footer>
+      <div class="container">
+          <div class="footer-content">
+              <div class="footer-section">
+                  <h3>Contact Us</h3>
+                  <ul>
+                      <li><a href="mailto:rowanrocketry@gmail.com">rowanrocketry@gmail.com</a></li>
+                      <li><a href="tel:+16092512600">(609) 251-2600</a></li>
+                      <li>201 Mullica Hill Rd, Glassboro, NJ 08028</li>
+                  </ul>
+              </div>
+              <div class="footer-section">
+                  <h3>Quick Links</h3>
+                  <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="history.html">History</a></li>
+                      <li><a href="project.html">Projects</a></li>
+                      <li><a href="the-team.html">Team</a></li>
+                      <li><a href="sponsorship.html">Sponsorship</a></li>
+                  </ul>
+              </div>
+              <div class="footer-section">
+                  <h3>Follow Us</h3>
+                  <div class="social-icons">
+                      <a href="https://www.instagram.com/rowanrocketry/" aria-label="Instagram">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                      </a>
+                      <a href="https://www.youtube.com/@RowanRocketry" aria-label="YouTube">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                      </a>
+                  </div>
+              </div>
+          </div>
+          <div class="copyright">
+              <p>&copy; 2024 Rowan Rocketry. All rights reserved.</p>
+          </div>
+      </div>
+  </footer>
+  
+  <a href="#" class="scroll-top" aria-label="Scroll to top">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
 </body>
 </html>
+
