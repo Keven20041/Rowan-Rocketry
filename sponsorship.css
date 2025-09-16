@@ -383,7 +383,7 @@ section {
   
   .sponsor-card {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 2rem;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -402,7 +402,7 @@ section {
   
   .tier-badge {
     position: absolute;
-    top: 1rem;
+    top: 0rem;
     right: 1rem;
     background-color: var(--accent-color);
     color: var(--primary);
