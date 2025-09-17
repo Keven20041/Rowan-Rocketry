@@ -108,15 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const navList = document.querySelector(".nav-list")
   let touchStartY = 0
 
-  if (mobileMenuToggle && navList) {
-    // Mobile menu toggle
-    mobileMenuToggle.addEventListener("click", (e) => {
-      e.stopPropagation()
-      navList.classList.toggle("active")
-      mobileMenuToggle.classList.toggle("active")
-      mobileMenuToggle.setAttribute("aria-expanded", navList.classList.contains("active"))
-    })
-  }
+  // Mobile menu toggle
+  mobileMenuToggle.addEventListener("click", (e) => {
+    e.stopPropagation()
+    navList.classList.toggle("active")
+    mobileMenuToggle.setAttribute("aria-expanded", navList.classList.contains("active"))
+  })
 
   // Improved touch event handling for mobile
   document.addEventListener(
@@ -134,12 +131,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const deltaY = touchEndY - touchStartY
 
       // Close menu when swiping up
-      if (deltaY < -50 && navList && navList.classList.contains("active")) {
+      if (deltaY < -50 && navList.classList.contains("active")) {
         navList.classList.remove("active")
-        if (mobileMenuToggle) {
-          mobileMenuToggle.classList.remove("active")
-          mobileMenuToggle.setAttribute("aria-expanded", "false")
-        }
+        mobileMenuToggle.setAttribute("aria-expanded", "false")
       }
     },
     { passive: true },
@@ -155,14 +149,10 @@ document.addEventListener("DOMContentLoaded", () => {
           const currentScroll = window.pageYOffset
 
           // Update header
-          if (header) {
-            header.classList.toggle("scrolled", currentScroll > 100)
-          }
+          header.classList.toggle("scrolled", currentScroll > 100)
 
           // Update scroll to top button
-          if (scrollTopButton) {
-            scrollTopButton.classList.toggle("visible", currentScroll > 300)
-          }
+          scrollTopButton.classList.toggle("visible", currentScroll > 300)
 
           ticking = false
         })
@@ -174,25 +164,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Close mobile menu when clicking outside
   document.addEventListener("click", (e) => {
-    if (header && navList && mobileMenuToggle && !header.contains(e.target) && navList.classList.contains("active")) {
+    if (!header.contains(e.target) && navList.classList.contains("active")) {
       navList.classList.remove("active")
-      mobileMenuToggle.classList.remove("active")
       mobileMenuToggle.setAttribute("aria-expanded", "false")
     }
   })
 
   // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  document.querySelectorAll('href').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault()
       const target = document.querySelector(this.getAttribute("href"))
       if (target) {
         target.scrollIntoView({ behavior: "smooth" })
-        if (navList && mobileMenuToggle) {
-          navList.classList.remove("active")
-          mobileMenuToggle.classList.remove("active")
-          mobileMenuToggle.setAttribute("aria-expanded", "false")
-        }
+        navList.classList.remove("active")
+        mobileMenuToggle.setAttribute("aria-expanded", "false")
       }
     })
   })
@@ -207,11 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = slider.querySelectorAll(".slider-item")
     const progressBar = slider.querySelector(".progress-bar")
     let currentIndex = 0
-    let autoAdvanceInterval
-
-    if (!container || !prevButton || !nextButton || !items.length || !progressBar) {
-      return // Skip this slider if essential elements are missing
-    }
 
     const updateSlider = () => {
       container.style.transform = `translateX(-${currentIndex * 100}%)`
@@ -231,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
     prevButton.addEventListener("click", goToPrev)
     nextButton.addEventListener("click", goToNext)
 
-    autoAdvanceInterval = setInterval(goToNext, 5000)
+    let autoAdvanceInterval = setInterval(goToNext, 5000)
 
     // Touch events for mobile swipe
     let touchStartX = 0
@@ -266,12 +247,10 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // Scroll to top button click event
-  if (scrollTopButton) {
-    scrollTopButton.addEventListener("click", (e) => {
-      e.preventDefault()
-      window.scrollTo({ top: 0, behavior: "smooth" })
-    })
-  }
+  scrollTopButton.addEventListener("click", (e) => {
+    e.preventDefault()
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  })
 
   // Dropdown menu functionality
   const dropdowns = document.querySelectorAll(".dropdown")
@@ -279,10 +258,6 @@ document.addEventListener("DOMContentLoaded", () => {
   dropdowns.forEach((dropdown) => {
     const dropdownContent = dropdown.querySelector(".dropdown-content")
     const dropdownToggle = dropdown.querySelector(".dropdown-toggle")
-
-    if (!dropdownContent || !dropdownToggle) {
-      return // Skip this dropdown if essential elements are missing
-    }
 
     dropdownToggle.addEventListener("click", (e) => {
       e.preventDefault()
@@ -308,6 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
+  // Intersection Observer for fade-in animations
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -315,8 +291,6 @@ document.addEventListener("DOMContentLoaded", () => {
           // Add will-change to optimize animations
           entry.target.style.willChange = "transform, opacity"
           entry.target.classList.add("fade-in-up")
-
-          console.log("[v0] Element faded in:", entry.target.className)
 
           // Cleanup will-change after animation
           setTimeout(() => {
@@ -331,64 +305,36 @@ document.addEventListener("DOMContentLoaded", () => {
       rootMargin: window.innerWidth < 768 ? "50px" : "0px",
     },
   )
-
-  document.querySelectorAll(".team-card, .team-card1").forEach((card) => {
-    card.addEventListener("click", (e) => {
-      // Check if the clicked element is a link or inside a link
-      const clickedLink = e.target.closest("a")
-
-      if (clickedLink) {
-        // Allow link to work normally, prevent card flip
-        e.stopPropagation()
-        console.log("[v0] Link clicked, preventing card flip:", clickedLink.href)
-        return false
-      }
-
-      // Only handle flip on touch devices or when hover is not available
-      if (!window.matchMedia("(hover: hover)").matches) {
-        e.preventDefault()
-        e.stopPropagation()
-        card.classList.toggle("flipped")
-        console.log("[v0] Card flipped on mobile:", card.classList.contains("flipped"))
-      }
-    })
-
-    const links = card.querySelectorAll("a")
-    links.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        // Stop all propagation to prevent card flip
-        e.stopPropagation()
-        e.stopImmediatePropagation()
-
-        console.log("[v0] Link clicked:", link.href)
-        // Link will work normally since we're not preventing default
-      })
-
-      // Prevent card flip on link hover/touch
-      link.addEventListener("mouseenter", (e) => {
-        e.stopPropagation()
-      })
-
-      link.addEventListener(
-        "touchstart",
-        (e) => {
-          e.stopPropagation()
-        },
-        { passive: true },
-      )
-    })
-
+  document.querySelectorAll(".team-card, .team-card1").forEach((el) => {
     // Add loading="lazy" to images within team cards
-    const img = card.querySelector("img")
+    const img = el.querySelector("img")
     if (img) {
       img.loading = "lazy"
       img.decoding = "async"
     }
-    observer.observe(card)
+    observer.observe(el)
   })
-
   document.querySelectorAll(".team-members h1, .team-members h2").forEach((el) => {
     observer.observe(el)
+  })
+
+  // Add touch feedback for mobile
+  document.querySelectorAll(".team-card, .team-card1").forEach((card) => {
+    card.addEventListener(
+      "touchstart",
+      () => {
+        card.style.transform = "scale(0.98)"
+      },
+      { passive: true },
+    )
+
+    card.addEventListener(
+      "touchend",
+      () => {
+        card.style.transform = "scale(1)"
+      },
+      { passive: true },
+    )
   })
 })
 
