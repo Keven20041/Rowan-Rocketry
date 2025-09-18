@@ -7,7 +7,6 @@
   --contact-bg-color: #1a1a1a;
   --contact-text-color: #ffffff;
   --contact-accent-color: #ffb800;
-  --gradient-primary: linear-gradient(135deg, #57150b, #8b0000);
   --gradient-secondary: linear-gradient(135deg, #ffcc00, #ffb800);
   --gradient-dark: linear-gradient(135deg, #1a1a1a, #000000);
   --rowan-brown: #57150b;
@@ -760,7 +759,6 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--space-dark);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -772,6 +770,7 @@ footer {
 
   .nav-list.active {
     display: flex;
+  background-color: var(--space-dark);
   }
 
   .nav-item {
