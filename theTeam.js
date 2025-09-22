@@ -181,11 +181,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  // Smooth scrolling for anchor links
+  // Smooth scrolling for anchor links (fixed)
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href")
+
+      // Skip if it's just "#" (no valid target)
+      if (!href || href === "#") return
+
       e.preventDefault()
-      const target = document.querySelector(this.getAttribute("href"))
+      const target = document.querySelector(href)
       if (target) {
         target.scrollIntoView({ behavior: "smooth" })
         if (navList && mobileMenuToggle) {
