@@ -984,6 +984,19 @@ section {
   padding: 3rem 0;
 }
 
+a.btn.btn-primary {
+  background-color: var(--rowan-gold);
+  color: var(--space-dark);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+a.btn.btn-primary:hover {
+  background-color: var(--space-dark);
+  color: var(--rowan-gold);
+}
 .mailing-info {
   margin-top: 4rem;
   text-align: center;
