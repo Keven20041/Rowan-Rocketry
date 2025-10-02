@@ -727,7 +727,11 @@ footer {
   opacity: 1;
   visibility: visible;
 }
-
+.scroll-top:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+  transform: translateY(-5px);
+}
 /* Media Queries */
 @media screen and (max-width: 1200px) {
   .team-grid,
