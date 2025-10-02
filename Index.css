@@ -9,6 +9,7 @@
   --accent-glow: rgba(255, 204, 0, 0.2);
 }
 
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +21,7 @@ body {
   line-height: 1.6;
   background-color: var(--space-dark);
   color: white;
-  overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
 }
 
 .container {
@@ -30,13 +31,13 @@ body {
   padding: 0 1rem;
 }
 
+/* Header Styles */
 .cosmic-header {
   position: relative;
   width: 100%;
   z-index: 1000;
   background: linear-gradient(180deg, var(--rowan-brown) 0%, var(--space-dark) 100%);
   overflow: hidden;
-  transition: background 0.3s ease;
 }
 
 .cosmic-header.menu-open {
@@ -270,7 +271,6 @@ body {
   transition: 0.3s;
 }
 
-/* Mobile menu close button styling */
 .mobile-menu-close {
   display: none;
   background: none;
@@ -279,9 +279,7 @@ body {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  width: 40px;
-  height: 40px;
-  z-index: 1001;
+  z-index: 1002;
 }
 
 .mobile-menu-close svg {
@@ -291,6 +289,87 @@ body {
   stroke-width: 3px;
 }
 
+.season-tabs h2{
+  text-align: center;
+  color: var(--rowan-gold);
+  font-size: 2rem;
+  padding: 0rem 0;
+}
+
+/* Season Tabs Styles */
+.season-tabs {
+  background: linear-gradient(135deg, var(--space-dark) 0%, var(--rowan-brown) 100%);
+  padding: 2rem 0;
+  border-bottom: 2px solid var(--rowan-gold);
+}
+
+.tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tab-button {
+  background: var(--rowan-gold);
+  border: 2px solid var(--rowan-gold);
+  color: var(--space-dark);
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tab-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  transition: left 0.3s ease;
+  z-index: 0;
+}
+
+.tab-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.tab-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(44, 13, 6, 0.3);
+}
+
+.tab-button:hover::before {
+  left: 0;
+}
+
+.tab-button:hover {
+  background: transparent;
+  color: var(--rowan-gold);
+}
+
+.tab-button.active {
+  background: transparent;
+  color: var(--rowan-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 204, 0, 0.4);
+}
+
+.tab-button.active::before {
+  left: 0;
+}
+
+/* Hero Section */
 .hero {
   height: 100vh;
   background-image: url("https://images.unsplash.com/photo-1516849677043-ef67c9557e16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
@@ -303,7 +382,7 @@ body {
   text-align: center;
   color: white;
   position: relative;
-  margin-top: -120px; /* Adjust for header height */
+  margin-top: -120px;
 }
 
 .hero::before {
@@ -313,7 +392,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3); /* Lighter overlay to show more of the image */
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .hero-content {
@@ -363,9 +442,12 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
 }
-.mobile-menu-toggle.active{
-  display:none;
+
+.mobile-menu-toggle.active {
+  display: none;
 }
+
+/* Section Styles */
 .projects,
 .mission,
 .about {
@@ -424,6 +506,7 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Footer */
 footer {
   background-color: var(--rowan-brown);
   color: white;
@@ -515,12 +598,18 @@ footer {
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 99;
 }
-
+.scroll-top:hover {
+  background-color: var(--rowan-brown);
+  color: var(--rowan-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+}
 .scroll-top.visible {
   opacity: 1;
   visibility: visible;
 }
 
+/* Animations */
 @keyframes twinkle {
   0%,
   100% {
@@ -575,53 +664,6 @@ main {
   padding-top: 120px;
 }
 
-.sponsorship-hero {
-  height: 50vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-F6FFLQSLAMbU4fdfSzkCKmuZaUYCup.png");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  margin-top: 60px;
-}
-
-.sponsorship-hero h1 {
-  font-size: 3.5rem;
-  color: var(--rowan-gold);
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.sponsorship-content {
-  padding: 4rem 0;
-}
-
-.sponsorship-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.sponsorship-card {
-  background: var(--space-dark);
-  padding: 2rem;
-  border-radius: 8px;
-  border: 1px solid var(--rowan-gold);
-  text-align: center;
-}
-
-.sponsorship-card h3 {
-  color: var(--rowan-gold);
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-/* Mobile menu overlay */
 .menu-overlay {
   display: none;
   position: fixed;
@@ -637,8 +679,18 @@ main {
   display: block;
 }
 
-/* Improved mobile styles */
+/* Responsive Design */
 @media (max-width: 768px) {
+  .tabs-wrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tab-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
   .top-bar {
     display: none;
   }
@@ -700,7 +752,6 @@ main {
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* Mobile menu styles */
   .nav-list {
     display: none;
     position: fixed;
@@ -713,9 +764,9 @@ main {
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    padding: 80px 20px; /* Increased padding */
+    padding: 80px 20px;
     overflow-y: auto;
-    height: 100vh; /* Ensure full viewport height */
+    height: 100vh;
   }
 
   .nav-list.active {
@@ -723,7 +774,7 @@ main {
   }
 
   .nav-item {
-    margin: 1.5rem 0; /* Increased margin */
+    margin: 1.5rem 0;
     width: 100%;
     text-align: center;
     opacity: 0;
@@ -732,21 +783,12 @@ main {
   }
 
   .nav-link {
-    font-size: 2.5rem; /* Increased font size */
-    padding: 1.5rem; /* Increased padding */
+    font-size: 2.5rem;
+    padding: 1.5rem;
     display: block;
     color: white;
     transition: color 0.3s ease;
-    letter-spacing: 2px; /* Added letter spacing */
-  }
-
-  .nav-item {
-    margin: 1rem 0;
-    width: 100%;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.5s forwards;
+    letter-spacing: 2px;
   }
 
   .nav-item:nth-child(1) {
@@ -765,19 +807,10 @@ main {
     animation-delay: 0.5s;
   }
 
-  .nav-link {
-    font-size: 2rem;
-    padding: 1rem;
-    display: block;
-    color: white;
-    transition: color 0.3s ease;
-  }
-
   .nav-link:hover {
     color: var(--rowan-gold);
   }
 
-  /* Mobile menu close button */
   .mobile-menu-close {
     display: block;
     position: absolute;
@@ -793,16 +826,6 @@ main {
     width: 30px;
     height: 30px;
     stroke: var(--rowan-gold);
-  }
-
-  /* Ensure main content stays below the menu */
-  .hero,
-  main,
-  .projects,
-  .mission,
-  .about {
-    position: relative;
-    z-index: 1;
   }
 
   .projects-content,
@@ -846,7 +869,7 @@ main {
   }
 
   .btn {
-    padding: 0.8rem 2rem;
+    padding: 0.8rem 1.5rem;
     font-size: 1rem;
   }
 
@@ -873,7 +896,7 @@ main {
   .projects p,
   .mission p,
   .about p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: left;
   }
 
@@ -885,22 +908,8 @@ main {
   .footer-section {
     padding: 0 1rem;
   }
-
-  .sponsorship-hero {
-    margin-top: 60px;
-    height: 40vh;
-  }
-
-  .sponsorship-hero h1 {
-    font-size: 2rem;
-  }
-
-  .sponsorship-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
-/* Small mobile devices */
 @media (max-width: 480px) {
   .logo-img {
     width: 3rem;
@@ -951,13 +960,11 @@ main {
   }
 }
 
-/* Ensure the mobile menu toggle is always visible */
 .mobile-menu-toggle {
   position: relative;
   z-index: 1001;
 }
 
-/* Adjust the mobile menu close button position */
 .mobile-menu-close {
   position: fixed;
   top: 1.5rem;
@@ -965,7 +972,6 @@ main {
   z-index: 1002;
 }
 
-/* Ensure the menu overlay covers the entire viewport */
 .menu-overlay.active {
   position: fixed;
   top: 0;
@@ -975,4 +981,3 @@ main {
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 999;
 }
-
