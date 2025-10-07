@@ -521,6 +521,12 @@ footer {
   visibility: visible;
 }
 
+.scroll-top:hover {
+  background-color: var(--rowan-brown);
+  color: var(--rowan-gold);
+  transform: translateY(-2px);
+}
+
 @keyframes twinkle {
   0%,
   100% {
@@ -944,7 +950,6 @@ main {
     bottom: 15px;
     right: 15px;
   }
-
   .scroll-top svg {
     width: 20px;
     height: 20px;
