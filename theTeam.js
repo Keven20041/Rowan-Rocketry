@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Star field animation
+  
   const canvas = document.createElement("canvas")
   canvas.id = "starField"
   document.body.prepend(canvas)
@@ -79,17 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       clearTimeout(timeout)
       timeout = setTimeout(later, wait)
-    }
-  }
-
-  const throttle = (func, limit) => {
-    let inThrottle
-    return function (...args) {
-      if (!inThrottle) {
-        func.apply(this, args)
-        inThrottle = true
-        setTimeout(() => (inThrottle = false), limit)
-      }
     }
   }
 
