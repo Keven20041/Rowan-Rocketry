@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.style.left = '0';
 
     let width, height, stars;
-    const STAR_COUNT = 100;
+    const STAR_COUNT = 500;
 
     function init() {
         resizeCanvas();
