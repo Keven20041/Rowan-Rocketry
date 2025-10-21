@@ -578,6 +578,7 @@ body {
 
 .team-card-back a {
   color: var(--secondary);
+  font-size: small;
 }
 
 .image-container,
