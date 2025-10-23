@@ -545,7 +545,7 @@ document.addEventListener("DOMContentLoaded", () => {
           year: "2026",
           college: "Engineering",
           email: "rossno75@students.rowan.edu",
-          linkedin: "https://www.linkedin.com/in/noelle-ross/",
+          linkedin: "https://www.linkedin.com/in/-sarah-ely/",
         },
       ],
       payload: [
@@ -570,6 +570,17 @@ document.addEventListener("DOMContentLoaded", () => {
           college: "Engineering",
           email: "ferrar19@students.rowan.edu",
           linkedin: "https://www.linkedin.com/in/emma-ferrarese",
+        },
+        {
+          name: "Aiden Aschoff",
+          title: "Payload Engineer",
+          image: "2025-2026/Aiden.jpg",
+          major: "Mechanical Engineering",
+          grade: "Junior",
+          year: "2027",
+          college: "Engineering",
+          email: "aschof77@rowan.edu",
+          linkedin: "https://www.linkedin.com/in/aiden-aschoff",
         },
       ],
       fins: [
