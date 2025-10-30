@@ -2,7 +2,23 @@ const path = require('path')
 const express = require("express")
 const app = express()
 
-const formRouter = require("./routers/forms")
+// Attempt to load the forms router (may depend on DB). If it fails, continue without it.
+let formRouter
+try {
+    formRouter = require("./routers/forms")
+} catch (err) {
+    console.warn('Could not load forms router at startup:', err && err.message ? err.message : err)
+}
+
+// Try database connectivity check (non-blocking). Server will continue to start even if DB is unavailable.
+try {
+    const db = require('./database')
+    db.testConnection()
+        .then(() => console.log('MySQL connection successful'))
+        .catch((err) => console.warn('MySQL connection failed at startup (continuing without DB):', err && err.message ? err.message : err))
+} catch (err) {
+    console.warn('Database module not available or failed to load:', err && err.message ? err.message : err)
+}
 
 // Set view engine as ejs for rendering dynamic webpages
 app.set("view engine", "ejs")
@@ -51,8 +67,12 @@ app.use(express.static('public', {extensions: ['html', 'htm']}))
 //     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 // })
 
-// Forms handling
-app.use("/forms", formRouter)
+// Forms handling (only attach if the router loaded successfully)
+if (formRouter) {
+    app.use("/forms", formRouter)
+} else {
+    console.warn('Forms routes are disabled because the router failed to load at startup.')
+}
 
 // Test
 app.get("/test.express", (req, res) => {
