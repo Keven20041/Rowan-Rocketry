@@ -121,6 +121,12 @@ aerospace innovators.</p>
           description: "Full-Service Architecture and Design Firm",
           website: "https://www.dekkerdesign.org/",
         },
+         {
+          name: "J5 Industries",
+          logo: "2025-2026/J5Industries.png",
+          description: "Assist students their students from academia to an engineer",
+          website: "https://engineering.rowan.edu/programs/mechanical/people/supporting_faculty.html#shoffner",
+        },
       ],
         tier2: [
         {

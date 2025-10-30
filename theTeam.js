@@ -455,7 +455,7 @@ document.addEventListener("DOMContentLoaded", () => {
           year: "2026",
           college: "Engineering",
           email: "rasath87@students.rowan.edu",
-          linkedin: "https://www.linkedin.com/in/thomas-rasa/",
+          linkedin: "https://www.linkedin.com/in/thomas-r-2b915b229/",
         },
         {
           name: "Noelle Ross",
@@ -466,7 +466,7 @@ document.addEventListener("DOMContentLoaded", () => {
           year: "2027",
           college: "Engineering",
           email: "rossno75@students.rowan.edu",
-          linkedin: "https://www.linkedin.com/in/noelle-ross/",
+          linkedin: "https://www.linkedin.com/in/noelle-ross-ba4a2527a/",
         },
         {
           name: "Sarah Ely",
@@ -512,7 +512,7 @@ document.addEventListener("DOMContentLoaded", () => {
           year: "2027",
           college: "Engineering",
           email: "aschof77@rowan.edu",
-          linkedin: "https://www.linkedin.com/in/aiden-aschoff",
+          linkedin: "https://www.linkedin.com/in/aiden-aschoff-366487212/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         },
       ],
       fins: [
