@@ -11,13 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.style.left = '0';
 
     let width, height, stars;
-    const STAR_COUNT = 100;
+    const STAR_COUNT = 500;
 
     function init() {
         resizeCanvas();
         createStars();
         animate();
-        console.log('If you see this the code is working');
     }
 
     function resizeCanvas() {
@@ -309,5 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    console.log('All scripts initialized successfully.');
 });
 

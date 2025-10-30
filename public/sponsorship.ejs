@@ -5,61 +5,173 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rowan Rocketry - Sponsorship</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/sponsorship.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="/sponsorship.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="/index.html"><img src="/media/NewR.png" alt="Rowan Rocketry Logo"></a>
+    <div class="menu-overlay"></div>
+    <header class="cosmic-header">
+        <div class="stars-overlay"></div>
+        
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <a href="mailto:rowanrocketry@gmail.com" class="contact-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="contact-icon"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <span class="contact-text">rowanrocketry@gmail.com</span>
+                    </a>
+                    <a href="tel:+16092512600" class="contact-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="contact-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span class="contact-text">(609)-251-2600</span>
+                    </a>
                 </div>
-                <nav>
-                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <ul class="nav-list">
-                        <li><a href="/">Home</a></li>
-                        <li style="color: #FFCC00;">|</li>
-                        <li><a href="/sponsorship.html">Sponsorship</a></li>
-                        <li style="color: #FFCC00;">|</li>
-                        <li><a href="/the-team.html">The Team</a></li>
-                        <li style="color: #FFCC00;">|</li>
-                        <li><a href="/project.html">Projects</a></li>
-                        <li style="color: #FFCC00;">|</li>
-                        <li><a href="/history.html">History</a></li>
-                    </ul>
-                </nav>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/rowanrocketry/" class="social-link" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@RowanRocketry" class="social-link" aria-label="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo-wrapper">
+                        <a href="/index.html" class="logo">
+                            <img src="/media/NewR.png" alt="Rowan Rocketry Logo" class="logo-img">
+                            <div class="logo-orbit">
+                                <span class="orbit-circle"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <nav class="navigation">
+                        <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <ul class="nav-list">
+                            <li class="nav-item"><a href="/index.html" class="nav-link">HOME</a></li>
+                            <li class="nav-item"><a href="/sponsorship.html" class="nav-link">SPONSORSHIP</a></li>
+                            <li class="nav-item"><a href="/the-team.html" class="nav-link">THE TEAM</a></li>
+                            <li class="nav-item"><a href="/project.html" class="nav-link">PROJECTS</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="sponsorship-hero">
+        <section class="sponsorship-hero" id="hero-section">
             <div class="hero-content">
-                <h1>Support Rowan Rocketry</h1>
-                <p>Join us in our mission to push the boundaries of student rocketry and aerospace innovation.</p>
-                <div class="hero-buttons">
+                <h1 id="hero-title">Support Rowan Rocketry</h1>
+                <p id="hero-description">Join us in our mission to push the boundaries of student rocketry and aerospace innovation.</p>
+                <div class="hero-buttons"></div>
+            </div>
+        </section>
+
+        <!-- Moved season selection tabs between hero and sponsors sections -->
+        <div class="season-tabs-container">
+            <div class="season-tabs">
+                <button class="season-tab active" data-season="2024-2025">2024-2025 Season</button>
+                <button class="season-tab" data-season="2025-2026">2025-2026 Season</button>
+            </div>
+        </div>
+
+        <section class="sponsors-section">
+            <div class="container">
+                <h2 class="section-title">OUR SPONSORS</h2>
+                <p class="intro-text" id="sponsors-intro">We are grateful to our sponsors who make our mission possible. Their support enables us to push the boundaries of student rocketry and aerospace innovation.</p>
+                <div class="sponsors-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="tier5">Tier 5 Sponsors</button>
+                        <button class="tab-btn active" data-tab="tier4">Tier 4 Sponsors</button>
+                        <button class="tab-btn" data-tab="tier3">Tier 3 Sponsors</button>
+                        <button class="tab-btn" data-tab="tier2">Tier 2 Sponsors</button>
+                        <button class="tab-btn" data-tab="tier1">Tier 1 Sponsors</button>
+                        <button class="tab-btn" data-tab="all">All Sponsors</button>
+                    </div>
+                    
+                     <div class="tab-content active" id="tier5">
+                        <div class="sponsors-grid tier-5" id="tier5-content"></div>
+                    </div>
+
+                    <div class="tab-content active" id="tier4">
+                        <div class="sponsors-grid tier-4" id="tier4-content"></div>
+                    </div>
+                    
+                    <div class="tab-content" id="tier3">
+                        <div class="sponsors-grid tier-3" id="tier3-content"></div>
+                    </div>
+                    
+                    <div class="tab-content" id="tier2">
+                        <div class="sponsors-grid tier-2" id="tier2-content"></div>
+                    </div>
+                    
+                    <div class="tab-content" id="tier1">
+                        <div class="sponsors-grid tier-1" id="tier1-content">
+                            <div class="sponsor-card">
+                                <img src="JMJ.svg" alt="Sponsor Logo" class="sponsor-logo">
+                                <h3 class="sponsor-name">JMJ Profile Inc</h3>
+                                <p class="sponsor-description">Specializing in Machining Plastic & Phenolic Sheets.</p>
+                                <a href="https://www.jmjprofile.com/" class="sponsor-link">Visit Website</a>
+                            </div>
+                            
+                            <div class="sponsor-card">
+                                <img src="Southcopic.jpg" alt="Sponsor Logo" class="sponsor-logo">
+                                <h3 class="sponsor-name">Southcopic</h3>
+                                <p class="sponsor-description">Global designer and manufacturer of engineered access solutions.</p>
+                                <a href="https://southco.com/en_us_int/" class="sponsor-link">Visit Website</a>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="all">
+                        <div class="sponsors-grid all-sponsors" id="all-content">
+                            <div class="sponsor-card tier-1-card">
+                                <div class="tier-badge">Tier 1</div>
+                                <img src="JMJ.svg" alt="Sponsor Logo" class="sponsor-logo">
+                                <h3 class="sponsor-name">JMJ Profile Inc</h3>
+                                <p class="sponsor-description">Specializing in Machining Plastic & Phenolic Sheets.</p>
+                                <a href="https://www.jmjprofile.com/" class="sponsor-link">Visit Website</a>
+                            </div>
+                            
+                            <div class="sponsor-card">
+                                <img src="Southcopic.jpg" alt="Sponsor Logo" class="sponsor-logo">
+                                <h3 class="sponsor-name">Southcopic</h3>
+                                <p class="sponsor-description">Global designer and manufacturer of engineered access solutions.</p>
+                                <a href="https://southco.com/en_us_int/" class="sponsor-link">Visit Website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="become-sponsor">
+                    <h3>Interested in becoming a sponsor?</h3>
+                    <p>Join our mission to push the boundaries of student rocketry and aerospace innovation.</p>
                     <a href="#sponsor-form" class="btn btn-primary">Become a Sponsor</a>
                 </div>
             </div>
         </section>
-
+        
         <section class="about-section">
             <div class="container">
                 <h2 class="section-title">ABOUT US</h2>
-                <div class="content">
+                <div class="content" id="about-content">
                     <p>The Rowan University Rocketry Team participates in the annual International Rocket Engineering Competition, the world's largest intercollegiate rocket engineering competition. With over 150 schools from 22 countries, this event brings together thousands of students, faculty, and industry professionals.</p>
                     <p>Our team of 20 interdisciplinary engineering students is divided into six sub-teams: airframe, avionics, payload, recovery, propulsion, and fins. Each sub-team is integral to the rocket's development, from structural design to data transmission and recovery.</p>
                     <p>This project not only pushes technical boundaries but also fosters teamwork, problem-solving, and professional development, preparing us for careers in aerospace engineering.</p>
                 </div>
                 <div class="team-photo">
-                    <img src="/media/2024Group.jpg" alt="Rowan Rocketry Team with their rocket" width="1200" height="675">
+                    <img id="team-photo" src="/media/2024Group.jpg" alt="Rowan Rocketry Team with their rocket" width="1200" height="675">
                 </div>
             </div>
         </section>
@@ -130,7 +242,7 @@
             <div class="container">
                 <h2 class="board-title">EXECUTIVE BOARD</h2>
                 <div class="team-captain">
-                    <div class="profile-card large">
+                    <div class="profile-card large" id="team-captain">
                         <img src="/media/rowenh.jpg" alt="Rowen Christianson - Team Captain">
                         <h3>Team Captain</h3>
                         <p>Rowen Christianson</p>
@@ -138,37 +250,8 @@
                 </div>
                 <div class="team-leads">
                     <h3 class="leads-title">TEAM LEADS</h3>
-                    <div class="leads-grid">
-                        <div class="profile-card">
-                            <img src="/media/tAiden.jpg" alt="Aiden Sharpe - Avionics Lead">
-                            <h4>AVIONICS</h4>
-                            <p>AIDAN SHARPE</p>
-                        </div>
-                        <div class="profile-card">
-                            <img src="/media/tbamidale.jpg" alt="Bamidele Obadina - Airframe Lead">
-                            <h4>AIRFRAME</h4>
-                            <p>BAMIDELE OBADINA</p>
-                        </div>
-                        <div class="profile-card">
-                            <img src="/media/tNolan.jpg" alt="Nolan Heaney - Fins Lead">
-                            <h4>FINS</h4>
-                            <p>NOLAN HEANEY</p>
-                        </div>
-                        <div class="profile-card">
-                            <img src="/media/tJared.jpg" alt="Jared Crane - Propulsion Lead">
-                            <h4>PROPULSION</h4>
-                            <p>JARED CRANE</p>
-                        </div>
-                        <div class="profile-card">
-                            <img src="/media/tjames.jpg" alt="James Lee - Payload Lead">
-                            <h4>PAYLOAD</h4>
-                            <p>JAMES LEE</p>
-                        </div>
-                        <div class="profile-card">
-                            <img src="/media/tdaniel.jpg" alt="Daniel Rodriguez - Recovery Lead">
-                            <h4>RECOVERY</h4>
-                            <p>DANIEL RODRIGUEZ</p>
-                        </div>
+                    <div class="leads-grid" id="team-leads-grid">
+                        <!-- Team leads will be populated by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -176,88 +259,56 @@
 
         <section class="sponsor-section">
             <div class="container">
-                <h2 class="section-title">WHY SPONSOR?</h2>
-                <div class="sponsor-content">
-                    <p class="intro-text">Over the course of two semesters, our team dedicates itself to designing, building, and testing a rocket. These efforts range from sourcing parts, CAD preparation for competing at the prestigious Spaceport America Cup.</p>
-                    <p class="intro-text">This ambitious project requires financial support without the aid of university sponsors, where contributions play a crucial role in turning this vision into reality. The generosity of our sponsors enables us to compete at the highest level.</p>
-                    <div class="benefits-container">
-                        <div class="benefit-section">
-                            <h3>What sponsorship will provide to us?</h3>
-                            <ul>
-                                <li>Funding for Critical Components</li>
-                                <li>Professional Development</li>
-                                <li>Educational Impact</li>
-                            </ul>
-                        </div>
-                        <div class="benefit-section">
-                            <h3>What sponsorship will provide to you?</h3>
-                            <ul>
-                                <li>Brand Exposure and Positive Association</li>
-                                <li>Access to Emerging Talent</li>
-                                <li>Community Support</li>
-                                <li>Marketing Opportunities</li>
-                                <li>Network Growth</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="past-rocket">
-            <div class="container">
-                <h2 class="section-title">PAST ROCKET</h2>
-                <div class="rocket-content">
-                    <div class="rocket-diagram">
-                        <img src="/media/RowanRocket.PNG" alt="Technical diagram of Rowan Rocketry's past rocket design" class="diagram-image">
-                    </div>
-                    <p class="history-text">Rowan Rocketry made history last year with the successful launch at nationals, at the 2023 Spaceport America Cup. Competing against 75 teams, we proudly placed first and achieved a major milestone. Our rocket soared to new heights, breaking all team records and proving our talent and skill, yet having all the lessons learned and getting us just to succeed, but to win, at the 2024 launch.</p>
-                    <div class="launch-images">
-                        <img src="/media/fullR.png" alt="Close-up view of the rocket during launch against cloudy sky" class="launch-image">
-                        <img src="/media/Rocketfar.png" alt="Full view of the rocket launch against blue sky" class="launch-image">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="sponsorship-section">
-            <div class="container">
                 <h2 class="section-title">SPONSORSHIP INFORMATION</h2>
                 <div class="tiers-container">
                     <div class="tier">
-                        <h3 class="tier-header">TIER 4: >$2500</h3>
+                        <h3 class="tier-header">TIER 5: $5000+</h3>
                         <div class="tier-content">
                             <ul>
+                                <li>Tour of workspace/lab facilities</li>
+                                <li>Info session opportunities (at Rowan or corporate events)</li>
+                                <li>*Custom sponsorships available*</li>
                                 <li>All lower tier perks</li>
-                                <li>Larger logo on our competition rocket</li>
-                                <li>Large logo on team apparel</li>
+                            </ul>
+                        </div>
+                    </div>
+                       <div class="tier">
+                        <h3 class="tier-header">TIER 4: $2500-$4999</h3>
+                        <div class="tier-content">
+                            <ul>
+                                <li>Logo on competition rocket</li>
+                                <li>Access to technical designs/reports</li>
+                                <li>Priority logo placement and branding</li>
+                                <li>All lower tier perks</li>
                             </ul>
                         </div>
                     </div>
                     <div class="tier">
-                        <h3 class="tier-header">TIER 3: $1500-$2500</h3>
+                        <h3 class="tier-header">TIER 3: $1000-$2499</h3>
                         <div class="tier-content">
                             <ul>
-                                <li>All lower tier perks</li>
-                                <li>Logo on our competition rocket</li>
-                                <li>Logo on our apparel</li>
+                                <li>Access to member resume book</li>
+                                <li>Invitation to witness engine tests, rocket launch</li>
+                                <li>All lower tier perks</li>  
                             </ul>
                         </div>
                     </div>
                     <div class="tier">
-                        <h3 class="tier-header">TIER 2: $500-$1500</h3>
+                        <h3 class="tier-header">TIER 2: $500-$999</h3>
                         <div class="tier-content">
                             <ul>
-                                <li>All lower tier perks</li>
-                                <li>Social media recognition</li>
+                                <li>Logo on team apparel</li>
+                                <li>Logo on competition banners</li>
+                                <li>All lower tier perks</li>    
                             </ul>
                         </div>
                     </div>
                     <div class="tier">
-                        <h3 class="tier-header">TIER 1: $500</h3>
+                        <h3 class="tier-header">TIER 1: $250-499</h3>
                         <div class="tier-content">
                             <ul>
-                                <li>Your organization's logo on our website</li>
+                                <li>Exposure on Social Media, Livestreams, & Newsletter</li>
+                                <li>Logo or name on website</li>
                             </ul>
                         </div>
                     </div>
@@ -266,97 +317,33 @@
             </div>
         </section>
 
-        <section id="sponsor-form">
+        <section class="past-rocket">
             <div class="container">
-                <h2 class="section-title">SPONSORSHIP FORMS</h2>
-                <div class="forms-container">
-                    <div class="form-column">
-                        <h3 class="form-title">INFORMATION FORM</h3>
-                        <form class="information-form" action="/forms/submit/sponsorinfo" method="post">
-                            <div class="form-field">
-                                <label for="org-name">ORGANIZATION/INDIVIDUAL NAME:</label>
-                                <input type="text" id="org-name" name="org-name" required>
-                            </div>
-                            <div class="form-field">
-                                <label for="contact-name">CONTACT NAME:</label>
-                                <input type="text" id="contact-name" name="contact-name" required>
-                            </div>
-                            <div class="form-field">
-                                <label for="address">ADDRESS:</label>
-                                <input type="text" id="address" name="address" required>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-field">
-                                    <label for="phone">PHONE:</label>
-                                    <input type="tel" id="phone" name="phone" required>
-                                </div>
-                                <div class="form-field">
-                                    <label for="email">EMAIL:</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                            </div>
-                            <div class="form-field">
-                                <label for="contribution">CONTRIBUTION AMOUNT: $</label>
-                                <input type="number" id="contribution" name="contribution" min="0" step="0.01" required>
-                            </div>
-                            <div class="form-submit">
-                                <input type="submit" value="Submit" class="btn btn-primary">
-                            </div>
-                        </form>
+                <h2 class="section-title" id="rocket-section-title">PAST ROCKET</h2>
+                <div class="rocket-content">
+                    <div class="rocket-diagram">
+                        <img id="rocket-diagram" src="RowanRocket.PNG" alt="Technical diagram of Rowan Rocketry's rocket design" class="diagram-image">
                     </div>
-                    <div class="form-column">
-                        <h3 class="form-title">DONATION FORM</h3>
-                        <form class="donation-form" action="/forms/submit/sponsordonation" method="post">
-                            <div class="form-field">
-                                <label for="donor-org-name">ORGANIZATION/INDIVIDUAL NAME:</label>
-                                <input type="text" id="donor-org-name" name="org-name" required>
-                            </div>
-                            <div class="form-field">
-                                <label for="donor-contact-name">CONTACT NAME:</label>
-                                <input type="text" id="donor-contact-name" name="contact-name" required>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-field">
-                                    <label for="donor-phone">PHONE:</label>
-                                    <input type="tel" id="donor-phone" name="phone" required>
-                                </div>
-                                <div class="form-field">
-                                    <label for="donor-email">EMAIL:</label>
-                                    <input type="email" id="donor-email" name="email" required>
-                                </div>
-                            </div>
-                            <div class="form-field">
-                                <label for="donor-contribution">CONTRIBUTION AMOUNT: $</label>
-                                <input type="number" id="donor-contribution" name="contribution" min="0" step="0.01" required>
-                            </div>
-                            <div class="form-field">
-                                <label for="message">MESSAGE:</label>
-                                <textarea id="message" name="message" rows="4"></textarea>
-                            </div>
-                            <div class="form-submit">
-                                <input type="submit" value="Submit" class="btn btn-primary">
-                            </div>
-                        </form>
+                    <p class="history-text" id="rocket-history">Rowan Rocketry made history last year with the successful launch at nationals, at the 2023 Spaceport America Cup. Competing against 75 teams, we proudly placed first and achieved a major milestone. Our rocket soared to new heights, breaking all team records and proving our talent and skill, yet having all the lessons learned and getting us just to succeed, but to win, at the 2024 launch.</p>
+                    <div class="launch-images" id="launch-images">
+                        <img src="/media/fullR.png" alt="Close-up view of the rocket during launch against cloudy sky" class="launch-image">
+                        <img src="/media/Rocketfar.png" alt="Full view of the rocket launch against blue sky" class="launch-image">
                     </div>
                 </div>
-                <br><% if (locals.formsuccess === "true") { %> <%# TODO: Keven please fix or format it to your standard %>
-                <div class="form-response">
-                    <p id="form-success">Thank you for filling out our form! We will get back to you as soon as we can.</p>
-                </div><% } else if (locals.formsuccess === "false") { %>
-                <div class="form-response">
-                    <p id="form-failed">An error occurred! Sorry about that! Please try again later or email us directly.</p>
-                </div><% } %>
-                <div class="mailing-info">
-                    <p class="instruction-text">PLEASE MAKE CHECKS PAYABLE TO THE "ROWAN UNIVERSITY" AND SPECIFY IN THE MEMO "FOR AMA ROWAN ROCKETRY".</p>
-                    <p class="mail-heading">MAIL FORM AND PAYMENT TO:</p>
-                    <address class="mailing-address">
-                        ROWEN CHRISTIANSON,<br>
-                        614 HESTON RD.<br>
-                        GLASSBORO, NJ 08028<br>
-                        EMAIL: ROWANROCKETRY@GMAIL.COM
-                    </address>
-                    <p class="contact-info">CONTACT OUR EMAIL ROWANROCKETRY@GMAIL.COM FOR MORE INFORMATION</p>
-                </div>
+            </div>
+        </section>
+
+        <section id="sponsor-form">
+            <div class="mailing-info">
+                <p class="instruction-text">PLEASE MAKE CHECKS PAYABLE TO THE "ROWAN UNIVERSITY" AND SPECIFY IN THE MEMO "FOR AMA ROWAN ROCKETRY".</p>
+                <p class="mail-heading">MAIL FORM AND PAYMENT TO:</p>
+                <address class="mailing-address">
+                    James Lee,<br>
+                    15 Bacons Neck Rd.<br>
+                    Greenwich, NJ 08323<br>
+                    EMAIL: ROWANROCKETRY@GMAIL.COM
+                </address>
+                <p class="contact-info">CONTACT OUR EMAIL ROWANROCKETRY@GMAIL.COM FOR MORE INFORMATION</p>
             </div>
         </section>
     </main>
@@ -389,7 +376,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
                         <a href="https://www.youtube.com/@RowanRocketry" aria-label="YouTube">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78  2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                         </a>
                     </div>
                 </div>
