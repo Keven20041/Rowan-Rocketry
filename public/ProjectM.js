@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <div class="design-item">
                           <h3>Nose Cone Design</h3>
                           <p>Our aerodynamic nose cone is designed to minimize drag and optimize the rocket's flight path. The ogive shape provides the best balance between aerodynamic efficiency and structural integrity.</p>
-                          <img src="Nose-Cone.png" alt="Nose Cone Design" />
+                          <img src="/media/Nose-Cone.png" alt="Nose Cone Design" />
                           <p>Key specifications:</p>
                           <ul>
                               <li>Material: Fiber Glass</li>
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <div class="design-item">
                           <h3>Recovery System</h3>
                           <p>Our dual-deployment recovery system ensures safe retrieval of the rocket after flight. The system uses redundant altimeters for reliability.</p>
-                          <img src="RecoverySection.png" alt="Recovery System Design" />
+                          <img src="/media/RecoverySection.png" alt="Recovery System Design" />
                           <p>Components:</p>
                           <ul>
                                 <li> Material: Ripstop Nylon </li>
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <div class="design-item">
                           <h3>Payload Section</h3>
                           <p>The payload section houses our scientific experiment and telemetry systems. It's designed for easy access and integration.</p>
-                          <img src="PayloadSection.png" alt="Payload Section Design" />
+                          <img src="/media/PayloadSection.png" alt="Payload Section Design" />
                           <p>Features:</p>
                           <ul>
                               <li>Material: Carbon fiber</li>
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <div class="design-item">
                           <h3>Motor Section</h3>
                           <p>The motor section is engineered to safely house our solid rocket motor and provide structural support during the high-stress launch phase.</p>
-                          <img src="MotorSection.png" alt="Motor Section Design" />
+                          <img src="/media/MotorSection.png" alt="Motor Section Design" />
                           <p>Specifications:</p>
                           <ul>
                             <li> Material: Fiber Glass</li>
@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <div class="design-item">
                           <h3>Fin Design</h3>
                           <p>Our trapezoidal fins provide stability during flight while minimizing drag. The design has been optimized through extensive CFD analysis.</p>
-                          <img src="FinsSection.png" alt="Fin Design" />
+                          <img src="/media/FinsSection.png" alt="Fin Design" />
                           <p>Details:</p>
                           <ul>
                               <li>Material: G10 (Woven Fiberglass cloth & Epoxy resin) </li>

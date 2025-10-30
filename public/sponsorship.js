@@ -11,40 +11,40 @@ const seasonData = {
         <p>Our team of 20 interdisciplinary engineering students is divided into six sub-teams: airframe, avionics, payload, recovery, propulsion, and fins. Each sub-team is integral to the rocket's development, from structural design to data transmission and recovery.</p>
         <p>This project not only pushes technical boundaries but also fosters teamwork, problem-solving, and professional development, preparing us for careers in aerospace engineering.</p>
       `,
-      teamPhoto: "2024Group.jpg",
+      teamPhoto: "/media/2024Group.jpg",
     },
     teamCaptain: {
       name: "Rowen Christianson",
-      image: "rowenh.jpg",
+      image: "/media/rowenh.jpg",
     },
     teamLeads: [
-      { name: "AIDAN SHARPE", role: "AVIONICS", image: "tAidan.jpg" },
-      { name: "BAMIDELE OBADINA", role: "AIRFRAME", image: "tbamidale.jpg" },
-      { name: "NOLAN HEANEY", role: "FINS", image: "tNolan.jpg" },
-      { name: "JARED CRANE", role: "PROPULSION", image: "tJared.jpg" },
-      { name: "JAMES LEE", role: "PAYLOAD", image: "tjames.jpg" },
-      { name: "DANIEL RODRIGUEZ", role: "RECOVERY", image: "tdaniel.jpg" },
+      { name: "AIDAN SHARPE", role: "AVIONICS", image: "/media/tAidan.jpg" },
+      { name: "BAMIDELE OBADINA", role: "AIRFRAME", image: "/media/tbamidale.jpg" },
+      { name: "NOLAN HEANEY", role: "FINS", image: "/media/tNolan.jpg" },
+      { name: "JARED CRANE", role: "PROPULSION", image: "/media/tJared.jpg" },
+      { name: "JAMES LEE", role: "PAYLOAD", image: "/media/tjames.jpg" },
+      { name: "DANIEL RODRIGUEZ", role: "RECOVERY", image: "/media/tdaniel.jpg" },
     ],
     rocket: {
       title: "PAST ROCKET",
-      diagram: "RowanRocket.PNG",
+      diagram: "/media/RowanRocket.PNG",
       history:
         "Rowan Rocketry made history last year with the successful launch at nationals, at the 2023 Spaceport America Cup. Competing against 75 teams, we proudly placed first and achieved a major milestone. Our rocket soared to new heights, breaking all team records and proving our talent and skill, yet having all the lessons learned and getting us just to succeed, but to win, at the 2024 launch.",
-      images: ["fullR.png", "Rocketfar.png"],
+      images: ["/media/fullR.png", "/media/Rocketfar.png"],
     },
     subSystems: {
-      recovery: "recovery.png",
-      avionics: "avionics.png",
-      airframe: "airframe.png",
-      propulsion: "propulsion.png",
-      payload: "payload.png",
-      fins: "fins.png",
+      recovery: "/media/recovery.png",
+      avionics: "/media/avionics.png",
+      airframe: "/media/airframe.png",
+      propulsion: "/media/propulsion.png",
+      payload: "/media/payload.png",
+      fins: "/media/fins.png",
     },
     sponsors: {
       tier1: [
         {
           name: "JMJ Profile Inc",
-          logo: "JMJ.svg",
+          logo: "/media/JMJ.svg",
           description: "Specializing in Machining Plastic & Phenolic Sheets.",
           website: "https://www.jmjprofile.com/",
         },
@@ -76,54 +76,54 @@ companies like NASA, SpaceX, Boeing, and Lockheed Martin. When
 you support Rowan Rocketry, you're investing in tomorrow's
 aerospace innovators.</p>
       `,
-      teamPhoto: "2025-2026/2025-2026TeamPhoto.jpg",
+      teamPhoto: "/media/2025-2026/2025-2026TeamPhoto.jpg",
     },
     teamCaptain: {
       name: "James Lee",
-      image: "2025-2026/James.jpg",
+      image: "/media/2025-2026/James.jpg",
     },
     teamLeads: [
-      { name: "Marian Yanka", role: "AVIONICS", image: "2025-2026/Marian.jpg" },
-      { name: "Nolan Heaney", role: "AIRFRAME/FINS", image: "2025-2026/Nolan.jpg" },
-      { name: "Kuba Jadoga", role: "PROPULSION", image: "2025-2026/Kuba.jpg" },
-      { name: "Dharma Upadhyay", role: "PAYLOAD", image: "2025-2026/Dharma.jpg" },
-      { name: "Paul Porreca", role: "RECOVERY", image: "2025-2026/Paul.jpg" },
+      { name: "Marian Yanka", role: "AVIONICS", image: "/media/2025-2026/Marian.jpg" },
+      { name: "Nolan Heaney", role: "AIRFRAME/FINS", image: "/media/2025-2026/Nolan.jpg" },
+      { name: "Kuba Jadoga", role: "PROPULSION", image: "/media/2025-2026/Kuba.jpg" },
+      { name: "Dharma Upadhyay", role: "PAYLOAD", image: "/media/2025-2026/Dharma.jpg" },
+      { name: "Paul Porreca", role: "RECOVERY", image: "/media/2025-2026/Paul.jpg" },
     ],
     rocket: {
       title: "CURRENT ROCKET DEVELOPMENT",
-      diagram: "2025-2026/TechRocket.png?height=400&width=600&query=advanced rocket design blueprint 2025",
+      diagram: "/media/2025-2026/TechRocket.png?height=400&width=600&query=advanced rocket design blueprint 2025",
       history:
         "Rowan Rocketry is back for the 2025–2026 IREC competition. We return with greater ambition and sharper focus. This year, our mission is to push the boundaries of engineering, teamwork, and innovation even further—designing a rocket capable of not only exceeding 10,000 feet, but also showcasing advanced avionics, payload integration, and recovery systems. With lessons learned from our previous season, we aim to raise the bar for what Rowan Rocketry can achieve on the national stage.",
       images: [
-        "fullR.png?height=300&width=400&query=futuristic rocket launch",
-        "Rocketfar.png?height=300&width=400&query=advanced rocket in flight",
+        "/media/fullR.png?height=300&width=400&query=futuristic rocket launch",
+        "/media/Rocketfar.png?height=300&width=400&query=advanced rocket in flight",
       ],
     },
     subSystems: {
-      recovery: "recovery.png?height=300&width=400&query=advanced recovery system 2025",
-      avionics: "avionics.png?height=300&width=400&query=AI powered flight computer PCB",
-      airframe: "airframe.png?height=300&width=400&query=carbon fiber rocket airframe",
-      propulsion: "propulsion.png?height=300&width=500&query=hybrid rocket engine 2025",
-      payload: "payload.png?height=300&width=500&query=autonomous rover payload 2025",
-      fins: "fins.png?height=300&width=500&query=advanced rocket fins design",
+      recovery: "/media/recovery.png?height=300&width=400&query=advanced recovery system 2025",
+      avionics: "/media/avionics.png?height=300&width=400&query=AI powered flight computer PCB",
+      airframe: "/media/airframe.png?height=300&width=400&query=carbon fiber rocket airframe",
+      propulsion: "/media/propulsion.png?height=300&width=500&query=hybrid rocket engine 2025",
+      payload: "/media/payload.png?height=300&width=500&query=autonomous rover payload 2025",
+      fins: "/media/fins.png?height=300&width=500&query=advanced rocket fins design",
     },
     sponsors: {
       tier1: [
         {
          name: "JMJ Profile Inc",
-          logo: "JMJ.svg",
+          logo: "/media/JMJ.svg",
           description: "Specializing in Machining Plastic & Phenolic Sheets.",
           website: "https://www.jmjprofile.com/",
         },
         {
           name: "Dekker",
-          logo: "2025-2026/Dekker.jpg",
+          logo: "/media/2025-2026/Dekker.jpg",
           description: "Full-Service Architecture and Design Firm",
           website: "https://www.dekkerdesign.org/",
         },
          {
           name: "J5 Industries",
-          logo: "2025-2026/J5Industries.png",
+          logo: "/media/2025-2026/J5Industries.png",
           description: "Assist students their students from academia to an engineer",
           website: "https://engineering.rowan.edu/programs/mechanical/people/supporting_faculty.html#shoffner",
         },
@@ -131,7 +131,7 @@ aerospace innovators.</p>
         tier2: [
         {
           name: "TriState Construction",
-          logo: "TriState.png",
+          logo: "/media/TriState.png",
           description: "Delivers expert concrete solutions for commercial and residential projects.",
           website: "https://www.tristateconstructionnj.com/",
         },
@@ -139,7 +139,7 @@ aerospace innovators.</p>
         tier4: [
        {
           name: "Southco",
-          logo: "Southcopic.jpg",
+          logo: "/media/Southcopic.jpg",
           description: "Global designer and manufacturer of engineered access solutions.",
           website: "https://southco.com/en_us_int/",
         },
