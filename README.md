@@ -96,7 +96,7 @@ This will:
 
 2) Access the application
 
-Once the containers are running, open a browser and visit: http://localhost:3000
+Once the containers are running, open a browser and visit: http://localhost:80
 
 3) Stop the containers
 
