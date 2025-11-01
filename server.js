@@ -42,14 +42,14 @@ app.use((req, res, next) => {
 
 // Set up dynamic page for index
 function index(req, res) {
-    res.render(__dirname + "/public/index.ejs", {formsuccess: req.query.success})
+    res.render(__dirname + "/views/index.ejs", {formsuccess: req.query.success})
 }
 app.get("/", index)
 app.get("/index", index)
 app.get("/index.html", index)
 
 function sponsorship(req, res) {
-    res.render(__dirname + "/public/sponsorship.ejs", {formsuccess: req.query.success, formtype: req.query.type})
+    res.render(__dirname + "/views/sponsorship.ejs", {formsuccess: req.query.success, formtype: req.query.type})
 }
 app.get("/sponsorship", sponsorship)
 app.get("/sponsorship.html", sponsorship)
@@ -92,6 +92,17 @@ app.use((err, req, res, next) => {
     next(err) // add error handling page here
 })
 
-app.listen(3000, () => {
+const server = app.listen(process.env.PORT || 3000, () => {
     console.log("Server running on port 3000")
 })
+
+const shutdown = () => {
+    console.log("Shutting down...");
+    server.close(() => {
+        console.log("Server closed. Cleanup complete.");
+        process.exit(0);
+    });
+};
+
+process.on("SIGINT", shutdown);
+process.on("SIGTERM", shutdown);

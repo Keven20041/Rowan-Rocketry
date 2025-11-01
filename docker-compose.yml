@@ -1,0 +1,57 @@
+services:
+  backend:
+    build: .
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DB_HOST=${DB_HOST:-db}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_CONNECTION_LIMIT=${DB_CONNECTION_LIMIT}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: always
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./public:/usr/share/nginx/html
+    depends_on:
+      - backend
+    restart: always
+    networks:
+      - app-network
+
+  db:
+    image: mysql:lts
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: rowan_rocketry
+      MYSQL_USER: rowan_user
+      MYSQL_PASSWORD: strong_password
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      # - ./db/my.cnf:/etc/mysql/my.cnf
+    restart: always
+    networks:
+      - app-network
+
+volumes:
+  db-data:
+
+networks:
+  app-network:
+    driver: bridge

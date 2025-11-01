@@ -1,12 +1,5 @@
 const mysql = require('mysql2')
 
-// Load environment variables from .env if present
-try {
-  require('dotenv').config()
-} catch (e) {
-  // dotenv may not be installed in some environments; fallback to process.env
-}
-
 const pool = mysql.createPool({
   connectionLimit: parseInt(process.env.DB_CONNECTION_LIMIT, 10) || 10,
   host: process.env.DB_HOST || 'localhost',
