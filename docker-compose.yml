@@ -2,13 +2,13 @@ services:
   backend:
     build: .
     environment:
-      - NODE_ENV=production
-      - PORT=3000
+      - NODE_ENV=${NODE_ENV:-production}
+      - PORT=${PORT:-3000}
       - DB_HOST=${DB_HOST:-db}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_NAME=${DB_NAME}
-      - DB_CONNECTION_LIMIT=${DB_CONNECTION_LIMIT}
+      - DB_USER=${DB_USER:-rowan_user}
+      - DB_PASSWORD=${DB_PASSWORD:-strong_password}
+      - DB_NAME=${DB_NAME:-rowan_rocketry}
+      - DB_CONNECTION_LIMIT=${DB_CONNECTION_LIMIT:-10}
     depends_on:
       db:
         condition: service_healthy
@@ -37,10 +37,10 @@ services:
       timeout: 5s
       retries: 5
     environment:
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: rowan_rocketry
-      MYSQL_USER: rowan_user
-      MYSQL_PASSWORD: strong_password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-example}
+      MYSQL_DATABASE: ${DB_NAME:-rowan_rocketry}
+      MYSQL_USER: ${DB_USER:-rowan_user}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-strong_password}
     volumes:
       - db-data:/var/lib/mysql
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
