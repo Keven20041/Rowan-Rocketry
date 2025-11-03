@@ -25,7 +25,6 @@ const rockets = {
   ]
 };
 
-let currentYear = "2024";
 let currentIndex = 0;
 let scene, camera, renderer, rocket, controls;
 

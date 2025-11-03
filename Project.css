@@ -717,7 +717,9 @@ footer {
 }
 
 .scroll-top:hover {
-  transform: translateY(-5px);
+  background-color: var(--rowan-brown);
+  color: var(--rowan-gold);
+  transform: translateY(-2px);
 }
 
 /* Consolidated and optimized mobile styles */

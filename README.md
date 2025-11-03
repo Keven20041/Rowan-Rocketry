@@ -1,25 +1,35 @@
-HTML5, W3.CSS, JavaScript, SQL(Dev-Branch), Node.js 10/15/2024
-Authors: Keven Guzman, Joshua Odom
-Rowan Rocketry
-
+                    ## RowanRocketry
+                    ----------------
+## Project Description
 This is a website for the rocketry team at Rowan University.
-
-Usage
 -----------------------------------------------------------
-This website is used to inform
-
-
-Installation notes
+## Technologies
+- HTML5
+- W3.CSS
+- JavaScript
+- SQL (Dev-Branch)
+- Node.js
 -----------------------------------------------------------
--There is no installation needed besides having a browser 
+## Version 
+2.322.0
+-----------------------------------------------------------
+## Authors
+- Keven Guzman (Main Dev)
+- Joshua Odom (Dev)
+-----------------------------------------------------------
+## Usage
+This website is used to inform about the rocketry club
+-----------------------------------------------------------
+Installation
+- There is no installation needed besides having a browser 
 installed on your machine or device
-
-Contact Information
 -----------------------------------------------------------
+## Contact Information 
 - Phone number: 732=938-0650
 - Website: RowanRocketry.com
 - E-mail: kevenguzman2013@gmail.com
 -----------------------------------------------------------
+## License
 Copyright 2024 rowanrocketry.com. All rights reserved.
-The Website is subject to license agreement, copyright,
+The website is subject to license agreement, copyright,
 trademark, patent, and other laws.
