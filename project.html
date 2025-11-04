@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="Project.css">
     <script src="projectj.js" defer></script>
     <script src ="projectM.js" defer></script>
+    <script src="projseason.js" defer></script>
 </head>
 <body>
     <div class="menu-overlay"></div>
@@ -77,16 +78,26 @@
                 <h1 id="title">Projects</h1>
             </div>
             <p class="subtitle">Reaching for the stars, one launch at a time</p>
+            
+            <!-- Updated season selector to only show 2024-2025 and 2025-2026 seasons -->
+            <div class="season-selector-wrapper">
+                <label for="season-select" class="season-label">Competition Season:</label>
+                <select id="season-select" class="season-select" aria-label="Select competition season">
+                    <option value="2025-2026">2025-2026 Season</option>
+                    <option value="2024-2025" selected>2024-2025 Season</option>
+                </select>
+            </div>
+            
             <div class="button-group">
                 <a href="#spaceport-cup" class="btn btn-primary">Our Projects</a>
                 <a href="#social-icons" class="btn btn-secondary">Contact Us</a>
             </div>
         </div>
-        </section>
-
-        <section id="spaceport-cup" class="project-section">
+        
+        <!-- Updated data-season attribute to 2024-2025 -->
+        <section id="spaceport-cup" class="project-section" data-season="2024-2025">
             <div class="container">
-                <h2 class="section-title">2024 Spaceport America Cup</h2>
+                <h2 class="section-title">2025 Spaceport America Cup</h2>
                 <div class="content-wrapper">
                     <div class="text-content">
                         <p>The Spaceport America Cup is the world's largest intercollegiate rocket engineering conference and competition. Rowan Rocketry is proud to participate in the 10,000 ft competition with our sounding rocket.</p>
@@ -125,7 +136,7 @@
             </div>
         </section>
 
-        <section id="preliminary-designs" class="project-section">
+        <section id="preliminary-designs" class="project-section" data-season="2024-2025">
             <div class="container">
                 <h2 class="section-title">Preliminary Designs</h2>
                 <div class="content-wrapper">
@@ -173,7 +184,7 @@
             </div>
         </section>
         
-        <section id="cost-estimates" class="project-section">
+        <section id="cost-estimates" class="project-section" data-season="2024-2025">
             <div class="container">
                 <h2 class="section-title">Cost Estimates</h2>
                 <div class="content-wrapper">
@@ -196,6 +207,137 @@
                                 <div class="slider-item">
                                     <img src="airframe.png" alt="Placeholder" class="slider-image">
                                     <div class="slider-caption">Future Mission</div>
+                                </div>
+                            </div>
+                            <button class="slider-button slider-button-left" aria-label="Previous image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button class="slider-button slider-button-right" aria-label="Next image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                            <div class="slider-progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Updated 2025 sections to 2025-2026 season -->
+        <section id="spaceport-cup-2025" class="project-section" data-season="2025-2026" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">2026 International Rocket Engineering Competition </h2>
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <p>Building on our 2025 season, Rowan Rocketry is heading towards the IREC event with an even more ambitious design. Our 2026 rocket features advanced avionics, improved aerodynamics, and a custom payload system.</p>
+                        <h3>10,000 ft Competition Entry</h3>
+                        <p>This year's rocket incorporates lessons learned from previous launches, featuring a carbon fiber airframe, dual-deployment recovery system, and real-time telemetry. We're aiming for our most precise flight yet.</p>
+                        <a href="https://www.esrarocket.org/" class="cta-button">Learn More</a>
+                    </div>
+                    <div class="image-content">
+                        <div class="image-slider">
+                            <div class="slider-container">
+                                <div class="slider-item">
+                                    <img src="/placeholder.svg?height=400&width=600" alt="2025 Rocket" class="slider-image">
+                                    <div class="slider-caption">2026 Rocket Design</div>
+                                </div>
+                                <div class="slider-item">
+                                    <img src="/placeholder.svg?height=400&width=600" alt="Team Assembly" class="slider-image">
+                                    <div class="slider-caption">Team Assembly</div>
+                                </div>
+                                <div class="slider-item">
+                                    <img src="2025-2026/AvionicsBay.png" alt="Avionics" class="slider-image">
+                                    <div class="slider-caption">Advanced Avionics</div>
+                                </div>
+                            </div>
+                            <button class="slider-button slider-button-left" aria-label="Previous image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button class="slider-button slider-button-right" aria-label="Next image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                            <div class="slider-progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="preliminary-designs-2025" class="project-section" data-season="2025-2026" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">2026 Design Innovations</h2>
+                <div class="content-wrapper">
+                    <div class="image-content">
+                        <div class="image-slider">
+                            <div class="slider-container">
+                                <div class="slider-item">
+                                    <img src="/placeholder.svg?height=400&width=600" alt="Carbon Nose Cone" class="slider-image">
+                                    <div class="slider-caption">Nose Cone</div>
+                                </div>
+                                <div class="slider-item">
+                                    <img src="/placeholder.svg?height=400&width=600" alt="Recovery System" class="slider-image">
+                                    <div class="slider-caption">Recovery</div>
+                                </div>
+                                <div class="slider-item">
+                                    <img src="/placeholder.svg?height=400&width=600" alt="Payload System" class="slider-image">
+                                    <div class="slider-caption">Payload</div>
+                                </div>
+                                  <div class="slider-item">
+                                    <img src="/placeholder.svg?height=400&width=600" alt="Motor System" class="slider-image">
+                                    <div class="slider-caption">Motor</div>
+                                </div>
+                                  <div class="slider-item">
+                                    <img src="2025-2026/AvionicsBay.png" alt="Avionics System" class="slider-image">
+                                    <div class="slider-caption">Avionics</div>
+                                </div>
+                            </div>
+                            <button class="slider-button slider-button-left" aria-label="Previous image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button class="slider-button slider-button-right" aria-label="Next image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                            <div class="slider-progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <p>Our 2026 design represents a significant leap forward in our engineering capabilities. We've incorporated advanced materials, improved our manufacturing processes, and integrated cutting-edge telemetry systems.</p>
+                        <p>The new design features a modular construction for easier assembly and maintenance, along with redundant safety systems to ensure mission success.</p>
+                        <a href="#" class="cta-button" data-modal="designs-2025">View Designs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Added cost estimates section for 2025-2026 season -->
+        <section id="cost-estimates-2025" class="project-section" data-season="2025-2026" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">2026 Cost Estimates</h2>
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <p>Our 2026 budget reflects the increased complexity and ambition of our new design. We've invested in higher-quality materials and advanced manufacturing techniques to ensure mission success.</p>
+                        <p>Detailed cost breakdowns are available for potential sponsors and stakeholders. Our transparent budgeting demonstrates responsible financial planning and accountability.</p>
+                        <a href="#" class="cta-button" data-modal="estimates-2025">See Estimates</a> 
+                    </div>
+                    <div class="image-content">
+                        <div class="image-slider">
+                            <div class="slider-container">
+                                <div class="slider-item">
+                                    <img src="/placeholder.svg?height=400&width=600" alt="Manufacturing" class="slider-image">
+                                    <div class="slider-caption">Manufacturing Process</div>
+                                </div>
+                                <div class="slider-item">
+                                    <img src="/placeholder.svg?height=400&width=600" alt="Components" class="slider-image">
+                                    <div class="slider-caption">Component Assembly</div>
+                                </div>
+                                <div class="slider-item">
+                                    <img src="/placeholder.svg?height=400&width=600" alt="Testing" class="slider-image">
+                                    <div class="slider-caption">Testing Facility</div>
                                 </div>
                             </div>
                             <button class="slider-button slider-button-left" aria-label="Previous image">
@@ -241,13 +383,13 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
                         <a href="https://www.youtube.com/@RowanRocketry" aria-label="YouTube">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78  2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Rowan Rocketry. All rights reserved.</p>
+                <p>&copy; 2025 Rowan Rocketry. All rights reserved.</p>
             </div>
         </div>
     </footer>

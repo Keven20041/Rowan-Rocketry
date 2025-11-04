@@ -1,18 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // View Designs and View Estimates functionality
-    const viewDesignsButton = document.querySelector("#preliminary-designs .cta-button")
-    const viewEstimatesButton = document.querySelector("#cost-estimates .cta-button")
-  
-    // Create modal container if it doesn't exist
-    let modalContainer = document.querySelector(".modal-container")
-    if (!modalContainer) {
-      modalContainer = document.createElement("div")
-      modalContainer.className = "modal-container"
-      document.body.appendChild(modalContainer)
-  
-      // Add modal styles
-      const modalStyles = document.createElement("style")
-      modalStyles.textContent = `
+  // Create modal container if it doesn't exist
+  let modalContainer = document.querySelector(".modal-container")
+  if (!modalContainer) {
+    modalContainer = document.createElement("div")
+    modalContainer.className = "modal-container"
+    document.body.appendChild(modalContainer)
+
+    // Add modal styles
+    const modalStyles = document.createElement("style")
+    modalStyles.textContent = `
               .modal-container {
                   display: none;
                   position: fixed;
@@ -114,58 +110,53 @@ document.addEventListener("DOMContentLoaded", () => {
                   }
               }
           `
-      document.head.appendChild(modalStyles)
-    }
-  
-    // Function to open modal
-    function openModal(content) {
-      modalContainer.innerHTML = `
+    document.head.appendChild(modalStyles)
+  }
+
+  // Function to open modal
+  function openModal(content) {
+    modalContainer.innerHTML = `
               <div class="modal">
                   <button class="modal-close" aria-label="Close modal">×</button>
                   ${content}
               </div>
           `
-      modalContainer.style.display = "flex"
-  
-      // Add event listener to close button
-      const closeButton = modalContainer.querySelector(".modal-close")
-      closeButton.addEventListener("click", closeModal)
-  
-      // Close modal when clicking outside
-      modalContainer.addEventListener("click", (e) => {
-        if (e.target === modalContainer) {
-          closeModal()
-        }
-      })
-  
-      // Close modal with Escape key
-      document.addEventListener("keydown", handleEscKey)
-  
-      // Prevent body scrolling
-      document.body.style.overflow = "hidden"
-    }
-  
-    // Function to close modal
-    function closeModal() {
-      modalContainer.style.display = "none"
-      document.removeEventListener("keydown", handleEscKey)
-      document.body.style.overflow = ""
-    }
-  
-    // Function to handle Escape key
-    function handleEscKey(e) {
-      if (e.key === "Escape") {
+    modalContainer.style.display = "flex"
+
+    // Add event listener to close button
+    const closeButton = modalContainer.querySelector(".modal-close")
+    closeButton.addEventListener("click", closeModal)
+
+    // Close modal when clicking outside
+    modalContainer.addEventListener("click", (e) => {
+      if (e.target === modalContainer) {
         closeModal()
       }
+    })
+
+    // Close modal with Escape key
+    document.addEventListener("keydown", handleEscKey)
+
+    // Prevent body scrolling
+    document.body.style.overflow = "hidden"
+  }
+
+  // Function to close modal
+  function closeModal() {
+    modalContainer.style.display = "none"
+    document.removeEventListener("keydown", handleEscKey)
+    document.body.style.overflow = ""
+  }
+
+  // Function to handle Escape key
+  function handleEscKey(e) {
+    if (e.key === "Escape") {
+      closeModal()
     }
-  
-    // View Designs button click handler
-    if (viewDesignsButton) {
-      viewDesignsButton.addEventListener("click", (e) => {
-        e.preventDefault()
-  
-        const designsContent = `
-                  <h2>Preliminary Designs</h2>
+  }
+
+  const designs2024Content = `
+                  <h2>Preliminary Designs - 2024 Season</h2>
                   <div class="modal-content">
                       <div class="design-item">
                           <h3>Nose Cone Design</h3>
@@ -228,17 +219,9 @@ document.addEventListener("DOMContentLoaded", () => {
                       </div>
                   </div>
               `
-        openModal(designsContent)
-      })
-    }
-  
-    // View Estimates button click handler
-    if (viewEstimatesButton) {
-      viewEstimatesButton.addEventListener("click", (e) => {
-        e.preventDefault()
-  
-        const estimatesContent = `
-                  <h2>Project Cost Estimates</h2>
+
+  const estimates2024Content = `
+                  <h2>Project Cost Estimates - 2024 Season</h2>
                   <div class="modal-content">
                       <p>Below is a breakdown of our estimated costs for the 2024 Spaceport America Cup competition. These figures represent our best estimates based on current market prices and previous experience.</p>
                       
@@ -425,12 +408,326 @@ document.addEventListener("DOMContentLoaded", () => {
                       </div>
                   </div>
               `
-  
-        openModal(estimatesContent)
+              
+  const designs2025Content = `
+                  <h2>Design Innovations - 2025 Season</h2>
+                  <div class="modal-content">
+                      <div class="design-item">
+                          <h3>Advanced Carbon Fiber Nose Cone</h3>
+                          <p>Our 2025 nose cone features a next-generation carbon fiber composite construction with improved aerodynamic efficiency. The advanced layup schedule provides superior strength-to-weight ratio.</p>
+                          <p>Key specifications:</p>
+                          <ul>
+                              <li>Material: Carbon Fiber Composite (T700)</li>
+                              <li>Length: 42 inches</li>
+                              <li>Base diameter: 6.5 inches</li>
+                              <li>Weight reduction: 25% vs 2024 design</li>
+                              <li>Integrated GPS antenna housing</li>
+                          </ul>
+                      </div>
+                      
+                      <div class="design-item">
+                          <h3>Black Powder Recovery System</h3>
+                          <p>Enhanced recovery system with redundant altimeters and improved parachute deployment mechanism. Features real-time telemetry for deployment confirmation.</p>
+                          <p>Components:</p>
+                          <ul>
+                              <li>Material: High-strength Ripstop Nylon</li>
+                              <li>Recovery bay: 30 inches | 6.5" diameter</li>
+                              <li>Main parachute: 24 inches | deployed at 1000 ft</li>
+                              <li>Drogue parachute: 8 inches | deployed at apogee</li>
+                              <li>Redundant altimeters with GPS backup</li>
+                              <li>CO2 ejection system for reliability</li>
+                          </ul>
+                      </div>
+                      <div class="design-item">
+                          <h3>Modular Payload Bay</h3>
+                          <p>Revolutionary modular design allows for quick payload swaps and easier maintenance. Features advanced vibration dampening and thermal management.</p>
+                          <p>Features:</p>
+                          <ul>
+                              <li>Material: Carbon fiber with aluminum bulkheads</li>
+                              <li>Payload bay: 14 inches long | 4.5" diameter</li>
+                              <li>Modular mounting system</li>
+                              <li>Real-time data transmission (5.8 GHz)</li>
+                              <li>Integrated power distribution system</li>
+                              <li>Temperature-controlled environment</li>
+                          </ul>
+                      </div>
+                      
+                      <div class="design-item">
+                          <h3>Enhanced Motor Section</h3>
+                          <p>Redesigned motor section with improved structural integrity and thermal protection. Optimized for higher thrust motors while maintaining safety margins.</p>
+                          <p>Specifications:</p>
+                          <ul>
+                              <li>Material: Carbon Fiber with Phenolic liner</li>
+                              <li>Motor mount: 40 inches | 6.5" diameter</li>
+                              <li>Sustainer Body Tube: 48 inches | 6.5" diameter</li>
+                              <li>Enhanced thermal protection system</li>
+                              <li>Integrated motor retention system</li>
+                          </ul>
+                      </div>
+                      
+                      <div class="design-item">
+                          <h3>Optimized Fin Design</h3>
+                          <p>CFD-optimized fin design with swept leading edges for reduced drag. Features through-the-wall construction for maximum strength.</p>
+                          <p>Details:</p>
+                          <ul>
+                              <li>Material: Carbon Fiber G10 composite</li>
+                              <li>Configuration: 4 fins | 90° apart</li>
+                              <li>Swept design for reduced drag</li>
+                              <li>Through-the-wall mounting</li>
+                              <li>Tip-to-tip fiberglass reinforcement</li>
+                          </ul>
+                      </div>
+                      <div class="design-item">
+                          <h3>Avionics Design</h3>
+                          <p>Advanced avionics system with integrated flight computer and telemetry. Designed for real-time data acquisition and processing.</p>
+                          <p>Details:</p>
+                          <ul>
+                              <li>SRAD flight computer</li>
+                              <li>COTS System #1: Featherweight GPS and Blue Raven</li>
+                              <li>COTS System #2: Telemetrum</li>
+                          </ul>
+                      </div>
+                  </div>
+              `
+
+  const estimates2025Content = `
+                  <h2>Project Cost Estimates - 2025 Season</h2>
+                  <div class="modal-content">
+                      <p>Our 2025 budget reflects significant investments in advanced materials and manufacturing techniques. These costs represent our commitment to pushing the boundaries of collegiate rocketry.</p>
+                      
+                      <div class="estimate-item">
+                          <h3>Materials and Components</h3>
+                          <table class="estimate-table">
+                              <thead>
+                                  <tr>
+                                      <th>Item</th>
+                                      <th>Quantity</th>
+                                      <th>Cost</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>Carbon fiber tubing and materials</td>
+                                      <td>1 set</td>
+                                      <td>$1,800</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Advanced avionics package</td>
+                                      <td>1 set</td>
+                                      <td>$2,200</td>
+                                  </tr>
+                                  <tr>
+                                      <td>High-power motor reloads</td>
+                                      <td>4</td>
+                                      <td>$1,400</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Enhanced recovery system</td>
+                                      <td>1 set</td>
+                                      <td>$950</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Telemetry and GPS systems</td>
+                                      <td>1 set</td>
+                                      <td>$850</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Composite materials and epoxy</td>
+                                      <td>Various</td>
+                                      <td>$650</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Precision hardware and fasteners</td>
+                                      <td>Various</td>
+                                      <td>$550</td>
+                                  </tr>
+                                  <tr class="total-row">
+                                      <td colspan="2">Subtotal</td>
+                                      <td>$8,400</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      
+                      <div class="estimate-item">
+                          <h3>Travel and Competition Expenses</h3>
+                          <table class="estimate-table">
+                              <thead>
+                                  <tr>
+                                      <th>Item</th>
+                                      <th>Details</th>
+                                      <th>Cost</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>Competition registration</td>
+                                      <td>Team entry fee</td>
+                                      <td>$900</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Airfare</td>
+                                      <td>12 team members</td>
+                                      <td>$6,000</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Lodging</td>
+                                      <td>6 nights, 4 rooms</td>
+                                      <td>$3,000</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Vehicle rental</td>
+                                      <td>2 vehicles, 7 days</td>
+                                      <td>$1,400</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Meals and incidentals</td>
+                                      <td>12 people, 7 days</td>
+                                      <td>$4,200</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Shipping and logistics</td>
+                                      <td>Equipment transport</td>
+                                      <td>$1,000</td>
+                                  </tr>
+                                  <tr class="total-row">
+                                      <td colspan="2">Subtotal</td>
+                                      <td>$16,500</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      
+                      <div class="estimate-item">
+                          <h3>Testing and Development</h3>
+                          <table class="estimate-table">
+                              <thead>
+                                  <tr>
+                                      <th>Item</th>
+                                      <th>Details</th>
+                                      <th>Cost</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>Subscale test rockets</td>
+                                      <td>3 prototypes</td>
+                                      <td>$1,200</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Test motors and propellant</td>
+                                      <td>6 test flights</td>
+                                      <td>$800</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Wind tunnel testing</td>
+                                      <td>5 hours</td>
+                                      <td>$750</td>
+                                  </tr>
+                                  <tr>
+                                      <td>CFD simulation software</td>
+                                      <td>Annual licenses</td>
+                                      <td>$500</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Manufacturing equipment</td>
+                                      <td>Tooling and fixtures</td>
+                                      <td>$650</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Test launch fees</td>
+                                      <td>3 launches</td>
+                                      <td>$600</td>
+                                  </tr>
+                                  <tr class="total-row">
+                                      <td colspan="2">Subtotal</td>
+                                      <td>$4,500</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      
+                      <div class="estimate-item">
+                          <h3>Total Project Budget</h3>
+                          <table class="estimate-table">
+                              <thead>
+                                  <tr>
+                                      <th>Category</th>
+                                      <th>Cost</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>Materials and Components</td>
+                                      <td>$8,400</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Travel and Competition Expenses</td>
+                                      <td>$16,500</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Testing and Development</td>
+                                      <td>$4,500</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Contingency (12%)</td>
+                                      <td>$3,550</td>
+                                  </tr>
+                                  <tr class="total-row">
+                                      <td><strong>TOTAL ESTIMATED BUDGET</strong></td>
+                                      <td><strong>$32,950</strong></td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          <p class="mt-4">Note: This increased budget reflects our investment in advanced materials and manufacturing techniques. We are actively seeking corporate sponsorships and grants to support this ambitious project.</p>
+                      </div>
+                  </div>
+              `
+
+  function attachModalListeners() {
+    // Get all CTA buttons
+    const allButtons = document.querySelectorAll(".cta-button")
+
+    allButtons.forEach((button) => {
+      // Skip if it's an external link
+      if (button.getAttribute("href") && button.getAttribute("href").startsWith("http")) {
+        return
+      }
+
+      button.addEventListener("click", (e) => {
+        e.preventDefault()
+
+        // Determine which modal to show based on the button's section
+        const section = button.closest(".project-section")
+        const sectionId = section ? section.id : ""
+        const season = section ? section.getAttribute("data-season") : ""
+
+        let content = ""
+
+        // Match the correct modal content based on section and season
+        if (sectionId.includes("preliminary-designs")) {
+          content = season === "2025-2026" ? designs2025Content : designs2024Content
+        } else if (sectionId.includes("cost-estimates")) {
+          content = season === "2025-2026" ? estimates2025Content : estimates2024Content
+        }
+
+        if (content) {
+          openModal(content)
+        }
       })
-    }
-  
-    console.log("View Designs and View Estimates functionality initialized.")
-  })
-  
-  
+    })
+  }
+
+  // Initialize modal listeners
+  attachModalListeners()
+
+  const seasonSelect = document.getElementById("season-select")
+  if (seasonSelect) {
+    seasonSelect.addEventListener("change", () => {
+      // Small delay to ensure DOM is updated
+      setTimeout(attachModalListeners, 100)
+    })
+  }
+
+  console.log("View Designs and View Estimates functionality initialized for both seasons.")
+})
