@@ -529,7 +529,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           name: "Jeremiah Francois",
-          title: "Fins/Airframe Lead",
+          title: "Fins/Airframe Engineer",
           image: "2025-2026/Jeremiah.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
@@ -540,7 +540,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           name: "Jakub Gajda",
-          title: "Fins/Airframe Lead",
+          title: "Fins/Airframe Engineer",
           image: "2025-2026/Jakub.jpg",
           major: "Mechanical Engineering",
           grade: "Junior",
@@ -551,7 +551,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           name: "Shawn Smith",
-          title: "Fins/Airframe Lead",
+          title: "Fins/Airframe Engineer",
           image: "2025-2026/Shawn.jpg",
           major: "Mechanical Engineering",
           grade: "Junior",
@@ -562,7 +562,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           name: "Harrison Roy",
-          title: "Fins/Airframe Lead",
+          title: "Fins/Airframe Engineer",
           image: "2025-2026/Harrison.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
