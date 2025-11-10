@@ -24,13 +24,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* Removed duplicate scroll-behavior and user-select properties */
 }
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth; /* Enhanced smooth scrolling behavior */
-  scroll-padding-top: 100px; /* Account for fixed header */
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -38,7 +37,6 @@ body {
   line-height: 1.6;
   color: var(--text);
   background-color: var(--background);
-  /* Added overflow-x hidden to prevent horizontal scroll issues */
   overflow-x: hidden;
 }
 
@@ -426,6 +424,7 @@ body {
 }
 
 /* Team Members Styles */
+/* Removed fade-in opacity and transform from headings */
 .team-members h1,
 .team-members h2 {
   text-align: center;
@@ -445,16 +444,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 4px;
   box-shadow: 0 0 30px rgba(87, 21, 11, 0.3);
-  opacity: 0;
   text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.team-members h1.fade-in-up,
-.team-members h2.fade-in-up {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .team-members h1::before,
@@ -497,7 +487,7 @@ body {
   margin: 0 auto;
 }
 
-/* Simplified card flip animation - removed unnecessary styles and vendor prefixes */
+/* Removed fade-in opacity and transform from cards, kept flip animation */
 .team-card,
 .team-card1 {
   flex: 0 0 calc(25% - 1.5rem);
@@ -507,16 +497,6 @@ body {
   height: 350px;
   margin-bottom: 2rem;
   cursor: pointer;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-/* Added fade-in-up class for team cards */
-.team-card.fade-in-up,
-.team-card1.fade-in-up {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .team-card-inner,
@@ -529,7 +509,7 @@ body {
   transform-style: preserve-3d;
 }
 
-/* Enhanced hover and flip states for better card flipping */
+/* Card flip on hover and click works properly */
 .team-card:hover .team-card-inner,
 .team-card1:hover .team-card-inner1,
 .team-card.flipped .team-card-inner,
@@ -735,7 +715,6 @@ footer {
   transform: translateY(-5px);
 }
 
-/* Added season tab styles */
 .season-tabs {
   display: flex;
   justify-content: center;
@@ -838,12 +817,10 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-  /* Hide top bar on mobile devices */
   .top-bar {
     display: none;
   }
 
-  /* Improved mobile header layout */
   .contact-wrapper {
     flex-direction: column;
     gap: 0.5rem;
@@ -940,7 +917,6 @@ footer {
     display: flex;
   }
 
-  /* Added mobile styles for season tabs */
   .season-tabs {
     gap: 0.5rem;
     margin: 1.5rem 0 2rem;
@@ -983,7 +959,6 @@ footer {
   }
 }
 
-/* Improved very small screen support */
 @media screen and (max-width: 480px) {
   html {
     font-size: 14px;
@@ -1024,7 +999,6 @@ footer {
     margin: 4px 0;
   }
 
-  /* Better touch targets for mobile */
   .nav-link {
     padding: 1rem 2rem;
     font-size: 1.1rem;
@@ -1049,7 +1023,6 @@ footer {
 
 /* Touch Device Optimizations */
 @media (hover: none) {
-  /* Added click support for mobile devices */
   .team-card.flipped .team-card-inner,
   .team-card1.flipped .team-card-inner1 {
     transform: rotateY(180deg);
@@ -1059,7 +1032,6 @@ footer {
     background-color: black;
   }
 
-  /* Better touch interaction for nav links */
   .nav-link:active {
     color: var(--rowan-gold);
     background-color: rgba(255, 204, 0, 0.1);
@@ -1072,14 +1044,5 @@ footer {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  /* Completed the incomplete selector and added proper CSS rule for accessibility */
-  .team-card.fade-in-up,
-  .team-card1.fade-in-up,
-  .team-members h1.fade-in-up,
-  .team-members h2.fade-in-up {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
   }
 }
