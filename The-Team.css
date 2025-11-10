@@ -29,7 +29,8 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Enhanced smooth scrolling behavior */
+  scroll-padding-top: 100px; /* Account for fixed header */
 }
 
 body {
