@@ -552,7 +552,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Shawn Smith",
           title: "Fins/Airframe Engineer",
-          image: "2025-2026/Shawn.jpg",
+          image: "2025-2026/shawn.jpg",
           major: "Mechanical Engineering",
           grade: "Junior",
           year: "2027",
