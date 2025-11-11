@@ -334,7 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
       captain: {
         name: "James Lee",
         title: "Team Captain",
-        image: "2025-2026/James.jpg",
+        image: "/media/2025-2026/James.jpg",
         major: "Mechanical Engineering",
         grade: "Senior",
         year: "2026",
@@ -346,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Sarah Ely",
           title: "Logistics Coordinator",
-          image: "2025-2026/Sarah.jpg",
+          image: "/media/2025-2026/Sarah.jpg",
           major: "Electrical & Computer Engineering",
           grade: "Senior",
           year: "2026",
@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Victoria Van",
           title: "Clinic Consultant",
-          image: "2025-2026/Victoria.jpg",
+          image: "/media/2025-2026/Victoria.jpg",
           major: "Electrical & Computer Engineering",
           grade: "Senior",
           year: "2026",
@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Paul Porreca",
           title: "Recovery Lead",
-          image: "2025-2026/Paul.jpg",
+          image: "/media/2025-2026/Paul.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2026",
@@ -381,7 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Vanessa Hutchison",
           title: "Recovery Engineer",
-          image: "2025-2026/Vanessa.jpg",
+          image: "/media/2025-2026/Vanessa.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2026",
@@ -392,7 +392,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Brody Schneider",
           title: "Recovery Engineer",
-          image: "2025-2026/Brody.jpg",
+          image: "/media/2025-2026/Brody.jpg",
           major: "Mechanical Engineering",
           grade: "Junior",
           year: "2027",
@@ -405,7 +405,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Marian Yanka",
           title: "Avionics Lead",
-          image: "2025-2026/Marian.jpg",
+          image: "/media/2025-2026/Marian.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2026",
@@ -416,7 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Victoria Van",
           title: "Avionics Engineer",
-          image: "2025-2026/Victoria.jpg",
+          image: "/media/2025-2026/Victoria.jpg",
           major: "Electrical & Computer Engineering",
           grade: "Senior",
           year: "2026",
@@ -427,7 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Marcelo Bisicchia",
           title: "Avionics Engineer",
-          image: "2025-2026/Marcelo.jpg",
+          image: "/media/2025-2026/Marcelo.jpg",
           major: "Electrical & Computer Engineering",
           grade: "Senior",
           year: "2026",
@@ -438,7 +438,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Keven Guzman",
           title: "Avionics Engineer",
-          image: "2025-2026/Keven.jpg",
+          image: "/media/2025-2026/Keven.jpg",
           major: "Computer Science",
           grade: "Senior",
           year: "2026",
@@ -449,7 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Thomas Rasa",
           title: "Avionics Engineer",
-          image: "2025-2026/Thomas.jpg",
+          image: "/media/2025-2026/Thomas.jpg",
           major: "Electrical & Computer Engineering",
           grade: "Senior",
           year: "2026",
@@ -460,7 +460,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Noelle Ross",
           title: "Avionics Engineer",
-          image: "2025-2026/Noelle.jpg",
+          image: "/media/2025-2026/Noelle.jpg",
           major: "Electrical & Computer Engineering",
           grade: "Junior",
           year: "2027",
@@ -471,7 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Sarah Ely",
           title: "Avionics Engineer",
-          image: "2025-2026/Sarah.jpg",
+          image: "/media/2025-2026/Sarah.jpg",
           major: "Electrical & Computer Engineering",
           grade: "Senior",
           year: "2026",
@@ -484,7 +484,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Dharma Upadhyay",
           title: "Payload Lead",
-          image: "2025-2026/Dharma.jpg",
+          image: "/media/2025-2026/Dharma.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2026",
@@ -495,7 +495,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Emma Ferrarese",
           title: "Payload Engineer",
-          image: "2025-2026/Emma.jpg",
+          image: "/media/2025-2026/Emma.jpg",
           major: "Mechanical Engineering",
           grade: "Junior",
           year: "2027",
@@ -506,7 +506,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Aiden Aschoff",
           title: "Payload Engineer",
-          image: "2025-2026/Aiden.jpg",
+          image: "/media/2025-2026/Aiden.jpg",
           major: "Mechanical Engineering",
           grade: "Junior",
           year: "2027",
@@ -519,7 +519,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Nolan Heaney",
           title: "Fins/Airframe Lead",
-          image: "2025-2026/Nolan.jpg",
+          image: "/media/2025-2026/Nolan.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2026",
@@ -530,7 +530,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Jeremiah Francois",
           title: "Fins/Airframe Lead",
-          image: "2025-2026/Jeremiah.jpg",
+          image: "/media/2025-2026/Jeremiah.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2026",
@@ -541,7 +541,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Jakub Gajda",
           title: "Fins/Airframe Lead",
-          image: "2025-2026/Jakub.jpg",
+          image: "/media/2025-2026/Jakub.jpg",
           major: "Mechanical Engineering",
           grade: "Junior",
           year: "2027",
@@ -552,7 +552,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Shawn Smith",
           title: "Fins/Airframe Lead",
-          image: "2025-2026/Shawn.jpg",
+          image: "/media/2025-2026/Shawn.jpg",
           major: "Mechanical Engineering",
           grade: "Junior",
           year: "2027",
@@ -563,7 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Harrison Roy",
           title: "Fins/Airframe Lead",
-          image: "2025-2026/Harrison.jpg",
+          image: "/media/2025-2026/Harrison.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2026",
@@ -576,7 +576,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Jakub Jagoda",
           title: "Propulsion Lead",
-          image: "2025-2026/Kuba.jpg",
+          image: "/media/2025-2026/Kuba.jpg",
           major: "Mechanical Engineering & Physics",
           grade: "Junior",
           year: "2027",
@@ -587,7 +587,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Dean Siedlecki",
           title: "Propulsion Engineer",
-          image: "2025-2026/Dean.jpg",
+          image: "/media/2025-2026/Dean.jpg",
           major: "Electrical & Computer Engineering",
           grade: "Senior",
           year: "2026",
@@ -598,7 +598,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Jared Crane",
           title: "Propulsion Engineer",
-          image: "2025-2026/Jared.jpg",
+          image: "/media/2025-2026/Jared.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2026",
@@ -611,7 +611,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Keven Guzman",
           title: "Web Master",
-          image: "2025-2026/Keven.jpg",
+          image: "/media/2025-2026/Keven.jpg",
           major: "Computer Science",
           grade: "Senior",
           year: "2026",
@@ -625,7 +625,7 @@ document.addEventListener("DOMContentLoaded", () => {
       captain: {
         name: "Rowen Christianson",
         title: "Team Captain",
-        image: "rowenh.jpg",
+        image: "/media/rowenh.jpg",
         major: "Mechanical Engineering",
         grade: "",
         year: "2025",
@@ -637,7 +637,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Elise Heim",
           title: "Administrative Assistant",
-          image: "Elise.jpg",
+          image: "/media/Elise.jpg",
           major: "Electrical & Computer Engineering",
           grade: "",
           year: "2025",
@@ -650,7 +650,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Daniel Rodriguez",
           title: "Recovery Lead",
-          image: "tdaniel.jpg",
+          image: "/media/tdaniel.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2025",
@@ -661,7 +661,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Jake Robinson",
           title: "Recovery Engineer",
-          image: "Rowan.png",
+          image: "/media/Rowan.png",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2025",
@@ -672,7 +672,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "LLinca Vilceanu",
           title: "Recovery Engineer",
-          image: "Llincah.jpg",
+          image: "/media/Llincah.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2025",
@@ -683,7 +683,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Caleb Slusarski",
           title: "Recovery Engineer",
-          image: "Rowan.png",
+          image: "/media/Rowan.png",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2025",
@@ -694,7 +694,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Nina Stonitsch",
           title: "Recovery Engineer",
-          image: "ninah.jpg",
+          image: "/media/ninah.jpg",
           major: "Mechanical Engineering",
           grade: "Junior",
           year: "2026",
@@ -707,7 +707,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Aidan Sharpe",
           title: "Avionics Lead",
-          image: "tAidan.jpg",
+          image: "/media/tAidan.jpg",
           major: "Electrical & Computer Engineering",
           grade: "Senior",
           year: "2025",
@@ -718,7 +718,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Marian Yanka",
           title: "Avionics Engineer",
-          image: "Rowan.png",
+          image: "/media/Rowan.png",
           major: "Mechanical Engineering",
           grade: "Junior",
           year: "2026",
@@ -729,7 +729,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Sarah Ely",
           title: "Avionics Engineer",
-          image: "sarah.jpg",
+          image: "/media/sarah.jpg",
           major: "Electrical & Computer Engineering",
           grade: "Junior",
           year: "2026",
@@ -740,7 +740,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Victoria Van",
           title: "Avionics Engineer",
-          image: "vich.jpg",
+          image: "/media/vich.jpg",
           major: "Electrical & Computer Engineering",
           grade: "Junior",
           year: "2026",
@@ -751,7 +751,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Justin Dougherty",
           title: "Avionics Engineer",
-          image: "Rowan.png",
+          image: "/media/Rowan.png",
           major: "Electrical & Computer Engineering",
           grade: "Junior",
           year: "2026",
@@ -762,7 +762,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Marcelo Bisicchia",
           title: "Avionics Engineer",
-          image: "Rowan.png",
+          image: "/media/Rowan.png",
           major: "Electrical & Computer Engineering",
           grade: "Junior",
           year: "2026",
@@ -773,7 +773,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Jeremiah Francois",
           title: "Avionics Engineer",
-          image: "Rowan.png",
+          image: "/media/Rowan.png",
           major: "Mechnical Engineer",
           grade: "Junior",
           year: "2026",
@@ -786,7 +786,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "James Lee",
           title: "Payload Lead",
-          image: "tjames.jpg",
+          image: "/media/tjames.jpg",
           major: "Mechanical Engineering",
           grade: "Junior",
           year: "2026",
@@ -797,7 +797,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Nolan Heaney",
           title: "Payload Engineer",
-          image: "tNolan.jpg",
+          image: "/media/tNolan.jpg",
           major: "Mechanical Engineering",
           grade: "Junior",
           year: "2026",
@@ -810,7 +810,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Nolan Heaney",
           title: "Fins Lead",
-          image: "tNolan.jpg",
+          image: "/media/tNolan.jpg",
           major: "Mechanical Engineering",
           grade: "Junior",
           year: "2026",
@@ -823,7 +823,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Bamidele Obadina",
           title: "Airframe Lead",
-          image: "tbamidale.jpg",
+          image: "/media/tbamidale.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2025",
@@ -834,7 +834,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Ryan Kane",
           title: "Airframe Engineer",
-          image: "ryanh.jpg",
+          image: "/media/ryanh.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2025",
@@ -845,7 +845,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Kevin Osborn",
           title: "Airframe Engineer",
-          image: "kevinh.jpg",
+          image: "/media/kevinh.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2025",
@@ -856,7 +856,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Tyler Jones",
           title: "Airframe Engineer",
-          image: "tylerh.jpg",
+          image: "/media/tylerh.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2025",
@@ -869,7 +869,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Jared Crane",
           title: "Propulsion Lead",
-          image: "tJared.jpg",
+          image: "/media/tJared.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
           year: "2025",
@@ -882,7 +882,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Keven Guzman",
           title: "Web Master",
-          image: "Kevent.jpg",
+          image: "/media/Kevent.jpg",
           major: "Computer Science",
           grade: "Junior",
           year: "2026",
