@@ -182,14 +182,17 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault()
-      const target = document.querySelector(this.getAttribute("href"))
-      if (target) {
-        target.scrollIntoView({
-          behavior: "smooth",
-        })
-        // Close mobile menu after clicking a link
-        navList.classList.remove("active")
-        mobileMenuToggle.setAttribute("aria-expanded", "false")
+      const href = this.getAttribute("href")
+      if (href && href !== "#") {
+        const target = document.querySelector(href)
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+          })
+          // Close mobile menu after clicking a link
+          navList.classList.remove("active")
+          mobileMenuToggle.setAttribute("aria-expanded", "false")
+        }
       }
     })
   })
