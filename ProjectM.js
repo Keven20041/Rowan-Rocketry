@@ -291,38 +291,44 @@ document.addEventListener("DOMContentLoaded", () => {
                               </thead>
                               <tbody>
                                   <tr>
+                                      <td>Application Fee</td>
+                                      <td>ESRA</td>
+                                      <td>$400</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Rocket Fee</td>
+                                      <td>ESRA</td>
+                                      <td>$850</td>
+                                  </tr>
+                                  <tr>
                                       <td>Competition registration</td>
                                       <td>Team entry fee</td>
                                       <td>$850</td>
                                   </tr>
                                   <tr>
-                                      <td>Airfare</td>
-                                      <td>10 team members</td>
-                                      <td>$5,000</td>
+                                      <td>Flight Tickets</td>
+                                      <td>6 team members</td>
+                                      <td>$4,008</td>
                                   </tr>
                                   <tr>
-                                      <td>Lodging</td>
-                                      <td>5 nights, 3 rooms</td>
-                                      <td>$2,250</td>
+                                      <td>Hotel Rooms</td>
+                                      <td>Comfort Suites University Las Cruces</td>
+                                      <td>$3,414</td>
                                   </tr>
                                   <tr>
-                                      <td>Vehicle rental</td>
-                                      <td>2 vehicles, 6 days</td>
-                                      <td>$1,200</td>
+                                      <td>Car rental</td>
+                                      <td>Renting</td>
+                                      <td>$934.98</td>
                                   </tr>
                                   <tr>
-                                      <td>Meals and incidentals</td>
-                                      <td>10 people, 6 days</td>
-                                      <td>$3,000</td>
+                                      <td>Lunch and Dinners</td>
+                                      <td>Per Diem</td>
+                                      <td>$2,214</td>
                                   </tr>
-                                  <tr>
-                                      <td>Shipping and logistics</td>
-                                      <td>Equipment transport</td>
-                                      <td>$800</td>
-                                  </tr>
+                                  
                                   <tr class="total-row">
                                       <td colspan="2">Subtotal</td>
-                                      <td>$13,100</td>
+                                      <td>$14,039.11</td>
                                   </tr>
                               </tbody>
                           </table>
@@ -388,7 +394,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                   </tr>
                                   <tr>
                                       <td>Travel and Competition Expenses</td>
-                                      <td>$13,100</td>
+                                      <td>$14,039.11</td>
                                   </tr>
                                   <tr>
                                       <td>Testing and Development</td>
@@ -491,9 +497,9 @@ document.addEventListener("DOMContentLoaded", () => {
               `
 
   const estimates2025Content = `
-                  <h2>Project Cost Estimates - 2025 Season</h2>
+                  <h2>Project Cost Estimates - 2025-2026 Season</h2>
                   <div class="modal-content">
-                      <p>Our 2025 budget reflects significant investments in advanced materials and manufacturing techniques. These costs represent our commitment to pushing the boundaries of collegiate rocketry.</p>
+                      <p>Our 2025-2026 budget includes detailed component-level costs based on actual vendor quotes. These costs represent our commitment to pushing the boundaries of collegiate rocketry.</p>
                       
                       <div class="estimate-item">
                           <h3>Materials and Components</h3>
@@ -502,97 +508,398 @@ document.addEventListener("DOMContentLoaded", () => {
                                   <tr>
                                       <th>Item</th>
                                       <th>Quantity</th>
-                                      <th>Cost</th>
+                                      <th>Unit Cost</th>
+                                      <th>Shipping</th>
+                                      <th>Total</th>
                                   </tr>
                               </thead>
                               <tbody>
                                   <tr>
-                                      <td>Carbon fiber tubing and materials</td>
-                                      <td>1 set</td>
-                                      <td>$1,800</td>
+                                      <td>G12CT-6.0 (16")</td>
+                                      <td>1</td>
+                                      <td>$85.14</td>
+                                      <td>$24.16</td>
+                                      <td>$109.30</td>
                                   </tr>
                                   <tr>
-                                      <td>Advanced avionics package</td>
-                                      <td>1 set</td>
-                                      <td>$2,200</td>
+                                      <td>G12-6.0 (30")</td>
+                                      <td>1</td>
+                                      <td>$126.32</td>
+                                      <td>$24.16</td>
+                                      <td>$150.48</td>
                                   </tr>
                                   <tr>
-                                      <td>High-power motor reloads</td>
+                                      <td>G12-6.0 (60")</td>
+                                      <td>1</td>
+                                      <td>$251.83</td>
+                                      <td>$24.16</td>
+                                      <td>$275.99</td>
+                                  </tr>
+                                  <tr>
+                                      <td>FNC6.0-FW-MT</td>
+                                      <td>1</td>
+                                      <td>$162.26</td>
+                                      <td>$24.16</td>
+                                      <td>$186.42</td>
+                                  </tr>
+                                  <tr>
+                                      <td>98mm Blue Tube</td>
+                                      <td>1</td>
+                                      <td>$48.35</td>
+                                      <td>$0.00</td>
+                                      <td>$48.35</td>
+                                  </tr>
+                                  <tr>
+                                      <td>EPOX-635313</td>
+                                      <td>1</td>
+                                      <td>$52.00</td>
+                                      <td>$41.80</td>
+                                      <td>$93.80</td>
+                                  </tr>
+                                  <tr>
+                                      <td>1:1 EPOXY PUMPS (SET OF 2)</td>
+                                      <td>1</td>
+                                      <td>$8.25</td>
+                                      <td>$0.00</td>
+                                      <td>$8.25</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Wemos D1 Mini ESP32</td>
+                                      <td>1</td>
+                                      <td>$19.99</td>
+                                      <td>$0.00</td>
+                                      <td>$19.99</td>
+                                  </tr>
+                                  <tr>
+                                      <td>BNO085 IMU</td>
+                                      <td>1</td>
+                                      <td>$24.95</td>
+                                      <td>$4.87</td>
+                                      <td>$29.82</td>
+                                  </tr>
+                                  <tr>
+                                      <td>RAM</td>
+                                      <td>1</td>
+                                      <td>$9.99</td>
+                                      <td>$0.00</td>
+                                      <td>$9.99</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Telemetrum Flight Computer</td>
+                                      <td>1</td>
+                                      <td>$300.00</td>
+                                      <td>$8.03</td>
+                                      <td>$308.03</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Encoded Motors</td>
+                                      <td>2</td>
+                                      <td>$18.18</td>
+                                      <td>$10.00</td>
+                                      <td>$46.36</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Gearboxes</td>
+                                      <td>2</td>
+                                      <td>$24.08</td>
+                                      <td>$10.00</td>
+                                      <td>$58.16</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Raspberry Pi Pico W (2 pack)</td>
+                                      <td>1</td>
+                                      <td>$18.65</td>
+                                      <td>$0.00</td>
+                                      <td>$18.65</td>
+                                  </tr>
+                                  <tr>
+                                      <td>SHILLEHTEK BME280 Altimeter Sensor</td>
+                                      <td>1</td>
+                                      <td>$9.98</td>
+                                      <td>$0.00</td>
+                                      <td>$9.98</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Arduino Nano Every</td>
+                                      <td>1</td>
+                                      <td>$16.90</td>
+                                      <td>$0.00</td>
+                                      <td>$16.90</td>
+                                  </tr>
+                                  <tr>
+                                      <td>MT3608 Boost Converter (3.7V→5V)</td>
+                                      <td>1</td>
+                                      <td>$8.99</td>
+                                      <td>$0.00</td>
+                                      <td>$8.99</td>
+                                  </tr>
+                                  <tr>
+                                      <td>MicroSD card breakout board+</td>
+                                      <td>1</td>
+                                      <td>$7.50</td>
+                                      <td>$0.00</td>
+                                      <td>$7.50</td>
+                                  </tr>
+                                  <tr>
+                                      <td>64Mb MicroSD Card</td>
+                                      <td>1</td>
+                                      <td>$3.50</td>
+                                      <td>$0.00</td>
+                                      <td>$3.50</td>
+                                  </tr>
+                                  <tr>
+                                      <td>TP4056 Li-Ion Charger/Protection Board</td>
+                                      <td>1</td>
+                                      <td>$4.29</td>
+                                      <td>$0.00</td>
+                                      <td>$4.29</td>
+                                  </tr>
+                                  <tr>
+                                      <td>JST Connector Kit</td>
+                                      <td>1</td>
+                                      <td>$24.95</td>
+                                      <td>$0.00</td>
+                                      <td>$24.95</td>
+                                  </tr>
+                                  <tr>
+                                      <td>5V 30mm cooling fan (optional)</td>
+                                      <td>1</td>
+                                      <td>$9.59</td>
+                                      <td>$0.00</td>
+                                      <td>$9.59</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Great Stuff Pro</td>
+                                      <td>2</td>
+                                      <td>$14.97</td>
+                                      <td>$0.00</td>
+                                      <td>$29.94</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Closed-loop stepper driver</td>
+                                      <td>2</td>
+                                      <td>$25.56</td>
+                                      <td>$10.00</td>
+                                      <td>$61.12</td>
+                                  </tr>
+                                  <tr>
+                                      <td>NUCLEO-WL55JC2</td>
+                                      <td>1</td>
+                                      <td>$43.27</td>
+                                      <td>$0.00</td>
+                                      <td>$43.27</td>
+                                  </tr>
+                                  <tr>
+                                      <td>LSM6DSRTR, IMU IC</td>
+                                      <td>5</td>
+                                      <td>$3.54</td>
+                                      <td>$0.00</td>
+                                      <td>$17.70</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Website</td>
+                                      <td>1</td>
+                                      <td>$20.00</td>
+                                      <td>$0.00</td>
+                                      <td>$20.00</td>
+                                  </tr>
+                                  <tr>
+                                      <td>18650 Battery Holders</td>
+                                      <td>1</td>
+                                      <td>$7.99</td>
+                                      <td>$0.00</td>
+                                      <td>$7.99</td>
+                                  </tr>
+                                  <tr>
+                                      <td>18650 Lithium-Ion 2000 mAh 3.7 V battery</td>
+                                      <td>2</td>
+                                      <td>$13.99</td>
+                                      <td>$0.00</td>
+                                      <td>$27.98</td>
+                                  </tr>
+                                  <tr>
+                                      <td>FusionFix EP Epoxy Spray Adhesive 500ml</td>
+                                      <td>2</td>
+                                      <td>$38.20</td>
+                                      <td>$12.17</td>
+                                      <td>$88.57</td>
+                                  </tr>
+                                  <tr>
+                                      <td>PVA Mould Release Agent 1litre</td>
+                                      <td>1</td>
+                                      <td>$11.65</td>
+                                      <td>$12.17</td>
+                                      <td>$23.82</td>
+                                  </tr>
+                                  <tr>
+                                      <td>PP180 Economy Peel Ply 1.52m (Black Tracer)- 5lm Pack</td>
+                                      <td>1</td>
+                                      <td>$23.40</td>
+                                      <td>$12.17</td>
+                                      <td>$35.57</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Zinc-Plated Steel Coupling Nut, 1/4"-20</td>
+                                      <td>1</td>
+                                      <td>$0.39</td>
+                                      <td>$0.98</td>
+                                      <td>$1.37</td>
+                                  </tr>
+                                  <tr>
+                                      <td>T-Slotted Framing, Double Six Slot Rail, 2"x1"x1'</td>
+                                      <td>1</td>
+                                      <td>$12.68</td>
+                                      <td>$0.98</td>
+                                      <td>$13.66</td>
+                                  </tr>
+                                  <tr>
+                                      <td>T-Slotted Framing, Surface Bracket, 4" Long</td>
+                                      <td>2</td>
+                                      <td>$18.10</td>
+                                      <td>$0.98</td>
+                                      <td>$37.18</td>
+                                  </tr>
+                                  <tr>
+                                      <td>T-Slotted Framing, End-Feed Double Nut, 1/4"-20, packs of 10</td>
+                                      <td>1</td>
+                                      <td>$11.17</td>
+                                      <td>$0.98</td>
+                                      <td>$12.15</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Press-Fit Locating and Support Button, Steel, 5/8"</td>
+                                      <td>2</td>
+                                      <td>$4.33</td>
+                                      <td>$0.98</td>
+                                      <td>$9.64</td>
+                                  </tr>
+                                  <tr>
+                                      <td>18-8 SS Button Head Hex Drive Screw, 1/4"-20, 3/8", packs of 50</td>
+                                      <td>1</td>
+                                      <td>$6.76</td>
+                                      <td>$0.98</td>
+                                      <td>$7.74</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Nylon Pan Head Screws, Phillips, 4-40, 3/8", Black, packs of 100</td>
+                                      <td>1</td>
+                                      <td>$11.87</td>
+                                      <td>$0.98</td>
+                                      <td>$12.85</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Steel Eyebolt with Shoulder, 7/16"-14</td>
                                       <td>4</td>
-                                      <td>$1,400</td>
+                                      <td>$6.11</td>
+                                      <td>$0.98</td>
+                                      <td>$25.42</td>
                                   </tr>
                                   <tr>
-                                      <td>Enhanced recovery system</td>
-                                      <td>1 set</td>
-                                      <td>$950</td>
+                                      <td>High-Strength Steel Nylon-Insert Locknut, 7/16"-14, packs of 10</td>
+                                      <td>1</td>
+                                      <td>$4.62</td>
+                                      <td>$0.98</td>
+                                      <td>$5.60</td>
                                   </tr>
                                   <tr>
-                                      <td>Telemetry and GPS systems</td>
-                                      <td>1 set</td>
-                                      <td>$850</td>
+                                      <td>Black-Oxide 18-8 SS Washer for 7/16" Screw, packs of 10</td>
+                                      <td>1</td>
+                                      <td>$10.24</td>
+                                      <td>$0.98</td>
+                                      <td>$11.22</td>
                                   </tr>
                                   <tr>
-                                      <td>Composite materials and epoxy</td>
-                                      <td>Various</td>
-                                      <td>$650</td>
-                                  </tr>
-                                  <tr>
-                                      <td>Precision hardware and fasteners</td>
-                                      <td>Various</td>
-                                      <td>$550</td>
+                                      <td>Zinc-Plated Steel Wing Nut, 1/4"-20, packs of 100</td>
+                                      <td>1</td>
+                                      <td>$18.29</td>
+                                      <td>$0.98</td>
+                                      <td>$19.27</td>
                                   </tr>
                                   <tr class="total-row">
-                                      <td colspan="2">Subtotal</td>
-                                      <td>$8,400</td>
+                                      <td colspan="4">Subtotal</td>
+                                      <td>$2,041.10</td>
                                   </tr>
                               </tbody>
                           </table>
                       </div>
                       
                       <div class="estimate-item">
-                          <h3>Travel and Competition Expenses</h3>
+                          <h3>Competition Fees</h3>
                           <table class="estimate-table">
                               <thead>
                                   <tr>
                                       <th>Item</th>
-                                      <th>Details</th>
-                                      <th>Cost</th>
+                                      <th>Quantity</th>
+                                      <th>Unit Cost</th>
+                                      <th>Total</th>
                                   </tr>
                               </thead>
                               <tbody>
                                   <tr>
-                                      <td>Competition registration</td>
-                                      <td>Team entry fee</td>
-                                      <td>$900</td>
+                                      <td>Application Fee (ESRA)</td>
+                                      <td>1</td>
+                                      <td>$400.00</td>
+                                      <td>$400.00</td>
                                   </tr>
                                   <tr>
-                                      <td>Airfare</td>
-                                      <td>12 team members</td>
-                                      <td>$6,000</td>
+                                      <td>Rocket Fee (ESRA)</td>
+                                      <td>1</td>
+                                      <td>$700.00</td>
+                                      <td>$700.00</td>
                                   </tr>
                                   <tr>
-                                      <td>Lodging</td>
-                                      <td>6 nights, 4 rooms</td>
-                                      <td>$3,000</td>
-                                  </tr>
-                                  <tr>
-                                      <td>Vehicle rental</td>
-                                      <td>2 vehicles, 7 days</td>
-                                      <td>$1,400</td>
-                                  </tr>
-                                  <tr>
-                                      <td>Meals and incidentals</td>
-                                      <td>12 people, 7 days</td>
-                                      <td>$4,200</td>
-                                  </tr>
-                                  <tr>
-                                      <td>Shipping and logistics</td>
-                                      <td>Equipment transport</td>
-                                      <td>$1,000</td>
+                                      <td>Rocketeer Fee (ESRA)</td>
+                                      <td>6</td>
+                                      <td>$75.00</td>
+                                      <td>$450.00</td>
                                   </tr>
                                   <tr class="total-row">
-                                      <td colspan="2">Subtotal</td>
-                                      <td>$16,500</td>
+                                      <td colspan="3">Subtotal</td>
+                                      <td>$1,550.00</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      
+                      <div class="estimate-item">
+                          <h3>Travel Expenses</h3>
+                          <table class="estimate-table">
+                              <thead>
+                                  <tr>
+                                      <th>Item</th>
+                                      <th>Quantity</th>
+                                      <th>Unit Cost</th>
+                                      <th>Total</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>Flight Tickets (American Airlines)</td>
+                                      <td>6</td>
+                                      <td>$668.00</td>
+                                      <td>$4,008.00</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Hotel Rooms (Comfort Suites University Las Cruces)</td>
+                                      <td>3</td>
+                                      <td>$1,138.00</td>
+                                      <td>$3,414.00</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Car Rental (Enterprise)</td>
+                                      <td>1</td>
+                                      <td>$934.98</td>
+                                      <td>$934.98</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Lunch and Dinners (Per Diem)</td>
+                                      <td>9</td>
+                                      <td>$246.00</td>
+                                      <td>$2,214.00</td>
+                                  </tr>
+                                  <tr class="total-row">
+                                      <td colspan="3">Subtotal</td>
+                                      <td>$10,570.98</td>
                                   </tr>
                               </tbody>
                           </table>
@@ -659,27 +966,31 @@ document.addEventListener("DOMContentLoaded", () => {
                               <tbody>
                                   <tr>
                                       <td>Materials and Components</td>
-                                      <td>$8,400</td>
+                                      <td>$2,041.10</td>
                                   </tr>
                                   <tr>
-                                      <td>Travel and Competition Expenses</td>
-                                      <td>$16,500</td>
+                                      <td>Competition Fees</td>
+                                      <td>$1,550.00</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Travel Expenses</td>
+                                      <td>$10,570.98</td>
                                   </tr>
                                   <tr>
                                       <td>Testing and Development</td>
                                       <td>$4,500</td>
                                   </tr>
                                   <tr>
-                                      <td>Contingency (12%)</td>
-                                      <td>$3,550</td>
+                                      <td>Contingency (10%)</td>
+                                      <td>$1,866</td>
                                   </tr>
                                   <tr class="total-row">
                                       <td><strong>TOTAL ESTIMATED BUDGET</strong></td>
-                                      <td><strong>$32,950</strong></td>
+                                      <td><strong>$20,528.08</strong></td>
                                   </tr>
                               </tbody>
                           </table>
-                          <p class="mt-4">Note: This increased budget reflects our investment in advanced materials and manufacturing techniques. We are actively seeking corporate sponsorships and grants to support this ambitious project.</p>
+                          <p class="mt-4">Note: This budget includes detailed component-level costs based on actual vendor quotes from Wildman Rocketry, US Composites, Amazon, Digikey, McMaster-Carr, Easy Composites, and other suppliers. We are actively seeking corporate sponsorships and grants to support this project.</p>
                       </div>
                   </div>
               `

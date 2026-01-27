@@ -110,12 +110,6 @@ aerospace innovators.</p>
     sponsors: {
       tier1: [
         {
-         name: "JMJ Profile Inc",
-          logo: "JMJ.svg",
-          description: "Specializing in Machining Plastic & Phenolic Sheets.",
-          website: "https://www.jmjprofile.com/",
-        },
-        {
           name: "Dekker",
           logo: "2025-2026/Dekker.jpg",
           description: "Full-Service Architecture and Design Firm",
@@ -134,6 +128,26 @@ aerospace innovators.</p>
           logo: "TriState.png",
           description: "Delivers expert concrete solutions for commercial and residential projects.",
           website: "https://www.tristateconstructionnj.com/",
+        },
+      ],
+      tier3: [
+       {
+         name: "JMJ Profile Inc",
+          logo: "JMJ.svg",
+          description: "Specializing in Machining Plastic & Phenolic Sheets.",
+          website: "https://www.jmjprofile.com/",
+        },
+        {
+         name: "Camden County College",
+          logo: "2025-2026/CamdenCountyCollege.jpg",
+          description: "Workforce development.",
+          website: "https://www.camdencc.edu/",
+        },
+        {
+         name: "Felber Metal Fabrication",
+          logo: "2025-2026/FelberFabricationMetal.jpg",
+          description: "Specializing in all Types of Metal from Stainless Steel to Aluminum.",
+          website: "https://felbermetalny.com/",
         },
       ],
         tier4: [
