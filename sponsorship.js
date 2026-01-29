@@ -143,14 +143,14 @@ aerospace innovators.</p>
           description: "Workforce development.",
           website: "https://www.camdencc.edu/",
         },
-        {
+      ],
+        tier4: [
+            {
          name: "Felber Metal Fabrication",
           logo: "2025-2026/FelberFabricationMetal.jpg",
           description: "Specializing in all Types of Metal from Stainless Steel to Aluminum.",
           website: "https://felbermetalny.com/",
         },
-      ],
-        tier4: [
        {
           name: "Southco",
           logo: "Southcopic.jpg",
