@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.style.width = width + "px"
     canvas.style.height = height + "px"
 
-    // Actual backing store size for crisp rendering on HiDPI
+    // Actual backing store si';ze for crisp rendering on HiDPI
     canvas.width = width * dpr
     canvas.height = height * dpr
 

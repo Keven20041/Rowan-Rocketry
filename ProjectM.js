@@ -874,25 +874,25 @@ document.addEventListener("DOMContentLoaded", () => {
                               </thead>
                               <tbody>
                                   <tr>
-                                      <td>Flight Tickets (American Airlines)</td>
+                                      <td>Flight Tickets </td>
                                       <td>6</td>
                                       <td>$668.00</td>
                                       <td>$4,008.00</td>
                                   </tr>
                                   <tr>
-                                      <td>Hotel Rooms (Comfort Suites University Las Cruces)</td>
+                                      <td>Hotel Rooms </td>
                                       <td>3</td>
                                       <td>$1,138.00</td>
                                       <td>$3,414.00</td>
                                   </tr>
                                   <tr>
-                                      <td>Car Rental (Enterprise)</td>
+                                      <td>Car Rental </td>
                                       <td>1</td>
                                       <td>$934.98</td>
                                       <td>$934.98</td>
                                   </tr>
                                   <tr>
-                                      <td>Lunch and Dinners (Per Diem)</td>
+                                      <td>Lunch and Dinners </td>
                                       <td>9</td>
                                       <td>$246.00</td>
                                       <td>$2,214.00</td>
@@ -900,55 +900,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                   <tr class="total-row">
                                       <td colspan="3">Subtotal</td>
                                       <td>$10,570.98</td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                      
-                      <div class="estimate-item">
-                          <h3>Testing and Development</h3>
-                          <table class="estimate-table">
-                              <thead>
-                                  <tr>
-                                      <th>Item</th>
-                                      <th>Details</th>
-                                      <th>Cost</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td>Subscale test rockets</td>
-                                      <td>3 prototypes</td>
-                                      <td>$1,200</td>
-                                  </tr>
-                                  <tr>
-                                      <td>Test motors and propellant</td>
-                                      <td>6 test flights</td>
-                                      <td>$800</td>
-                                  </tr>
-                                  <tr>
-                                      <td>Wind tunnel testing</td>
-                                      <td>5 hours</td>
-                                      <td>$750</td>
-                                  </tr>
-                                  <tr>
-                                      <td>CFD simulation software</td>
-                                      <td>Annual licenses</td>
-                                      <td>$500</td>
-                                  </tr>
-                                  <tr>
-                                      <td>Manufacturing equipment</td>
-                                      <td>Tooling and fixtures</td>
-                                      <td>$650</td>
-                                  </tr>
-                                  <tr>
-                                      <td>Test launch fees</td>
-                                      <td>3 launches</td>
-                                      <td>$600</td>
-                                  </tr>
-                                  <tr class="total-row">
-                                      <td colspan="2">Subtotal</td>
-                                      <td>$4,500</td>
                                   </tr>
                               </tbody>
                           </table>
@@ -976,17 +927,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                       <td>Travel Expenses</td>
                                       <td>$10,570.98</td>
                                   </tr>
-                                  <tr>
-                                      <td>Testing and Development</td>
-                                      <td>$4,500</td>
-                                  </tr>
-                                  <tr>
-                                      <td>Contingency (10%)</td>
-                                      <td>$1,866</td>
-                                  </tr>
                                   <tr class="total-row">
                                       <td><strong>TOTAL ESTIMATED BUDGET</strong></td>
-                                      <td><strong>$20,528.08</strong></td>
+                                      <td><strong>$14,162.08</strong></td>
                                   </tr>
                               </tbody>
                           </table>
