@@ -657,7 +657,7 @@ body {
 }
 
 .progress-bar {
-  width: 33.33%;
+  width: 50%;
   height: 100%;
   background-color: var(--secondary);
   transition: transform 0.5s ease;

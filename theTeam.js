@@ -330,7 +330,278 @@ document.addEventListener("DOMContentLoaded", () => {
   const seasonContents = document.querySelectorAll(".season-content")
 
   const teamData = {
-    "2025-2026": {
+    "2027": {
+      captain: {
+        name: "Yakub Gajda",
+        title: "Team Captain",
+        image: "2026-2027/jakub.JPG",
+        major: "Mechanical Engineering",
+        grade: "Senior",
+        year: "2027",
+        college: "Engineering",
+        email: "rocketry@rowan.edu",
+        linkedin: "",
+      },
+      managerial: [
+        {
+          name: "Brody Schneider",
+          title: "Logistics Coordinator",
+          image: "2026-2027/brody.JPG",
+          major: "Mechanical Engineering",
+          grade: "Senior",
+          year: "2027",
+          college: "Engineering",
+          email: "schnei47@rowan.edu",
+          linkedin: "https://www.linkedin.com/in/brodyschneider618",
+        },
+      ],
+      recovery: [
+        {
+          name: "Chris Soyring",
+          title: "Recovery Lead",
+          image: "2026-2027/chris.JPG",
+          major: "Mechanical Engineering",
+          grade: "Senior",
+          year: "2027",
+          college: "Engineering",
+          email: "soyrin87@rowan.edu",
+          linkedin: "",
+        },
+        {
+          name: "EJ Simonson",
+          title: "Recovery Engineer",
+          image: "2026-2027/ej.JPG",
+          major: "Mechanical Engineering",
+          grade: "Junior",
+          year: "2028",
+          college: "Engineering",
+          email: "simons33@rowan.edu",
+          linkedin: "",
+        },
+        {
+          name: "Reece Grow",
+          title: "Recovery Engineer",
+          image: "2026-2027/reece.JPG",
+          major: "Engineering Entrepreneurship",
+          grade: "Junior",
+          year: "2028",
+          college: "Engineering",
+          email: "growre54@rowan.edu",
+          linkedin: "",
+        },
+      ],
+      avionics: [
+        {
+          name: "Michael Bellocchio",
+          title: "Avionics Lead",
+          image: "2026-2027/michael.JPG",
+          major: "Electrical/Computer Engineering",
+          grade: "Senior",
+          year: "2027",
+          college: "Engineering",
+          email: "belloc79@rowan.edu",
+          linkedin: "",
+        },
+        {
+          name: "Maria Maione",
+          title: "Avionics Engineer",
+          image: "2026-2027/maria.JPG",
+          major: "Electrical/Computer Engineering",
+          grade: "Junior",
+          year: "2028",
+          college: "Engineering",
+          email: "maione15@rowan.edu",
+          linkedin: "",
+        },
+        {
+          name: "Ethan Chiaramonte",
+          title: "Avionics Engineer",
+          image: "2026-2027/ethan.JPG",
+          major: "Electrical/Computer Engineering",
+          grade: "Junior",
+          year: "2028",
+          college: "Engineering",
+          email: "chiara77@rowan.edu",
+          linkedin: "",
+        },
+        {
+          name: "Nicholas Bucciero",
+          title: "Avionics Engineer",
+          image: "2026-2027/nicholas.JPG",
+          major: "Electrical/Computer Engineering",
+          grade: "Junior",
+          year: "2028",
+          college: "Engineering",
+          email: "buccie36@rowan.edu",
+          linkedin: "",
+        },
+         {
+          name: "Marcello Casola",
+          title: "Avionics Engineer",
+          image: "2026-2027/marcello.JPG",
+          major: "Electrical/Computer Engineering",
+          grade: "Junior",
+          year: "2028",
+          college: "Engineering",
+          email: "casola72@rowan.edu",
+          linkedin: "",
+        },
+      ],
+      payload: [
+        {
+          name: "Andrew Smith",
+          title: "Payload Lead",
+          image: "2026-2027/andrew.JPG",
+          major: "Engineering Entrepreneurship",
+          grade: "Junior",
+          year: "2028",
+          college: "Engineering",
+          email: "smitha89@rowan.edu",
+          linkedin: "",
+        },
+        {
+          name: "Emma Ferrarese",
+          title: "Payload Engineer",
+          image: "2026-2027/emma.JPG",
+          major: "Mechanical Engineering",
+          grade: "Senior",
+          year: "2027",
+          college: "Engineering",
+          email: "ferrar19@students.rowan.edu",
+          linkedin: "",
+        },
+        {
+          name: "Jared Ty",
+          title: "Payload Engineer",
+          image: "2026-2027/jared.JPG",
+          major: "Mechanical Engineering",
+          grade: "Junior",
+          year: "2028",
+          college: "Engineering",
+          email: "tyjare33@rowan.edu",
+          linkedin: "",
+        },
+         {
+          name: "Davyd Pasichnyk",
+          title: "Payload Engineer",
+          image: "2026-2027/davyd.JPG",
+          major: "Electrical/Computer Engineering",
+          grade: "Senior",
+          year: "2027",
+          college: "Engineering",
+          email: "pasich39@rowan.edu",
+          linkedin: "",
+        },
+      ],
+      fins: [
+        {
+          name: "Harrison Roy",
+          title: "Fins/Airframe Lead",
+          image: "2026-2027/harrison.JPG",
+          major: "Mechanical Engineering",
+          grade: "Super Senior",
+          year: "2026",
+          college: "Engineering",
+          email: "royhar83@rowan.edu",
+          linkedin: "",
+        },
+        {
+          name: "Shanik Leiva",
+          title: "Fins/Airframe Engineer",
+          image: "2026-2027/shanik.JPG",
+          major: "Mechanical Engineering",
+          grade: "Junior",
+          year: "2028",
+          college: "Engineering",
+          email: "leivas24@rowan.edu",
+          linkedin: "",
+        },
+        {
+          name: "Madison Thornton",
+          title: "Fins/Airframe Engineer",
+          image: "2026-2027/madison.JPG",
+          major: "Mechanical Engineering",
+          grade: "Junior",
+          year: "2028",
+          college: "Engineering",
+          email: "thornt16@rowan.edu",
+          linkedin: "",
+        },
+        {
+          name: "Alexis Allen",
+          title: "Fins/Airframe Engineer",
+          image: "2026-2027/alexis.JPG",
+          major: "Mechanical Engineering",
+          grade: "Senior",
+          year: "2027",
+          college: "Engineering",
+          email: "allena59@rowan.edu",
+          linkedin: "",
+        },
+      ],
+      propulsion: [
+        {
+          name: "Kuba Jagoda",
+          title: "Propulsion Lead",
+          image: "2026-2027/kuba.JPG",
+          major: "Mechanical Engineering & Physics",
+          grade: "Junior",
+          year: "2027",
+          college: "Engineering",
+          email: "jagoda36@students.rowan.edu",
+          linkedin: "",
+        },
+        {
+          name: "Tyler Ardito",
+          title: "Propulsion Engineer",
+          image: "2026-2027/tyler.JPG",
+          major: "Mechanical Engineering",
+          grade: "Junior",
+          year: "2028",
+          college: "Engineering",
+          email: "ardito86@rowan.edu",
+          linkedin: "",
+        },
+      ],
+      airbrakes: [
+        {
+          name: "Gaetano Vingelli",
+          title: "Airbrakes Lead",
+          image: "2026-2027/gaetano.JPG",
+          major: "Mechanical Engineering",
+          grade: "Senior",
+          year: "2027",
+          college: "Engineering",
+          email: "vingel78@rowan.edu",
+          linkedin: "",
+        },
+        {
+          name: "Henry Johnson",
+          title: "Airbrakes Engineer",
+          image: "2026-2027/henry.JPG",
+          major: "Mechanical Engineering Technology",
+          grade: "Junior",
+          year: "2028",
+          college: "Engineering",
+          email: "johnso241@rowan.edu",
+          linkedin: "",
+        },
+      ],
+      webdev: [
+        {
+          name: "Brody Schneider",
+          title: "Web Master",
+          image: "2026-2027/brody.JPG",
+          major: "Mechanical Engineering",
+          grade: "Senior",
+          year: "2027",
+          college: "Engineering",
+          email: "schnei47@rowan.edu",
+          linkedin: "",
+        },
+      ],
+    },
+    "2026": {
       captain: {
         name: "James Lee",
         title: "Team Captain",
@@ -368,8 +639,19 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
       recovery: [
         {
-          name: "Paul Porreca",
+          name: "Brody Schneider",
           title: "Recovery Lead",
+          image: "2025-2026/Brody.jpg",
+          major: "Mechanical Engineering",
+          grade: "Junior",
+          year: "2027",
+          college: "Engineering",
+          email: "schnei47@students.rowan.edu",
+          linkedin: "https://www.linkedin.com/in/brodyschneider618",
+        },
+        {
+          name: "Paul Porreca",
+          title: "Recovery Engineer",
           image: "2025-2026/Paul.jpg",
           major: "Mechanical Engineering",
           grade: "Senior",
@@ -410,17 +692,6 @@ document.addEventListener("DOMContentLoaded", () => {
           college: "Engineering",
           email: "mihali@students.rowan.edu",
           linkedin: "https://www.linkedin.com/in/joseph-mihalik",
-        },
-        {
-          name: "Brody Schneider",
-          title: "Recovery Engineer",
-          image: "2025-2026/Brody.jpg",
-          major: "Mechanical Engineering",
-          grade: "Junior",
-          year: "2027",
-          college: "Engineering",
-          email: "schnei47@students.rowan.edu",
-          linkedin: "https://www.linkedin.com/in/brodyschneider618",
         },
       ],
       avionics: [
@@ -687,7 +958,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       ],
     },
-    "2024-2025": {
+    "2025": {
       captain: {
         name: "Rowen Christianson",
         title: "Team Captain",
@@ -1050,8 +1321,7 @@ document.addEventListener("DOMContentLoaded", () => {
       allTeamGrids[2].innerHTML = data.payload.map((m) => createTeamCard(m, false)).join("")
     }
 
-    if (season === "2025-2026") {
-      // For 2025-2026: Fins/Airframe combined is 4th team-grid
+    if (season === "2027") {
       if (allTeamGrids[3] && data.fins) {
         if (data.airframe) {
           const combinedMembers = [...data.fins, ...data.airframe]
@@ -1060,28 +1330,50 @@ document.addEventListener("DOMContentLoaded", () => {
           allTeamGrids[3].innerHTML = data.fins.map((m) => createTeamCard(m, false)).join("")
         }
       }
-      // Propulsion is 5th team-grid for 2025-2026
+      // Propulsion is 5th team-grid for 2027
       if (allTeamGrids[4] && data.propulsion) {
         allTeamGrids[4].innerHTML = data.propulsion.map((m) => createTeamCard(m, false)).join("")
       }
-      // Web Development is 6th team-grid for 2025-2026
+      // Airbrakes is 6th team-grid for 2027
+      if (allTeamGrids[5] && data.airbrakes) {
+        allTeamGrids[5].innerHTML = data.airbrakes.map((m) => createTeamCard(m, false)).join("")
+      }
+      // Web Development is 6th team-grid for 2027
+      if (allTeamGrids[6] && data.webdev) {
+        allTeamGrids[6].innerHTML = data.webdev.map((m) => createTeamCard(m, false)).join("")
+      }
+    } else if (season === "2026") {
+      // For 2026: Fins/Airframe combined is 4th team-grid
+      if (allTeamGrids[3] && data.fins) {
+        if (data.airframe) {
+          const combinedMembers = [...data.fins, ...data.airframe]
+          allTeamGrids[3].innerHTML = combinedMembers.map((m) => createTeamCard(m, false)).join("")
+        } else {
+          allTeamGrids[3].innerHTML = data.fins.map((m) => createTeamCard(m, false)).join("")
+        }
+      }
+      // Propulsion is 5th team-grid for 2026
+      if (allTeamGrids[4] && data.propulsion) {
+        allTeamGrids[4].innerHTML = data.propulsion.map((m) => createTeamCard(m, false)).join("")
+      }
+      // Web Development is 6th team-grid for 2026
       if (allTeamGrids[5] && data.webdev) {
         allTeamGrids[5].innerHTML = data.webdev.map((m) => createTeamCard(m, false)).join("")
       }
-    } else if (season === "2024-2025") {
-      // For 2024-2025: Fins is 4th team-grid
+    } else if (season === "2025") {
+      // For 2025: Fins is 4th team-grid
       if (allTeamGrids[3] && data.fins) {
         allTeamGrids[3].innerHTML = data.fins.map((m) => createTeamCard(m, false)).join("")
       }
-      // Airframe is 5th team-grid for 2024-2025
+      // Airframe is 5th team-grid for 2025
       if (allTeamGrids[4] && data.airframe) {
         allTeamGrids[4].innerHTML = data.airframe.map((m) => createTeamCard(m, false)).join("")
       }
-      // Propulsion is 6th team-grid for 2024-2025
+      // Propulsion is 6th team-grid for 2025
       if (allTeamGrids[5] && data.propulsion) {
         allTeamGrids[5].innerHTML = data.propulsion.map((m) => createTeamCard(m, false)).join("")
       }
-      // Web Development is 7th team-grid for 2024-2025
+      // Web Development is 7th team-grid for 2025
       if (allTeamGrids[6] && data.webdev) {
         allTeamGrids[6].innerHTML = data.webdev.map((m) => createTeamCard(m, false)).join("")
       }
